@@ -27,6 +27,8 @@
     "webpack-cli": "^4.9.2"
   },
   "dependencies": {
-    "axios": "^0.26.1"
+    "axios": "^0.26.1",
+    "file-loader": "^6.2.0",
+    "image-loader": "^0.0.1"
   }
 }

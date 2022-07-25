@@ -78,7 +78,7 @@ class Event(models.Model):
     tags = models.CharField(max_length=500)
     img = models.ImageField(upload_to='events/')
     live_date = models.DateTimeField()
-    duration = models.IntegerField(default=120)
+    duration = models.IntegerField(default=60)
     importance = models.CharField(max_length=20,default='Kind Of', choices=[
             ('Very Important', 'Very Important'),
             ('Kind Of Important', 'Kind Of Important'),

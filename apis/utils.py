@@ -11,23 +11,22 @@ def get_user_tokens(profile):
     return None
 
 # This function creates token object
-def create_or_update_user_tokens(profile,access_token,refresh_token,token_type,expires_in,token_uri,client_id,client_secret):
+def create_or_update_user_tokens(profile,access_token,refresh_token,token_uri,expires_in,client_id,client_secret):
     user_tokens = get_user_tokens(profile)
     if user_tokens:
         user_tokens.access_token = access_token
-        user_tokens.expires_in = expires_in
-        user_tokens.token_uri = token
+        user_tokens.expiry = expires_in
+        user_tokens.token_uri = token_uri
 
         user_tokens.save(update_fields=['access_token','expiry','token_uri'])
-        return 
-    # Setting a time object for when will the sesion expire
-    expires_in = timezone.now() + timedelta(seconds=expires_in)
+        return user_tokens
     # Creates a new tokens object
     tokens = CalendarToken(profile=profile,access_token=access_token,
-                            expires_in=expires_in,token_type=token_type,
-                            refresh_token=refresh_token,client_id=client_id,client_secret=client_secret
+                            expiry=expires_in,refresh_token=refresh_token,
+                            client_id=client_id,client_secret=client_secret
                             ,token_uri=token_uri)
     tokens.save()
+    return tokens
 
 def if_expired_refresh(profile):
     token = CalendarToken.objects.get(profile=profile)

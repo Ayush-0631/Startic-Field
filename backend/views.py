@@ -8,5 +8,5 @@ from django.http import JsonResponse
 def enroll_in_event(request, code):
     event = Event.objects.get(code=code)
     profile = Profile.objects.get(user=request.user)
-    #add_event_to_calendar(user, event)
+    add_event_to_calendar(profile=profile, event=event)
     UserEventMap.objects.create(event=event, user=profile)

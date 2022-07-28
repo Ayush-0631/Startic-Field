@@ -14,6 +14,7 @@ urlpatterns = [
     path('events',Events),
     path('sign',Signup),
     path('form1',FormsStudent),
+    path('form4',FormsContributor),
     path('form3',FormsStartup),
     path('form2',Formsreversepitch),
     path('rp',ReversePitch),

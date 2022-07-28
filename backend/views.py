@@ -50,8 +50,12 @@ def FormsStartup(request):
 def Formsreversepitch(request):
     return render(request,"reversePitchForm.html")
 
+def FormsContributor(request):
+    return render(request,"registerAsContributor.html")
+
+
 def ReversePitch(request):
-    rpRegistration = 0
+    rpRegistration = 1
     if (rpRegistration == 0):
         a = "reversePitchForm.html"
     elif (rpRegistration == 1):

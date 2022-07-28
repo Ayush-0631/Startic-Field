@@ -58,10 +58,10 @@ def Signup(request):
                 return redirect('home')
 
             messages.warning(request, "This Email already exists!")
-            return render(request, 'register.html', context)
+            return render(request, 'register.html')
         else:
             messages.warning(request, "This username already exists!")
-            return render(request, 'register.html', context)
+            return render(request, 'register.html')
 
     return render(request,"LoginPage.html")
 

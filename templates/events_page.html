@@ -260,12 +260,20 @@
                 "><a href="/events" class="textsides" style="text-decoration: none;
                           font-weight: 500;
                           color: white;">Events</a></li>
+                {% if user.is_authenticated %}
                 <li style="display: inline-block;
-                          padding:15px 15px;
-                          font-size: 18px;
-                "><a href="#signup" class="textsides" style="text-decoration: none;
+                          padding:15px 17px;
+                          font-size: 17px;
+                "><a href="/sign" class="textsides" style="text-decoration: none;
                           font-weight: 500;">Sign Up</a></li>
-
+                {% else %}
+                <li style="display: inline-block;
+                          padding:15px 17px;
+                          font-size: 17px;
+                "><a href="/sign" class="textsides" style="text-decoration: none;
+                          font-weight: 500;">Sign Up</a></li>
+                {% endif %}
+      
             </ul>
         </div>    
         <div class="fcontainer" style="position: absolute;

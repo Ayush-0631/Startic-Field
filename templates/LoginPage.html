@@ -117,19 +117,20 @@
                 <button type="button" class="toggle-btn" onclick="login()">Log In</button>
                 <button type="button" class="toggle-btn" onclick="register()">Register</button>
             </div>
-            <form id="login" class="input-group" action="\" method="POST">
+            <form id="login" class="input-group" action="{% url 'login' %}" method="POST">
                 {% csrf_token %}
-                <input type="email" class="input-field" placeholder="Email Id" required>
-                <input type="password" class="input-field" placeholder="Enter Password" required>
+                <input name='username' id="username" type="text" class="input-field" placeholder="Email Id / Username" required>
+                <input name='password' id="password" type="password" class="input-field" placeholder="Enter Password" required>
                 <input type="checkbox" class="check-box"><span>Remember me</span>
                 <button type="submit" class="submit-btn">Log In</button>
             </form>
-            <form id="register" class="input-group" action="\register" method="POST">
+            <form id="register" class="input-group" action="{% url 'sign-up' %}" method="POST">
                 {% csrf_token %}
-                <input type="email" class="input-field" placeholder="Email Id" required>
-                <input type="password" class="input-field" placeholder="Enter Password" required>
+                <input name='username' id="username" type="text" class="input-field" placeholder="Username" required>
+                <input name='email' id="email" type="email" class="input-field" placeholder="Email Id" required>
+                <input name='password' id="password" type="password" class="input-field" placeholder="Enter Password" required>
                 <input type="checkbox" class="check-box" id="check" onclick="enable()"><span>I agree to the terms and conditions</span>
-                <button type="submit" class="submit-btn" id="submit_btn" disabled="true">Register</button>
+                <button type="submit" class="submit-btn" id="submit_btn" >Register</button>
             </form>
         </div>
     </div>

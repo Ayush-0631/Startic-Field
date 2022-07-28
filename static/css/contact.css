@@ -3,9 +3,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins',sans-serif;   
+    font-family: 'Poppins',sans-serif;
+      
 }
-.contactabc {
+.contact {
     position: relative;
     min-height: 100vh;
     padding: 50px 100px;
@@ -14,10 +15,9 @@
     align-items: center;
     flex-direction: column;
     background-image: url('../images/Hero-background.png');
-    background-size: 100% 100vh;
+    background-size: 110% 108vh;
     background-color: black;
     background-position-x: -50px;
-    z-index: 1;
 }
 .contact .content {
     max-width: 800px;

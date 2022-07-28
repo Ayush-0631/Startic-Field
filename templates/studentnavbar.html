@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: black;
+  position: fixed;
+  top:0;
+  left:0;
+  width: 100%;
+  z-Index: 5;
+}
+
+li {
+  float: right;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 20px 26px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.outside
+{
+  /*padding-right: 100px;*/
+ 
+}
+.imgside {
+  position: fixed;
+  left:0;
+  top:0%;
+  padding: 8px;
+}
+</style>
+</head>
+<body>
+<ul>
+  <li><a href="\" class="imgside"><img src={% static "images/Group-58.svg" %} loading="lazy" width="140" height="44"></a></li>
+  <li><a href="#signup" class="outside">Sign Up</a></li>
+  <li><a href="#about">About Us</a></li>
+  <li><a href="#Programs">Programs</a></li>
+  <li><a href="#contact">Contact Us</a></li>
+</ul>
+</body>
+</html>
+
+

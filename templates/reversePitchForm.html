@@ -1,0 +1,365 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReversePitch Form</title>
+    <style>
+ @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+ *{
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     font-family: 'Poppins', sans-serif;
+ }
+ 
+ section{
+     background: linear-gradient(270deg, #69C5AA 0%, #37C0C3 32.91%, #587CBD 66.12%, #475CAA 100%);
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     min-height: 100vh;
+ }
+ 
+ section::before{
+     content: '';
+     position: absolute;
+     width: 400px;
+     height: 400px;
+     background: #57bfc6;
+     border-radius: 50%;
+     transform: translate(-420px,-180px)
+ }
+ 
+ section::after{
+     content: '';
+     position: absolute;
+     width: 400px;
+     height: 400px;
+     background: #2184b5;
+     border-radius: 50%;
+     transform: translate(420px,180px)
+ }
+ 
+ .container{
+     position: relative;
+     z-index: 3;
+     width: 100%;
+     max-width: 1000px;
+     padding: 50px;
+     background: rgba(255, 255, 255, 0.1);
+     box-shadow: 0 25px 45px rgba(0,0,0,0.1);
+     border-left: 1px solid rgba(255, 255, 255, 0.1);
+     border-top: 1px solid rgba(255, 255, 255, 0.1);
+     border-radius: 10px;
+     overflow: hidden;
+     backdrop-filter: blur(25px);
+ }
+ 
+ .container::before{
+     content: '';
+     position: absolute;
+     top: 0;
+     left: -40%;
+     width: 100%;
+     height: 100%;
+     background: rgba(255, 255, 255, 0.05);
+     pointer-events: none;
+     transform: skewX(-15deg);
+ }
+ 
+ .container h2{
+     width: 100%;
+     text-align: center;
+     color: #fff;
+     font-size: 2rem;
+     margin-bottom: 1.5rem;
+ }
+ 
+ .container .row100{
+     position: relative;
+     width: 100%;
+     display: grid;
+     grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+ }
+ 
+ .container .row100 .col{
+     position: relative;
+     width: 100%;
+     padding: 0 20px;
+     margin: 30px 0 20px;
+ }
+ 
+ .container .row100 .col .inputBox{
+     position: relative;
+     width: 100%;
+     height: 40px;
+     color: #fff;
+ }
+ 
+ .container .row100 .col .inputBox textarea,
+ .container .row100 .col .inputBox input{
+     position: absolute;
+     width: 100%;
+     height: 100%;
+     background: transparent;
+     box-shadow: none;
+     border: none;
+     outline: none;
+     font-size: 15px;
+     padding: 0 10px;
+     z-index: 1;
+     color: #000;
+ }
+ 
+ .container .row100 .col .inputBox .text{
+     position: absolute;
+     top: 0;
+     left: 0;
+     line-height: 2.5rem;
+     font-size: 1.2rem;
+     padding: 0 10px;
+     display: block;
+     transition: 0.5s;
+     pointer-events: none;
+ }
+ 
+ .container .row100 .col .inputBox input:focus + .text,
+ .container .row100 .col .inputBox input:valid + .text,
+ .container .row100 .col .inputBox textarea:focus + .text,
+ .container .row100 .col .inputBox textarea:valid + .text{
+     top: -35px;
+     left: -10px;
+ }
+ 
+ .container .row100 .col .inputBox .line{
+     position: absolute;
+     bottom: 0;
+     display: block;
+     width: 100%;
+     height: 2px;
+     background: #fff;
+     transition: 0.5s;
+     border-radius: 2px;
+     pointer-events: none;
+ }
+ 
+ .container .row100 .col .inputBox input:focus ~ .line,
+ .container .row100 .col .inputBox textarea:valid ~ .line{
+     height: 100%;
+ }
+ 
+ .container .row100 .col .inputBox textarea{
+     position: relative;
+     width: 100%;
+     height: 100px;
+     padding: 10px 0;
+ }
+ 
+ .container .row100 .col .inputBox textarea:focus ~ .line,
+ .container .row100 .col .inputBox textarea:valid ~ .line{
+     height: 100%;
+ }
+ 
+ .container .row100 .col .inputBox .genderRadio{
+     position: absolute;
+     margin: 3px 0 0 80px;
+     width: 50%;
+     height: 50%;
+ }
+ 
+ .genderText{
+     padding: 2px 20px;
+ }
+ 
+ .Gender{
+     padding: 10px 0;
+     font-size: 18px;
+ }
+ 
+ .questionContainer input{
+     width: 100%;
+     height: 100%;
+     background: transparent;
+     box-shadow: none;
+     border: none;
+     outline: none;
+     font-size: 15px;
+     padding: 0 10px;
+     z-index: 1;
+     color: #000;
+ }
+ 
+ .questionContainer .col{
+     padding-top: 25px;
+ }
+ 
+ .questionContainer .text{
+     position: absolute;
+     top: 0;
+     left: 0;
+     line-height: 2.5rem;
+     font-size: 1.2rem;
+     padding: 0 10px;
+     display: block;
+     transition: 0.5s;
+     pointer-events: none;
+ }
+ 
+ .questionBox{
+     position: relative;
+     padding: 10px;
+     width: 100%;
+     height: 100%;
+     color: #fff;
+ }
+ 
+ .questionBox .line{
+     position: relative;
+     bottom: 0;
+     display: block;
+     width: 95%;
+     height: 2px;
+     background: #fff;
+     transition: 0.5s;
+     border-radius: 2px;
+     pointer-events: none;
+ }
+ 
+ .submitButton{
+     border: none;
+     margin: 0;
+     padding: 10px 40px;
+     cursor: pointer;
+     outline: none;
+     background: #fff;
+     color: #000;
+     font-weight: 600;
+     font-size: 18px;
+     border-radius: 8px;
+ }
+ 
+ .submitButton:hover{
+     background: linear-gradient(270deg, #69C5AA 0%, #37C0C3 32.91%, #587CBD 66.12%, #475CAA 100%);
+     color: #fff;
+     padding: 11px 41px;
+ } 
+ 
+ @media only screen and (max-width: 500px){
+     .q1{
+         padding-top: 80px;
+     }
+ 
+     .q2{
+         padding-top: 85px;
+     }
+ 
+     .q3{
+         padding-top: 45px;
+     }
+ 
+     .questionBox{
+         padding-bottom: 40px;
+     }
+ }
+ 
+ @media only screen and (max-width: 850px){
+     .genderBox{
+         margin-bottom: 40px;
+     }
+ }
+ 
+ @media only screen and (max-width: 1230px){
+     
+     section::after{
+         display: none;
+     }
+ }
+</style>
+
+</head>
+<body>
+    
+    <section>
+        <div class="container">
+            <h2>Registration</h2>
+        <div class="row100">
+            <div class="col">
+                <div class="inputBox">
+                    <input type="text" name="" required>
+                    <span class="text">Name</span>
+                    <span class="line"></span>
+                </div>
+            </div>
+            <div class="col">
+                <div class="inputBox">
+                    <input type="number" name="" required>
+                    <span class="text">Age</span>
+                    <span class="line"></span>
+                </div>
+            </div>
+            <div class="col">
+                <div class="inputBox genderBox">
+                    <div class="Gender">Gender</div>
+                    <div class="genderText"><input class="genderRadio" type="radio" name="gender" required checked>Male</div>
+                    <div class="genderText"><input class="genderRadio" type="radio" name="gender" required>Female</div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="inputBox">
+                    <input type="text" name="" required>
+                    <span class="text">College</span>
+                    <span class="line"></span>
+                </div>
+            </div>
+            <div class="col">
+                <div class="inputBox">
+                    <input type="number" name="" required>
+                    <span class="text">Year</span>
+                    <span class="line"></span>
+                </div>
+            </div>
+        </div>
+            <div class="questionContainer">
+                <div class="col">
+                    <div class="inputBox questionBox">
+                        <div class="text p-40">How will you manage Entrepreneurship and Studies?</div> <br> 
+                        <div class="q1">
+                            <input type="text">
+                        <span class="line"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="inputBox questionBox">
+                        <div class="text p-40">Why do you think you will become a successful entrepreneur?</div> <br>
+                        <div class="q2">
+                            <input type="text">
+                        <span class="line"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="inputBox questionBox">
+                        <div class="text p-40">Which is your favourite startup and why?</div> <br>
+                        <div class="q3">
+                            <input type="text">
+                        <span class="line"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row100">
+                <div class="col">
+                    <input class="submitButton" type="submit" value="Submit">
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

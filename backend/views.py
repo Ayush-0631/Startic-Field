@@ -33,3 +33,33 @@ def About(request):
 
 def Contact(request):
     return render(request,"contact.html")
+
+
+def Events(request):
+    return render(request,"events_page.html")
+
+def Signup(request):
+    return render(request,"LoginPage.html")
+
+def FormsStudent(request):
+    return render(request,"registerAsStudent.html")
+
+def FormsStartup(request):
+    return render(request,"registerYourStartUp.html")
+
+def Formsreversepitch(request):
+    return render(request,"reversePitchForm.html")
+
+def ReversePitch(request):
+    rpRegistration = 0
+    if (rpRegistration == 0):
+        a = "reversePitchForm.html"
+    elif (rpRegistration == 1):
+        a = "reverse-pitch.html"
+    return render(request,a)
+
+def Building(request):
+    return render(request,"building.html")
+
+def Registration(request):
+    return render(request,"registration.html")

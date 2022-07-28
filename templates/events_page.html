@@ -1,0 +1,647 @@
+{% load static%}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            .verticalNavBar {
+                position: fixed;
+                z-index: 2;
+                top: 40%;
+                width: 13%;
+                display: block;
+                cursor: pointer;
+                text-indent:0px ;
+                text-align: center;
+                font-size: 20px;    
+                text-decoration: none;
+                color:white;
+                left:0%;
+            }
+            .aOwnLive:hover {
+                background-color:rgb(25, 25, 137);
+                border-top-right-radius:40px;
+                border-bottom-right-radius: 40px;
+                width:11vw;
+                left:-1%;
+                position: absolute;
+                color: white;
+            }
+            .aOwnFeatured:hover {
+                background-color:rgb(25, 25, 137);
+                border-top-right-radius:40px;
+                border-bottom-right-radius: 40px;
+                width:11vw;
+                left:-1%;
+                position: absolute;
+                color: white;
+            }
+            .aOwnUpcomming:hover {
+                background-color:rgb(25, 25, 137);
+                border-top-right-radius:40px;
+                border-bottom-right-radius: 40px;
+                width:11vw;
+                left:-1%;
+                position: absolute;
+                color: white;
+            }
+            .aOwnPast:hover {
+                background-color:rgb(25, 25, 137);
+                border-top-right-radius:40px;
+                border-bottom-right-radius: 40px;
+                width:11vw;
+                left:-1%;
+                position: absolute;
+                color: white;
+            }
+
+            .aOwnLive{
+                text-decoration: none;
+                color: white;
+                background-color: blue;
+                display: inline-block;
+                width:10vw;
+            }
+            .aOwnFeatured{
+                text-decoration: none;
+                color: white;
+                background-color: blue;
+                display: inline-block;
+                width:10vw;
+            }.aOwnUpcomming{
+                text-decoration: none;
+                color: white;
+                background-color: blue;
+                display: inline-block;
+                width:10vw;
+            }.aOwnPast{
+                text-decoration: none;
+                color: white;
+                background-color: blue;
+                display: inline-block;
+                width:10vw;
+            }
+
+        </style>
+        <script>
+            var counterone = 0;
+            var countertwo = 0;
+            var counterthree = 0;
+            var counterfour = 0;
+            var adder = 0;
+            var ht = window.innerHeight;
+            function nextFunction(slno) {
+            console.log('Previous button is clicked. Code:'+String(slno));
+            var collection = document.getElementsByClassName('childclasses'+String(slno));
+            /*for (let i = 0; i < collection.length; i++) {
+              collection[i].style.left = "translateX(-24.5vw)";
+            }*/
+            if (slno===0) {
+                counterone--;
+            }
+            else if (slno===1) {
+                countertwo--;
+            }
+            else if (slno===2) {
+                counterthree--;
+            }
+            else if (slno===3) {
+                counterfour--;
+            }
+            adder = -1;
+            for (let i = 0; i < collection.length; i++) {
+                if (collection[i].style.left === '73%') {
+                    collection[i].style.backgroundColor = "black";
+                    collection[i].style.color = "white";
+                    collection[i].style.top = '1%';
+                    collection[i].style.height = '98%';
+                    collection[i].style.width = '30%';
+                    collection[i].style.transform = 'translateX(-7.5%)';
+                }
+                else {
+                    collection[i].style.backgroundColor = "white";
+                    collection[i].style.color = "black";
+                    collection[i].style.top = '5%';
+                    collection[i].style.height = '90%';
+                    collection[i].style.width = '25%';
+                    collection[i].style.transform = 'translateX(0)';
+                }
+            }
+            youtubFunction(slno)
+            }
+            function prevFunction(slno) {
+            console.log('Next button is clicked. Code:'+String(slno));
+            var collection = document.getElementsByClassName('childclasses'+String(slno));
+            /*for (let i = 0; i < collection.length; i++) {
+              collection[i].style.transform = "translateX(+0vw)";
+            }*/
+            if (slno===0) {
+                counterone++;
+            }
+            else if (slno===1) {
+                countertwo++;
+            }
+            else if (slno===2) {
+                counterthree++;
+            }
+            else if (slno===3) {
+                counterfour++;
+            }
+            adder = 1;
+            for (let i = 0; i < collection.length; i++) {
+                if (collection[i].style.left === '3%') {
+                    collection[i].style.backgroundColor = "black";
+                    collection[i].style.color = "white";
+                    collection[i].style.top = '1%';
+                    collection[i].style.height = '98%';
+                    collection[i].style.width = '30%';
+                    collection[i].style.transform = 'translateX(-7.5%)';
+                }
+                else {
+                    collection[i].style.backgroundColor = "white";
+                    collection[i].style.color = "black";
+                    collection[i].style.top = '5%';
+                    collection[i].style.height = '90%';
+                    collection[i].style.width = '25%';
+                    collection[i].style.transform = 'translateX(0)';
+                }
+            }
+            
+            youtubFunction(slno)
+            }
+            function youtubFunction(slno) {
+                console.log('slider got the code:'+String(slno))
+                if (slno===0) {
+                counter = counterone
+            console.log('counterone value:'+String(counterone))
+            }
+            else if (slno===1) {
+                counter = countertwo
+            console.log('countertwo value:'+String(countertwo))
+            }
+            else if (slno===2) {
+                counter = counterthree
+            console.log('counterthree value:'+String(counterthree))
+            }
+            else if (slno===3) {
+                counter = counterfour
+            console.log('counterfour value:'+String(counterfour))
+            } else {console.log('invalid slider')}
+            console.log('counter value:'+String(counter))
+                if (counter===1) {
+                    document.getElementById('prev'+String(slno)).style.display = 'none';
+                }
+                else {document.getElementById('prev'+String(slno)).style.display = 'inline-block';
+                }
+                const slides = document.querySelectorAll(".childclasses"+String(slno))
+                if (counter===-slides.length + 2) {
+                    document.getElementById('next'+String(slno)).style.display='none';
+                }
+                else {document.getElementById('next'+String(slno)).style.display = 'inline-block';
+                }
+                const slideEvents = () => {
+                    slides.forEach(
+                        (childclasses) => {
+                            var e = childclasses.style.left;
+                            var f = Number(e.replace("%",""));
+                            var d = adder*35;
+                            childclasses.style.left = String(f+d)+'%';
+                        }
+                    )
+                }
+                slideEvents()
+                //console.log(slides);
+            }
+            
+        </script>
+    </head>
+    <body>
+        <div class="localnavigation" style="
+        position: fixed;
+        display:unset;
+        width: 100%;
+        height: 65px;
+        z-index: 5;
+        opacity: 1;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+        background-color: black;">      
+            <a href="\" class="imgside" style="padding: 10px 15px;
+                                               position: absolute;
+                                               top:0;">
+                                               <img src={% static "images/Group-58.svg" %} loading="lazy" width="140" height="44"></a>
+            <ul style="
+            position: absolute;
+            color:white;
+            top: 10.5%;
+            left: 60%;
+            margin: 0px;
+        ">      
+                <li style="display: inline-block;
+                          padding :15px 15x;
+                          font-size: 18px;
+                "><a href="/about" class="textsides" style="text-decoration: none;
+                          font-weight: 500;
+                          color: white;">About Us</a></li>
+                <li style="display: inline-block;
+                          padding:15px 15px;
+                          font-size: 18px;
+                "><a href="/programs" class="textsides" style="text-decoration: none;
+                          font-weight: 500;
+                          color: white;">Programs</a></li>
+                <li style="display: inline-block;
+                           padding:15px 15px;
+                           font-size: 18px;
+                "><a href="/events" class="textsides" style="text-decoration: none;
+                          font-weight: 500;
+                          color: white;">Events</a></li>
+                <li style="display: inline-block;
+                          padding:15px 15px;
+                          font-size: 18px;
+                "><a href="#signup" class="textsides" style="text-decoration: none;
+                          font-weight: 500;">Sign Up</a></li>
+
+            </ul>
+        </div>    
+        <div class="fcontainer" style="position: absolute;
+                                       display: inline;
+                                       height: 45%;
+                                       width: 75%;
+                                       top:20%;
+                                       left:20%;
+                                       box-shadow: 0 0 4px grey;
+                                       overflow: hidden;">
+        <div class="childclasses0" style="position: absolute;
+                                         top:5%;
+                                         width:25%;
+                                         height: 90%;
+                                         transition: 1s;
+                                         color: black;
+                                         border-radius: 20px;
+                                         box-shadow: 3px 8px 8px rgb(151, 143, 143);
+                                         left:3%">This is childclasses1</div>
+        <div class="childclasses0" style="position: absolute;
+                                         top:1%;
+                                         width:30%;
+                                         height: 98%;
+                                         transition: 1s;
+                                         transform: translateX(-7.5%);
+                                         color: white;
+                                         background-color: black;
+                                         border-radius: 20px;
+                                         box-shadow: 3px 8px 8px rgb(151, 143, 143);
+                                         left:38%">This is childclasses2</div>
+        <div class="childclasses0" style="position: absolute;
+                                         top:5%;
+                                         width:25%;
+                                         height: 90%;
+                                         transition: 1s;
+                                         color: black;
+                                         border-radius: 20px;
+                                         box-shadow: 3px 8px 8px rgb(151, 143, 143);
+                                         left:73%">This is childclasses3</div>
+        <div class="childclasses0" style="position: absolute;
+                                         top:5%;
+                                         width:25%;
+                                         height: 90%;
+                                         transition: 1s;
+                                         color: black;
+                                         border-radius: 20px;
+                                         box-shadow: 3px 8px 8px rgb(151, 143, 143);
+                                         left:108%">This is childclasses4</div>
+        <div class="childclasses0" style="position: absolute;
+                                         top:5%;
+                                         width:25%;
+                                         height: 90%;
+                                         color: black;
+                                         transition: 1s;
+                                         border-radius: 20px;
+                                         box-shadow: 3px 8px 8px rgb(151, 143, 143);
+                                         left:143%">This is childclasses5</div>
+        </div>
+        <div class="slidecontrols" style="position: absolute;
+                                          top:75%;
+                                          left:50%;
+                                          align-items: center;">
+                <button class="prevbutton" id="prev0" style="color: white; background-color: black; display: inline-block;" onclick="prevFunction(0)">prev</button>
+                <button class="nextbutton" id="next0" style="color: white; background-color: black; display:inline-block;" onclick="nextFunction(0)">next</button>
+        </div>
+        <div class="fcontainer" style="position: absolute;
+                                       display: inline;
+                                       height: 45%;
+                                       width: 75%;
+                                       top:120%;
+                                       left:20%;
+                                       box-shadow: 0 0 4px grey;
+                                       overflow: hidden;">
+        <div class="childclasses1" style="position: absolute;
+                                         top:5%;
+                                         width:25%;
+                                         height: 90%;
+                                         transition: 1s;
+                                         color: black;
+                                         border-radius: 20px;
+                                         box-shadow: 3px 8px 8px rgb(151, 143, 143);
+                                         left:3%">This is childclasses1</div>
+        <div class="childclasses1" style="position: absolute;
+                                         top:1%;
+                                         width:30%;
+                                         height: 98%;
+                                         transition: 1s;
+                                         color: white;
+                                         background-color: rgb(31, 18, 18);
+                                         transform: translateX(-7.5%);
+                                         border-radius: 20px;
+                                         box-shadow: 3px 8px 8px rgb(151, 143, 143);
+                                         left:38%">This is childclasses2</div>
+        <div class="childclasses1" style="position: absolute;
+                                         top:5%;
+                                         width:25%;
+                                         height: 90%;
+                                         transition: 1s;
+                                         color: black;
+                                         border-radius: 20px;
+                                         box-shadow: 3px 8px 8px rgb(151, 143, 143);
+                                         left:73%">This is childclasses3</div>
+        <div class="childclasses1" style="position: absolute;
+                                         top:5%;
+                                         width:25%;
+                                         height: 90%;
+                                         transition: 1s;
+                                         color: black;
+                                         border-radius: 20px;
+                                         box-shadow: 3px 8px 8px rgb(151, 143, 143);
+                                         left:108%">This is childclasses4</div>
+        <div class="childclasses1" style="position: absolute;
+                                         top:5%;
+                                         width:25%;
+                                         height: 90%;
+                                         color: black;
+                                         transition: 1s;
+                                         border-radius: 20px;
+                                         box-shadow: 3px 8px 8px rgb(151, 143, 143);
+                                         left:143%">This is childclasses5</div>
+        </div>
+        <div class="slidecontrols" style="position: absolute;
+                                          top:175%;
+                                          left:50%;
+                                          align-items: center;">
+                <button class="prevbutton" id="prev1" style="color: white; background-color: black; display: inline-block;" onclick="prevFunction(1)">prev</button>
+                <button class="nextbutton" id="next1" style="color: white; background-color: black; display:inline-block;" onclick="nextFunction(1)">next</button>
+        </div>
+        <div class="fcontainer" style="position: absolute;
+                                       display: inline;
+                                       height: 45%;
+                                       width: 75%;
+                                       top:220%;
+                                       left:20%;
+                                       box-shadow: 0 0 4px grey;
+                                       overflow: hidden;">
+        <div class="childclasses2" style="position: absolute;
+                                         top:5%;
+                                         width:25%;
+                                         height: 90%;
+                                         transition: 1s;
+                                         color: black;
+                                         border-radius: 20px;
+                                         box-shadow: 3px 8px 8px rgb(151, 143, 143);
+                                         left:3%">This is childclasses1</div>
+        <div class="childclasses2" style="position: absolute;
+                                         top:1%;
+                                         width:30%;
+                                         height: 98%;
+                                         transition: 1s;
+                                         color: white;
+                                         background-color: black;
+                                         transform: translateX(-7.5%);
+                                         border-radius: 20px;
+                                         box-shadow: 3px 8px 8px rgb(151, 143, 143);
+                                         left:38%">This is childclasses2</div>
+        <div class="childclasses2" style="position: absolute;
+                                         top:5%;
+                                         width:25%;
+                                         height: 90%;
+                                         transition: 1s;
+                                         color: black;
+                                         border-radius: 20px;
+                                         box-shadow: 3px 8px 8px rgb(151, 143, 143);
+                                         left:73%">This is childclasses3</div>
+        <div class="childclasses2" style="position: absolute;
+                                         top:5%;
+                                         width:25%;
+                                         height: 90%;
+                                         transition: 1s;
+                                         color: black;
+                                         border-radius: 20px;
+                                         box-shadow: 3px 8px 8px rgb(151, 143, 143);
+                                         left:108%">This is childclasses4</div>
+        <div class="childclasses2" style="position: absolute;
+                                         top:5%;
+                                         width:25%;
+                                         height: 90%;
+                                         color: black;
+                                         transition: 1s;
+                                         border-radius: 20px;
+                                         box-shadow: 3px 8px 8px rgb(151, 143, 143);
+                                         left:143%">This is childclasses5</div>
+        </div>
+        <div class="slidecontrols" style="position: absolute;
+                                          top:275%;
+                                          left:50%;
+                                          align-items: center;">
+                <button class="prevbutton" id="prev2" style="color: white; background-color: black; display: inline-block;" onclick="prevFunction(2)">prev</button>
+                <button class="nextbutton" id="next2" style="color: white; background-color: black; display:inline-block;" onclick="nextFunction(2)">next</button>
+        </div>
+        <div class="fcontainer" style="position: absolute;
+                                       display: inline;
+                                       height: 45%;
+                                       width: 75%;
+                                       top:320%;
+                                       left:20%;
+                                       box-shadow: 0 0 4px grey;
+                                       overflow: hidden;">
+        <div class="childclasses3" style="position: absolute;
+                                         top:5%;
+                                         width:25%;
+                                         height: 90%;
+                                         transition: 1s;
+                                         color: black;
+                                         border-radius: 20px;
+                                         box-shadow: 3px 8px 8px rgb(151, 143, 143);
+                                         left:3%">This is childclasses1</div>
+        <div class="childclasses3" style="position: absolute;
+                                         top:1%;
+                                         width:30%;
+                                         height: 98%;
+                                         transition: 1s;
+                                         color: white;
+                                         background-color: black;
+                                         transform: translateX(-7.5%);
+                                         border-radius: 20px;
+                                         box-shadow: 3px 8px 8px rgb(151, 143, 143);
+                                         left:38%">This is childclasses2</div>
+        <div class="childclasses3" style="position: absolute;
+                                         top:5%;
+                                         width:25%;
+                                         height: 90%;
+                                         transition: 1s;
+                                         color: black;
+                                         border-radius: 20px;
+                                         box-shadow: 3px 8px 8px rgb(151, 143, 143);
+                                         left:73%">This is childclasses3</div>
+        <div class="childclasses3" style="position: absolute;
+                                         top:5%;
+                                         width:25%;
+                                         height: 90%;
+                                         transition: 1s;
+                                         color: black;
+                                         border-radius: 20px;
+                                         box-shadow: 3px 8px 8px rgb(151, 143, 143);
+                                         left:108%">This is childclasses4</div>
+        <div class="childclasses3" style="position: absolute;
+                                         top:5%;
+                                         width:25%;
+                                         height: 90%;
+                                         color: black;
+                                         transition: 1s;
+                                         border-radius: 20px;
+                                         box-shadow: 3px 8px 8px rgb(151, 143, 143);
+                                         left:143%">This is childclasses5</div>
+        </div>
+        <div class="slidecontrols" style="position: absolute;
+                                          top:375%;
+                                          left:50%;
+                                          align-items: center;">
+                <button class="prevbutton" id="prev3" style="color: white; background-color: black; display: inline-block;" onclick="prevFunction(3)">prev</button>
+                <button class="nextbutton" id="next3" style="color: white; background-color: black; display:inline-block;" onclick="nextFunction(3)">next</button>
+        </div>
+        <div class='verticalNavBar'>
+            <a href='#live' class='aOwnLive' id='001' onclick={window.scrollTo(50,0)}>LIVE</a><br />
+            <a href='#featured' class='aOwnFeatured' id='002' onclick={window.scrollTo(50,ht)}>FEATURED</a><br />
+            <a href='#upcomming' class='aOwnUpcomming' id='003' onclick={window.scrollTo(50,ht*2)}>UPCOMMING</a><br/>
+            <a href='#past'class='aOwnPast' id='004' onclick={window.scrollTo(50,ht*3)}>PAST</a>
+        </div>
+         <div style="position: absolute;
+                    top: 400%;
+                    left:0%;
+                    width: 100%;
+                    height: 60%;
+                    background-color: #000000;
+                    color: white;
+                    z-index: 2;">
+            <img src={% static "images/Group-58.svg" %} loading="lazy" width="140" height="44"
+            style=" position: absolute;
+                    top:5%;
+                    width: 15%;
+                    height: 25%;
+                    left: 5%;">
+            <div class='copyRigth' style="position: absolute;
+                                        top:85%;
+                                        left:1%;
+                                        width: auto;
+                                        height: auto;">
+              <span>&copy;</span> 2022, Startic Field Pvt. Ltd. All Rights Reserved.
+            </div>
+            <div class='content' style="position: absolute;
+                                            text-align: left;
+                                            left: 1%;
+                                            top: 30%;
+                                            width:25%;
+                                            height:auto;">
+              Startic Field is a company which aims to endow student entrepreneurs with the power of community, knowledge, capital and mentorship. It is also a forum where we bring together working professionals as contributors who have a passion to startup, years of experience and small amounts of capital but do not have the bandwidth to work on the ground.
+            </div>
+            <a href='#' class='company' style="position: absolute;
+                                                    text-decoration: none;
+                                                    color: white;
+                                                    top:10%;
+                                                    left:35%;
+                                                    font-size: 28px;
+                                                    width: auto;
+                                                    height: auto;">
+              <b>Company</b></a>
+            <a href="/about" class='cone' style="position: absolute;
+                                                text-decoration: none;
+                                                color: white;
+                                                height: auto;
+                                                width: auto;
+                                                top: 30%;
+                                                left: 35%;">About Us</a>
+            <a href='#' class='ctwo' style="position: absolute;
+                                            text-decoration: none;
+                                            color: white;
+                                            height: auto;
+                                            width: auto;
+                                            top: 42.5%;
+                                            left: 35%;">Privacy Policy</a>
+            <a href='#' class='cthree' style="position: absolute;
+                                            text-decoration: none;
+                                            color: white;
+                                            height: auto;
+                                            width: auto;
+                                            top: 55%;
+                                            left: 35%;">Terms and Conditions</a>
+            <a href='#' class='otherlinks' style="position: absolute;
+                                                text-decoration: none;
+                                                color: white;
+                                                top:10%;
+                                                left:55%;
+                                                font-size: 28px;
+                                                width: auto;
+                                                height: auto;">
+              <b>Other Links</b>
+            </a>
+            <a href='#' class='done' style="position: absolute;
+                                            height: auto;
+                                            text-decoration: none;
+                                            color: white;
+                                            width: auto;
+                                            top: 30%;
+                                            left: 55%";>Community</a>
+            <a href='/events' class='dtwo' style="position: absolute;
+                                            text-decoration: none;
+                                            color: white;
+                                            height: auto;
+                                            width: auto;
+                                            top: 42.5%;
+                                            left: 55%;">Events</a>
+            <a href='/programs' class='dthree' style="text-decoration: none;
+                                            position: absolute;
+                                            color: white;
+                                            height: auto;
+                                            width: auto;
+                                            top: 55%;
+                                            left: 55%;">Programs</a>
+            <a href='/contact' class='contactUs' style="position: absolute;
+                                                text-decoration: none;
+                                                color: white;
+                                                top:10%;
+                                                left:73%;
+                                                font-size: 28px;
+                                                width: auto;
+                                                height: auto;">
+              <b>Contact Us</b></a>
+            <a href='#' class='eone' style="text-decoration: none;
+                                            position: absolute;
+                                            color: white;
+                                            height: auto;
+                                            width: auto;
+                                            top: 67.5%;
+                                            left: 55%;">Careers</a>
+            <div class='email' style="text-decoration: none;
+                                    position: absolute;
+                                    height: auto;
+                                    width: auto;
+                                    top: 42.5%;
+                                    left: 75%;">
+                                    contactUs@starticField.com<br><br>
+                                    <a href="#" class="footer-social-link w-inline-block" style="position: absolute; top:80%; left:20%;"><img src="https://uploads-ssl.webflow.com/62434fa732124a0fb112aab4/62434fa732124ac15112aad5_twitter%20small.svg" loading="lazy" alt=""></a>
+                                    <a href="#" class="footer-social-link w-inline-block" style="position: absolute; top:80%; left:40%;"><img src="https://uploads-ssl.webflow.com/62434fa732124a0fb112aab4/62434fa732124a389912aad8_linkedin%20small.svg" loading="lazy" alt=""></a>
+                                    <a href="#" class="footer-social-link w-inline-block" style="position: absolute; top:80%; left:60%;"><img src="https://uploads-ssl.webflow.com/62434fa732124a0fb112aab4/62434fa732124a51bf12aae9_facebook%20small.svg" loading="lazy" alt=""></a>
+            </div>
+    </body>
+</html>

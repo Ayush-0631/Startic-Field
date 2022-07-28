@@ -27,7 +27,11 @@
       <a href="about" class="nav-link nav-hover w-nav-link">About Us</a>
       <a href="programs" id="Programs-page" class="nav-link nav-hover w-nav-link">Programs</a>
       <a href="events" class="nav-link nav-hover w-nav-link">Events</a>
+      {% if User.is_authenticated %}
       <a href="sign" class="nav-link sign-up w-nav-link"><strong>Sign Up</strong></a>
+      {% else %}
+      <a href="sign" class="nav-link sign-up w nav-link"><strong>Sign Up</strong></a>
+      {% endif %}
     </nav>
     <div class="menu-button w-nav-button">
       <div class="icon w-icon-nav-menu"></div>

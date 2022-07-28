@@ -30,15 +30,17 @@ def Reverseptich(request):
 
 
 def About(request):
+    print(User.is_authenticated) 
     return render(request,"about-us.html")
 
 
 def Contact(request):
+    print(User.is_authenticated) 
     return render(request,"contact.html")
 
 
 def Events(request):
-    return render(request,"events_page.html")
+    return render(request,"building.html")
 
 def Signup(request):
     if request.method == 'POST':
@@ -49,7 +51,7 @@ def Signup(request):
             if not User.objects.filter(email=email).exists():
                 if len(password) < 6:
                     messages.error(request, 'Password is too short')
-                    return render(request, 'register.html')
+                    return render(request, 'registeration.html')
 
                 user = User.objects.create_user(username=username, email=email)
                 user.set_password(password)
@@ -58,10 +60,10 @@ def Signup(request):
                 return redirect('home')
 
             messages.warning(request, "This Email already exists!")
-            return render(request, 'register.html', context)
+            return render(request, 'LoginPage.html')
         else:
             messages.warning(request, "This username already exists!")
-            return render(request, 'register.html', context)
+            return render(request, 'LoginPage.html')
 
     return render(request,"LoginPage.html")
 
@@ -117,8 +119,12 @@ def FormsStartup(request):
 def Formsreversepitch(request):
     return render(request,"reversePitchForm.html")
 
+def FormsContributor(request):
+    return render(request,"registerAsContributor.html")
+
+
 def ReversePitch(request):
-    rpRegistration = 0
+    rpRegistration = 1
     if (rpRegistration == 0):
         a = "reversePitchForm.html"
     elif (rpRegistration == 1):

@@ -722,60 +722,84 @@
     </section>
 
     <script>
+        var count=0;
         function show1() {
             var add1 = document.getElementById("add1");
             var sectionM1 = document.getElementById("sectionM1");
             var teamBox = document.getElementById("teamBox");
+            var mar = teamBox.style.margin;
+            console.log(mar)
             if (add1.checked) {
+                count++;
                 sectionM1.style.display = "flex";
-                teamBox.style.margin = "0 0 620px";
+                teamBox.style.margin = "0 0 "+String(20+(600*count))+"px";
                 teamBox.style.transition = "0.5s";
             } else {
+                count--;
                 sectionM1.style.display = "none";
-                teamBox.style.margin = "0 0 100px";
+                teamBox.style.margin = "0 0 "+String(100 + (600*count))+"px";
             }
+            console.log("count"+String(count));
         }
 
         function show2() {
             var add2 = document.getElementById("add2");
             var sectionM2 = document.getElementById("sectionM2");
             var teamBox = document.getElementById("teamBox");
+            var mar = teamBox.style.margin;
+            console.log(mar)
+            
             if (add2.checked) {
+                count++;
                 sectionM2.style.display = "flex";
-                teamBox.style.margin = "0 0 1150px";
+                teamBox.style.margin = "0 0 "+String(20+(600*count))+"px";
                 teamBox.style.transition = "0.5s";
             } else {
+                count--;
                 sectionM2.style.display = "none";
-                teamBox.style.margin = "0 0 700px";
+                teamBox.style.margin = "0 0 "+String(100 + (600*count))+"px";
             }
+            console.log("count"+String(count));
         }
 
         function show3() {
             var add3 = document.getElementById("add3");
             var sectionM3 = document.getElementById("sectionM3");
             var teamBox = document.getElementById("teamBox");
+            var mar = teamBox.style.margin;
+            console.log(mar)
+            
             if (add3.checked) {
+                count++;
                 sectionM3.style.display = "flex";
-                teamBox.style.margin = "0 0 1800px";
+                teamBox.style.margin = "0 0 "+String(20+(600*count))+"px";
                 teamBox.style.transition = "0.5s";
             } else {
+                count--;
                 sectionM3.style.display = "none";
-                teamBox.style.margin = "0 0 1200px";
+                teamBox.style.margin = "0 0 "+String(100 + (600*count))+"px";
             }
+            console.log("count"+String(count));
         }
 
         function show4() {
             var add4 = document.getElementById("add4");
             var sectionM4 = document.getElementById("sectionM4");
             var teamBox = document.getElementById("teamBox");
+            var mar = teamBox.style.margin;
+            console.log(mar)
+            
             if (add4.checked) {
+                count++;
                 sectionM4.style.display = "flex";
-                teamBox.style.margin = "0 0 2200px";
+                teamBox.style.margin = "0 0 "+String(20+(600*count))+"px";
                 teamBox.style.transition = "0.5s";
             } else {
+                count--;
                 sectionM4.style.display = "none";
-                teamBox.style.margin = "0 0 1700px";
+                teamBox.style.margin = "0 0 "+String(100 + (600*count))+"px";
             }
+            console.log("count"+String(count));
         }
     </script>
 

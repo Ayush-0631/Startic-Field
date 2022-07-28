@@ -3,6 +3,11 @@
 <!--  Last Published: Sun Jul 24 2022 06:24:58 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="62d45fc8fd4c71120cdeac2a" data-wf-site="62d1c4ef6b8787757b9aa2b6">
 <head>
+  <script>
+  function preventBack() { window.history.forward(); }  
+  setTimeout("preventBack()", 0);  
+  window.onunload = function () { null };  
+</script>
   <meta charset="utf-8">
   <title>About us</title>
   <meta content="About us" property="og:title">
@@ -82,21 +87,33 @@
           "><a href="/events" class="textsides" style="text-decoration: none;
                     font-weight: 500;
                     color: white;">Events</a></li>
+          {% if user.is_authenticated %}
+          <li style="display: inline-block;
+                    padding:15px 17px;
+                    font-size: 17px;
+          "><a href="/sign" class="textsides" style="text-decoration: none;
+                    font-weight: 500;">Logout</a></li>
+          {% else %}
           <li style="display: inline-block;
                     padding:15px 17px;
                     font-size: 17px;
           "><a href="/sign" class="textsides" style="text-decoration: none;
                     font-weight: 500;">Sign Up</a></li>
+          {% endif %}
 
       </ul>
-  </div>    
+  </div>  
   <div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar w-nav">
     <a href="\" class="w-nav-brand"><img src={% static "images/Group-58.svg" %} loading="lazy" width="140" height="44" alt="Startic Field" id="Home-Page" class="image"></a>
     <nav role="navigation" class="nav-menu w-nav-menu">
       <a href="about" aria-current="page" class="nav-link nav-hover w-nav-link">About US</a>
       <a href="programs" id="Programs-page" class="nav-link nav-hover w-nav-link">Programs</a>
       <a href="events" class="nav-link nav-hover w-nav-link">Events</a>
+      {%if user.is_authenticated %}
+      <a href="sign" class="nav-link sign-up w-nav-link"><strong>Logout</strong></a>
+      {% else %}
       <a href="sign" class="nav-link sign-up w-nav-link"><strong>Sign Up</strong></a>
+      {% endif %}
     </nav>
     <div class="menu-button w-nav-button">
       <div class="icon w-icon-nav-menu"></div>

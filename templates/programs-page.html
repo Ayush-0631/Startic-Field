@@ -135,8 +135,12 @@
               <div class="testimonial-right">
                 <div class="w3-text-green heading-small margin-bottom-32px">REVERSE PITCH</div>
                 <p class="testimonial-text-four">“You'll have to pitch us on our industry validated idea
-                  that have the potential to become future unicorns”</p>
-                <a href="{% url 'Reversepitchpage' %}" class="button-4 w-button w3-border w3-border-green w3-text-green">Already Enrolled</a>
+                that have the potential to become future unicorns”</p>
+                {% if enrolled %}
+                <a href="{% url 'reverse-pitch-details' %}" class="button-4 w-button w3-border w3-border-green w3-text-green">Already Enrolled</a>
+                {% else %}
+                <a href="{% url 'reverse-pitch-details' %}" class="button-4 w-button w3-border w3-border-blue w3-text-blue">More Details</a>
+                {% endif %}
                 <div style="text-align: right;margin-left: 20vw; color:green"> 
                   <div style="font-size: 24px; display: inline;">&bullet;</div>  Event is live now. </div>
               </div>

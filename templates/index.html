@@ -7,6 +7,7 @@
   <title>Startic Field</title>
   <meta content="width=device-width, initial-scale=1" name="viewport">
   <meta content="Webflow" name="generator">
+  <link href={% static "css/w3.css" %} rel="stylesheet" type="text/css">
   <link href={% static "css/normalize.css" %} rel="stylesheet" type="text/css">
   <link href={% static "css/webflow.css" %} rel="stylesheet" type="text/css">
   <link href={% static "css/startic-field.webflow.css" %} rel="stylesheet" type="text/css">
@@ -72,7 +73,7 @@
           <li style="display: inline-block;
                     padding :15px 17px;
                     font-size: 17px;
-          "><a href="/programs" class="textsides" style="text-decoration: none;
+          "><a href="{% url 'programs' %}" class="textsides" style="text-decoration: none;
                     font-weight: 500;
                     color: white;">Programs</a></li>
           
@@ -145,29 +146,29 @@
       </div>
     </div>
     <div class="trusted-patners wf-section">
-      <h1 class="heading-4">Startups mentored by us !</h1>
+      <h1 class="heading-4">Get Mentored by Industry leaders !</h1>
       <p class="paragraph-3">We have a very strong relationship with the founders working with us. Some of the startups we have worked with are as follows :</p>
       <div class="w-layout-grid grid-4">
-        <div id="w-node-_61baa192-c675-c19d-746c-b0fca4c41278-4a9aa2b7" class="div-block-6"><img src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg" loading="lazy" alt=""></div>
-        <div id="w-node-_7cb1f6f5-fad2-c9cc-e903-1fd190b34cee-4a9aa2b7" class="div-block-6"><img src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg" loading="lazy" alt=""></div>
-        <div id="w-node-_1aa6f9a6-adeb-5aca-994f-5a39bce9da3b-4a9aa2b7" class="div-block-6"><img src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg" loading="lazy" alt="" ></div>
+        <div id="w-node-_61baa192-c675-c19d-746c-b0fca4c41278-4a9aa2b7" class="div-block-6"><img class='w3-img w3-round-large' src="{% static 'home/1.png' %}" loading="lazy" alt=""></div>
+        <div id="w-node-_7cb1f6f5-fad2-c9cc-e903-1fd190b34cee-4a9aa2b7" class="div-block-6"><img class='w3-img w3-round-large' src="{% static 'home/4.png' %}" loading="lazy" alt=""></div>
+        <div id="w-node-_1aa6f9a6-adeb-5aca-994f-5a39bce9da3b-4a9aa2b7" class="div-block-6"><img class='w3-img w3-round-large' src="{% static 'home/3.png' %}" loading="lazy" alt="" ></div>
+        <div id="w-node-_1aa6f9a6-adeb-5aca-994f-5a39bce9da3b-4a9aa2b7" class="div-block-6"><img class='w3-img w3-round-large' src="{% static 'home/5.png' %}" loading="lazy" alt="" ></div>
+        <div id="w-node-_1aa6f9a6-adeb-5aca-994f-5a39bce9da3b-4a9aa2b7" class="div-block-6"><img class='w3-img w3-round-large' src="{% static 'home/6.png' %}" loading="lazy" alt="" ></div>
+        <div id="w-node-_1aa6f9a6-adeb-5aca-994f-5a39bce9da3b-4a9aa2b7" class="div-block-6"><img class='w3-img w3-round-large' src="{% static 'home/7.png' %}" loading="lazy" alt="" ></div>
       </div>
     </div>
     <div class="features wf-section">
-      <h1 class="heading-6">Events</h1>
+      <!--<h1 class="heading-6">Events</h1>
       <div data-delay="4000" data-animation="slide" class="w-slider" data-autoplay="false" data-easing="ease" data-hide-arrows="false" data-disable-swipe="false" data-autoplay-limit="0" data-nav-spacing="4" data-duration="500" data-infinite="true">
         <div class="mask w-slider-mask">
           <div class="event-slide w-slide">
             <div class="div-block-7">
               <a href="#" class="w-inline-block w-lightbox"><img src="https://d3e54v103j8qbb.cloudfront.net/img/placeholder-thumb.svg" loading="lazy" alt="">
-                <script type="application/json" class="w-json">{
-  "items": [],
-  "group": ""
-}</script>
+                <script type="application/json" class="w-json">{"items": [],"group": ""}</script>
               </a>
             </div>
           </div>
-          <div class="w-slide"></div>
+          <div class="w-slide"><img src="{% static 'home/1.png' %}" /></div>
           <div class="w-slide"></div>
           <div class="w-slide"></div>
           <div class="w-slide"></div>
@@ -182,7 +183,7 @@
           <div class="w-icon-slider-right"></div>
         </div>
         <div class="w-slider-nav w-slider-nav-invert w-shadow w-round"></div>
-      </div>
+      </div>-->
     </div>
   <div style="position: absolute;
                     top: 400%;

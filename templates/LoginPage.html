@@ -42,9 +42,10 @@
         .toggle-btn{
             padding: 10px 30px;
             cursor: pointer;
-            background: transparent;
+            background-color: transparent;
             border: 0;
             outline: none;
+            color: black;
             position: relative;
         
         }
@@ -73,7 +74,7 @@
             border-left: 0;
             border-right: 0;
             border-top: 0;
-            border-bottom: 1px solid #999;
+            border-bottom: 1px solid rgb(20, 20, 20);
             outline: none;
             background: transparent;
         }
@@ -114,9 +115,12 @@
         window.onunload = function () { null };  
     </script>
 </head>
-<body>
+<body style="background-color: rgb(4, 10, 64);" >
     <div class="hero">
-        <div class="form-box">
+        <div style="z-index: 3;
+                    background: rgba(255, 255, 255, 0.986);
+                    backdrop-filter: blur(25px);
+                    border-radius: 20px;" class="form-box">
             <div class="button-box">
                 <div id="btn"></div>
                 <button type="button" class="toggle-btn" onclick="login()">Log In</button>

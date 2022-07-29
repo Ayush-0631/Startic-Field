@@ -22,10 +22,14 @@ def Signup(request):
 
 
 def Programs(request):
-    live_pitch = ReversePitch.objects.get(is_active=True)
-    form = UserProgram.objects.filter(user=request.user, program=live_pitch)
-    if form.exists():
-        return render(request, "programs-page.html", {'enrolled': True})
+    if request.user.is_authenticated:
+        live_pitch = ReversePitch.objects.get(is_active=True)
+        form = UserProgram.objects.filter(user=request.user, program=live_pitch)
+        if form.exists():
+            print("here")
+            return render(request, "programs-page.html", {'enrolled': True})
+            print("2")
+        return render(request, "programs-page.html", {'enrolled': False})
     return render(request, "programs-page.html", {'enrolled': False})
 
 
@@ -157,4 +161,12 @@ def Registration(request):
     return render(request,"registration.html")
 
 def Reversepitchpage(request):
-    return render(request,'reverse-pitch.html')
+    if request.user.is_authenticated:
+        live_pitch = ReversePitch.objects.get(is_active=True)
+        form = UserProgram.objects.filter(user=request.user, program=live_pitch)
+        if form.exists():
+            print("here")
+            return render(request, "reverse-pitch.html", {'enrolled': True})
+            print("2")
+        return render(request, "reverse-pitch.html", {'enrolled': False})
+    return redirect('sign-up')

@@ -9,7 +9,7 @@ urlpatterns = [
     path('about',About),
     path('contact',Contact),
     path('programs',Programs),
-    path('reverse-pitch',Reverseptich),
+    path('reverse-pitch',reverse_pitch, name='reverse-pitch'),
     path('login', login, name='login'),
     path('logout', logout, name='logout'),
     path('events',Events),
@@ -18,7 +18,6 @@ urlpatterns = [
     path('form4',FormsContributor),
     path('form3',FormsStartup),
     path('form2',Formsreversepitch),
-    path('rp',ReversePitch),
     path('building',Building),
     path('register',Registration),
 ]

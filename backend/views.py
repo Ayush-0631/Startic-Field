@@ -22,7 +22,11 @@ def Signup(request):
 
 
 def Programs(request):
-    return render(request,"Programs-page.html")
+    live_pitch = ReversePitch.objects.get(is_active=True)
+    form = UserProgram.objects.filter(user=request.user, program=live_pitch)
+    if form.exists():
+        return render(request, "programs-page.html", {'enrolled': True})
+    return render(request, "programs-page.html", {'enrolled': False})
 
 
 def Reverseptich(request):
@@ -35,7 +39,6 @@ def About(request):
 
 
 def Contact(request):
-    print(User.is_authenticated) 
     return render(request,"contact.html")
 
 
@@ -107,7 +110,7 @@ def login(request):
 
 def logout(request):
     auth.logout(request)
-    return redirect('index')
+    return redirect('home')
 
 
 def FormsStudent(request):
@@ -123,13 +126,29 @@ def FormsContributor(request):
     return render(request,"registerAsContributor.html")
 
 
-def ReversePitch(request):
-    rpRegistration = 1
-    if (rpRegistration == 0):
-        a = "reversePitchForm.html"
-    elif (rpRegistration == 1):
-        a = "reverse-pitch.html"
-    return render(request,a)
+def reverse_pitch(request):
+    live_pitch = ReversePitch.objects.get(is_active=True)
+    if request.method == 'GET':
+        form = UserProgram.objects.filter(user=request.user, program=live_pitch)
+        if form.exists():
+            return render(request, 'reverse-pitch.html')
+        return render(request, "reversePitchForm.html")
+    
+    profile = Profile.objects.create(
+        user=request.user,
+        age=request.POST.get('age'),
+        gender=request.POST.get('gender'),
+        college=request.POST.get('college'),
+        year=request.POST.get('year'),
+     )
+    UserProgram.objects.create(
+        user=request.user,
+        program=live_pitch,
+        answer1=request.POST.get('a1'),
+        answer2=request.POST.get('a2'),
+        answer3=request.POST.get('a3')
+    )
+    return redirect('home')
 
 def Building(request):
     return render(request,"building.html")

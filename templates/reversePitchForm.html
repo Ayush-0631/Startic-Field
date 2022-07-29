@@ -285,7 +285,8 @@
 <body>
     
     <section class='w3-padding' >
-        <form method="POST" action="#"  class="container w3-margin">
+        <form method="POST" action="{% url 'reverse-pitch' %}"  class="container w3-margin">
+            {% csrf_token %}
             <h2>Registration</h2>
         <div class="row100">
             <div class="col">

@@ -20,16 +20,18 @@ class Profile(models.Model):
     full_name = models.CharField(max_length=100, blank=True, null=True)
     country = models.CharField(max_length=200, null=True, blank=True)
     college = models.CharField(max_length=500, null=True)
+    year = models.IntegerField(null=True, default=2021)
     interest = models.CharField(max_length=200, null=True, default='startic-field,')
     social = models.CharField(max_length=300, null=True)
 
 
-class Program(models.Model):
-    title = models.CharField(max_length=100)
+class ReversePitch(models.Model):
+    title = models.CharField(max_length=100, null=True)
     public = models.BooleanField(default=True)
-    desc = models.TextField(max_length=1000)
-    tags = models.CharField(max_length=500)
+    desc = models.TextField(max_length=1000, null=True)
+    tags = models.CharField(max_length=500, null=True)
     img = models.ImageField(upload_to='programs/')
+    is_active = models.BooleanField(default=False)
     live_date = models.DateField()
     question1 = models.TextField(max_length=500, null=True)
     question2 = models.TextField(max_length=500, null=True)
@@ -43,8 +45,8 @@ class Program(models.Model):
 
 
 class UserProgram(models.Model):
-    user = models.ForeignKey(Profile, on_delete=models.DO_NOTHING)
-    program = models.ForeignKey(Program, on_delete=models.DO_NOTHING)
+    user = models.ForeignKey(User, on_delete=models.DO_NOTHING)
+    program = models.ForeignKey(ReversePitch, on_delete=models.DO_NOTHING)
     date = models.DateField(auto_now_add=True)
     answer1 = models.TextField(max_length=1200, null=True)
     answer2 = models.TextField(max_length=2000, null=True)

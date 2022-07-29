@@ -107,10 +107,10 @@ def login(request):
             elif (User.objects.filter(email=username).exists() or User.objects.filter(username=username).exists() == False):
                 messages.warning(
                     request, "The username or Email you have entered does not exist.")
-                return render(request, 'login.html')
+                return redirect('sign-up')
 
         messages.warning(request, 'Invalid credentials, try again')
-        return render(request, 'login.html')
+        return redirect('sign-up')
 
 def logout(request):
     auth.logout(request)

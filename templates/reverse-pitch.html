@@ -23,10 +23,14 @@
   <div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar w-nav">
     <a href="#" class="w-nav-brand"><img src={% static "images/Group-58.svg" %} loading="lazy" width="140" height="44" alt="Startic Field" id="Home-Page" class="image"></a>
     <nav role="navigation" class="nav-menu w-nav-menu">
-      <a href="about" class="nav-link nav-hover w-nav-link">About US</a>
+      <a href="about" class="nav-link nav-hover w-nav-link">About Us</a>
       <a href="programs" id="Programs-page" class="nav-link nav-hover w-nav-link">Programs</a>
       <a href="events" class="nav-link nav-hover w-nav-link">Events</a>
-      <a href="sign" class="nav-link sign-up w-nav-link"><strong>Sign UP</strong></a>
+      {% if user.is_authenticated %}
+      <a href="sign" class="nav-link sign-up w-nav-link"><strong>Logout</strong></a>
+      {% else %}
+      <a href="sign" class="nav-link sign-up w-nav-link"><strong>Sign Up</strong></a>
+      {% endif %}
     </nav>
     <div class="menu-button w-nav-button">
       <div class="icon w-icon-nav-menu"></div>

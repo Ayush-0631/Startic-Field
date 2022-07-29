@@ -155,3 +155,6 @@ def Building(request):
 
 def Registration(request):
     return render(request,"registration.html")
+
+def Reversepitchpage(request):
+    return render(request,'reverse-pitch.html')

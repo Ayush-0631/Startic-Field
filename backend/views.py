@@ -40,7 +40,7 @@ def Contact(request):
 
 
 def Events(request):
-    return render(request,"building.html")
+    return render(request,"events_page.html")
 
 def Signup(request):
     if request.method == 'POST':
@@ -124,7 +124,7 @@ def FormsContributor(request):
 
 
 def ReversePitch(request):
-    rpRegistration = 1
+    rpRegistration = 0
     if (rpRegistration == 0):
         a = "reversePitchForm.html"
     elif (rpRegistration == 1):

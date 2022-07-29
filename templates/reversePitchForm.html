@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ReversePitch Form</title>
+    <link rel="stylesheet" href="{% static "css/w3.css"%}" />
     <style>
  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 
@@ -283,20 +284,21 @@
 </head>
 <body>
     
-    <section>
-        <div class="container">
+    <section class='w3-padding' >
+        <form method="POST" action="{% url 'reverse-pitch' %}"  class="container w3-margin">
+            {% csrf_token %}
             <h2>Registration</h2>
         <div class="row100">
             <div class="col">
                 <div class="inputBox">
-                    <input type="text" name="" required>
+                    <input name="name" id="name" type="text" name="" required>
                     <span class="text">Name</span>
                     <span class="line"></span>
                 </div>
             </div>
             <div class="col">
                 <div class="inputBox">
-                    <input type="number" name="" required>
+                    <input name="age" id="age" type="number" name="" required>
                     <span class="text">Age</span>
                     <span class="line"></span>
                 </div>
@@ -304,20 +306,20 @@
             <div class="col">
                 <div class="inputBox genderBox">
                     <div class="Gender">Gender</div>
-                    <div class="genderText"><input class="genderRadio" type="radio" name="gender" required checked>Male</div>
-                    <div class="genderText"><input class="genderRadio" type="radio" name="gender" required>Female</div>
+                    <div class="genderText"><input name="gender" id="gender" class="genderRadio" type="radio" gender="gender" required checked>Male</div>
+                    <div class="genderText"><input name="gender" id="gender" class="genderRadio" type="radio" gender="gender" required>Female</div>
                 </div>
             </div>
             <div class="col">
                 <div class="inputBox">
-                    <input type="text" name="" required>
+                    <input name="college" id="college" type="text" name="" required>
                     <span class="text">College</span>
                     <span class="line"></span>
                 </div>
             </div>
             <div class="col">
                 <div class="inputBox">
-                    <input type="number" name="" required>
+                    <input name="year" id="year" type="number" name="" required>
                     <span class="text">Year</span>
                     <span class="line"></span>
                 </div>
@@ -328,7 +330,7 @@
                     <div class="inputBox questionBox">
                         <div class="text p-40">How will you manage Entrepreneurship and Studies?</div> <br> 
                         <div class="q1">
-                            <input type="text">
+                            <textarea name="a1" id="a1" class='w3-input w3-large w3-hover-white' type="text" ></textarea>
                         <span class="line"></span>
                         </div>
                     </div>
@@ -337,7 +339,7 @@
                     <div class="inputBox questionBox">
                         <div class="text p-40">Why do you think you will become a successful entrepreneur?</div> <br>
                         <div class="q2">
-                            <input type="text">
+                            <textarea name="a2" id="a2" class='w3-input w3-large w3-hover-white' type="text" ></textarea>
                         <span class="line"></span>
                         </div>
                     </div>
@@ -346,7 +348,7 @@
                     <div class="inputBox questionBox">
                         <div class="text p-40">Which is your favourite startup and why?</div> <br>
                         <div class="q3">
-                            <input type="text">
+                            <textarea name="a3" id="a3" class='w3-input w3-large w3-hover-white' type="text" ></textarea>
                         <span class="line"></span>
                         </div>
                     </div>
@@ -355,10 +357,10 @@
 
             <div class="row100">
                 <div class="col">
-                    <input class="submitButton" type="submit" value="Submit">
+                    <button type="submit" class="submitButton" type="submit" >Submit</button>
                 </div>
             </div>
-        </div>
+        </form>
     </section>
 
 </body>

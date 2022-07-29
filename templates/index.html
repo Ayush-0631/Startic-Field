@@ -86,7 +86,7 @@
           <li style="display: inline-block;
                     padding:15px 17px;
                     font-size: 17px;
-          "><a href="/sign" class="textsides" id="asdf" style="text-decoration: none;
+          "><a href="/logout" class="textsides" id="asdf" style="text-decoration: none;
                     font-weight: 500;">Logout</a></li>
           {% else %}
           <li style="display: inline-block;
@@ -107,7 +107,7 @@
           <a href="programs" id="Programs-page" class="nav-link nav-hover w-nav-link">Programs</a>
           <a href="events" class="nav-link nav-hover w-nav-link">Events</a>
           {% if user.is_authenticated %}
-          <a href="sign" class="nav-link sign-up w-nav-link"><strong>Logout</strong></a>
+          <a href="{% url 'logout' %}" class="nav-link sign-up w-nav-link"><strong>Logout</strong></a>
           {% else %}
           <a href="sign" class="nav-link sign-up w-nav-link"><strong>Sign Up</strong></a>
           {% endif %}

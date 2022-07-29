@@ -9,6 +9,7 @@
   <meta content="Programs Page" property="twitter:title">
   <meta content="width=device-width, initial-scale=1" name="viewport">
   <meta content="Webflow" name="generator">
+  <link href={% static "css/w3.css" %} rel="stylesheet">
   <link href={% static "css/normalize.css" %} rel="stylesheet" type="text/css">
   <link href={% static "css/webflow.css" %} rel="stylesheet" type="text/css">
   <link href={% static "css/startic-field.webflow.css" %} rel="stylesheet" type="text/css">
@@ -117,35 +118,37 @@
     </div>
   </div>
   <div class="background">
-    <div class="div-block-11">
+    <div class="div-block-11 w3-container">
       <h1 class="heading-2">How it works ?</h1>
       <p class="paragraph-4">Once you are registered as a founder with us then the the coming processes will work as follows.</p>
     </div>
-    <div class="div-block-12"><img src={% static "images/hw-it-works.png" %} loading="lazy" width="700" srcset={% static "images/hw-it-works-p-500.png 500w, images/hw-it-works-p-800.png 800w, images/hw-it-works-p-1080.png 1080w, images/hw-it-works.png 1112w" %} sizes="(max-width: 767px) 100vw, 700px" alt="" class="image-3"></div>
-    <div class="div-block-13">
-      <h1 class="heading">Programs :</h1>
+    <div class="div-block-12 w3-container">
+      <img src="{% static "images/hw-it-works-p-1080.png" %}" sizes="(max-width: 767px) 100vw, 700px" loading="lazy" width="700" class="image-3" />
+    </div>
+    <div class="div-block-13 w3-container">
+      <h1 class="heading w3-center">Programs</h1>
       <div class="w-container">
-        <section class="testimonial-image-left wf-section">
+        <section class="testimonial-image-left wf-section w3-border w3-border-green">
           <div class="container-2">
             <div class="testimonial-wrapper-four">
               <div class="testimonial-left"><img src="https://uploads-ssl.webflow.com/62434fa732124a0fb112aab4/62434fa732124af1aa12aadf_placeholder%201.svg" loading="lazy" alt="" class="testimonial-image-four"></div>
               <div class="testimonial-right">
-                <div class="heading-small margin-bottom-32px">REVERSE PITCH</div>
+                <div class="w3-text-green heading-small margin-bottom-32px">REVERSE PITCH</div>
                 <p class="testimonial-text-four">“You'll have to pitch us on our industry validated idea
                   that have the potential to become future unicorns”</p>
-                <a href="/rp" class="button-4 w-button">More Details</a>
+                <a href="{% url 'Reversepitchpage' %}" class="button-4 w-button w3-border w3-border-green w3-text-green">Already Enrolled</a>
                 <div style="text-align: right;margin-left: 20vw; color:green"> 
                   <div style="font-size: 24px; display: inline;">&bullet;</div>  Event is live now. </div>
               </div>
             </div>
           </div>
         </section>
-        <section class="testimonial-image-left wf-section">
+        <section class="testimonial-image-left wf-section w3-border w3-border-red">
           <div class="container-2">
             <div class="testimonial-wrapper-four">
               <div class="testimonial-left"><img src="https://uploads-ssl.webflow.com/62434fa732124a0fb112aab4/62434fa732124af1aa12aadf_placeholder%201.svg"  loading="lazy" alt="" class="testimonial-image-four"></div>
               <div class="testimonial-right">
-                <div class="heading-small margin-bottom-32px">SF PITCH</div>
+                <div class="heading-small w3-text-red margin-bottom-32px">SF PITCH</div>
                 <p class="testimonial-text-four">“Pitch Event where we'll listen to your ideas and try to 
                   help you in your business requirements from scratch to first set of customers.”</p>
                 <a href="/building" class="button-4 w-button">More Details</a>
@@ -157,8 +160,8 @@
         </section>
       </div>
     </div>
-    <div style="position: absolute;
-                    top: 320%;
+    <div class='w3-container' style="position: absolute;
+                    top: 325%;
                     left:0%;
                     width: 100%;
                     height: 60%;

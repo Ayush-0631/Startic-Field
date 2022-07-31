@@ -109,13 +109,9 @@
             left: 450px;
         }
     </style>
-    <script>
-        function preventBack() { window.history.forward(); }  
-        setTimeout("preventBack()", 0);  
-        window.onunload = function () { null };  
-    </script>
+    
 </head>
-<body style="background-color: rgb(4, 10, 64);" >
+<body style="background-image: url('{% static "images/About-us-background-p-800.jpg"%}')" >
     <div class="hero">
         <div style="z-index: 3;
                     background: rgba(255, 255, 255, 0.986);

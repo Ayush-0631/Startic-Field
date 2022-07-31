@@ -110,6 +110,13 @@
         }
     </style>
     
+    {% if err_msg %}
+    <script>
+        console.log({{ err_msg }})
+            alert({{ err_msg }});
+    </script>
+    {% endif %}
+    
 </head>
 <body style="background-color: rgb(4, 10, 64);" >
     <div class="hero">

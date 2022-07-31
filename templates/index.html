@@ -18,27 +18,49 @@
   <link href={% static "images/favicon.ico" %} rel="shortcut icon" type="image/x-icon" >
   <link href={% static "images/webclip.png" %} rel="apple-touch-icon" >
   <script>
-    var ht = window.innerHeight;
-    let c = 0;
-    function handleScroll() {
-      console.log('window.innerHeight',window.innerHeight);
-      console.log('window.scrollY',window.scrollY);
-      let a = window.innerHeight;
-      let b = window.scrollY;
-      c = (b-a)*100/a;
-      console.log('percentage scrolled',c);
-
-      var z = document.getElementById('headtag');
-      if(c<-96){
-        z.style.display='none';
+      function prevFunction() {
+        console.log('prevFunction is working')
+        var slides = document.getElementsByClassName('omg');
+        for (let i=0; i<slides.length; i++){
+          var e = slides[i].style.left
+          var d = Number(e.replace("vw",""));
+          slides[i].style.left = String(d+100)+"vw";
+        }
+        if(slides[slides.length-1].style.left === '500vw') {
+            document.getElementById('prev1').style.display='none'
+          }
+        else {
+          document.getElementById('prev1').style.display='inline-block'
+        }
+        if(slides[0].style.left === '-500vw') {
+            document.getElementById('next1').style.display='none';
+          }
+        else {
+          document.getElementById('next1').style.display='inline-block';
+        }
       }
-      else {
-        z.style.display='unset';
-        console.log('function is triggering')
+      function nextFunction() {
+        console.log('next Function is working')
+        var slides = document.getElementsByClassName('omg');
+        for (let i=0; i<slides.length; i++){
+          var e = slides[i].style.left
+          var d = Number(e.replace("vw",""));
+          slides[i].style.left = String(d-100)+"vw";
+        }
+        if(slides[0].style.left === '-500vw') {
+            document.getElementById('next1').style.display='none';
+          }
+        else {
+          document.getElementById('next1').style.display='inline-block';
+        }
+        if(slides[slides.length-1].style.left === '500vw') {
+            document.getElementById('prev1').style.display='none'
+          }
+        else {
+          document.getElementById('prev1').style.display='inline-block'
+        }
       }
-
-    };
-    </script>
+  </script>
 </head>
 <body class="body">
   <div class="localnavigation" id='headtag' style="
@@ -138,24 +160,58 @@
           <div id="w-node-_766cce10-8867-e4db-23fa-e121e6d0115a-4a9aa2b7" class="div-block-4"><img src={% static "images/1.jpg" %} loading="lazy" srcset={% static "images/1-p-500.jpg 500w, images/1.jpg 540w" %} sizes="(max-width: 600px) 90vw, 540px" alt="" class="perks" ></div>
           <div id="w-node-c8fd185b-7f45-1b57-9f9b-f8b2cbffb573-4a9aa2b7" class="div-block-5"><img src={% static "images/2.jpg" %} loading="lazy" srcset={% static "images/2-p-500.jpg 500w, images/2.jpg 540w" %} sizes="(max-width: 600px) 90vw, 540px" alt="" class="perks"></div>
           <div id="w-node-_3acc7ef0-3d6c-a802-b2db-503c4b066905-4a9aa2b7" class="div-block-5"><img src={% static "images/3.jpg" %} loading="lazy" srcset={% static "images/3-p-500.jpg 500w, images/3.jpg 540w" %} sizes="(max-width: 600px) 90vw, 540px" alt="" class="perks"></div>
-          <div id="w-node-f67654d5-0412-d2da-24ea-235051ed5b35-4a9aa2b7" class="div-block-5"><img src={% static "images/4.jpg" %} loading="lazy" srcset={% static "images/4-p-500.jpg 500w, images/4-p-800.jpg 800w, images/4-p-1080.jpg 1080w, images/4.jpg 1141w" %} sizes="90vw" alt="" class="perks" ></div>
+          <div id="w-node-f67654d5-0412-d2da-24ea-235051ed5b35-4a9aa2b7" class="div-block-5"><img src={% static "images/4.jpg" %} style="width:50vw;height:20vh;" loading="lazy" srcset={% static "images/4-p-500.jpg 500w, images/4-p-800.jpg 800w, images/4-p-1080.jpg 1080w, images/4.jpg 1141w" %} sizes="90vw" alt="" class="perks" ></div>
         </div>
       </div>
     </div>
-    <div class="trusted-patners wf-section">
+    <div class="trusted-patners wf-section" style="height:10vh;">
       <h1 class="heading-4">Get Mentored by Industry leaders !</h1>
       <p class="paragraph-3">We have a very strong relationship with the founders working with us. Some of the startups we have worked with are as follows :</p>
-      <div class="w-layout-grid grid-4">
-        <div id="w-node-_61baa192-c675-c19d-746c-b0fca4c41278-4a9aa2b7" class="div-block-6"><img class='w3-img w3-round-large' src="{% static 'home/1.png' %}" loading="lazy" alt=""></div>
-        <div id="w-node-_7cb1f6f5-fad2-c9cc-e903-1fd190b34cee-4a9aa2b7" class="div-block-6"><img class='w3-img w3-round-large' src="{% static 'home/4.png' %}" loading="lazy" alt=""></div>
-        <div id="w-node-_1aa6f9a6-adeb-5aca-994f-5a39bce9da3b-4a9aa2b7" class="div-block-6"><img class='w3-img w3-round-large' src="{% static 'home/3.png' %}" loading="lazy" alt="" ></div>
-        <div id="w-node-_1aa6f9a6-adeb-5aca-994f-5a39bce9da3b-4a9aa2b7" class="div-block-6"><img class='w3-img w3-round-large' src="{% static 'home/5.png' %}" loading="lazy" alt="" ></div>
-        <div id="w-node-_1aa6f9a6-adeb-5aca-994f-5a39bce9da3b-4a9aa2b7" class="div-block-6"><img class='w3-img w3-round-large' src="{% static 'home/6.png' %}" loading="lazy" alt="" ></div>
-        <div id="w-node-_1aa6f9a6-adeb-5aca-994f-5a39bce9da3b-4a9aa2b7" class="div-block-6"><img class='w3-img w3-round-large' src="{% static 'home/7.png' %}" loading="lazy" alt="" ></div>
+      <div class="!OMG" style='background-color:white;align-items:center;position:relative;top:-20vh;
+                               left:15vw;width:55vw;height:30vh;display:inline'>
+        <div  class="omg" style="position:absolute;
+                                   top:45vh;
+                                   left:0vw;
+                                   height:30vh;
+                                   width:55vw;
+                                   display: inline-block;"><img class='w3-img w3-round-large' src="{% static 'home/1.png' %}" loading="lazy" alt=""></div>
+        <div  class="omg" style="position:absolute;
+                                   top:45vh;
+                                   left:100vw;
+                                   height:30vh;
+                                   width:55vw;
+                                   display: inline-block;"><img class='w3-img w3-round-large' src="{% static 'home/4.png' %}" loading="lazy" alt=""></div>
+        <div  class="omg" style="position:absolute;
+                                   top:45vh;
+                                   left:200vw;
+                                   height:30vh;
+                                   width:55vw;
+                                   display: inline-block;"><img class='w3-img w3-round-large' src="{% static 'home/3.png' %}" loading="lazy" alt="" ></div>
+        <div  class="omg" style="position:absolute;
+                                   top:45vh;
+                                   left:300vw;
+                                   height:30vh;
+                                   width:55vw;
+                                   display: inline-block;"><img class='w3-img w3-round-large' src="{% static 'home/5.png' %}" loading="lazy" alt="" ></div>
+        <div  class="omg" style="position:absolute;
+                                   top:45vh;
+                                   left:400vw;
+                                   height:30vh;
+                                   width:55vw;
+                                   display: inline-block;"><img class='w3-img w3-round-large' src="{% static 'home/6.png' %}" loading="lazy" alt="" ></div>
+        <div  class="omg" style="position:absolute;
+                                   top:45vh;
+                                   left:500vw;
+                                   height:30vh;
+                                   width:55vw;
+                                   display: inline-block;"><img class='w3-img w3-round-large' src="{% static 'home/7.png' %}" loading="lazy" alt="" ></div>
       </div>
+      <div class="slidecontrols" style="position:relative;top:37vh;left:0vw;">
+        <button class="prevbutton" id="prev1" style="color: white; background-color: black; display: none; position:absolute; left:10vw; top:30vh;font-size: 50px;" onclick="prevFunction()"><</button>
+        <button class="nextbutton" id="next1" style="color: white; background-color: black; display:unset; position:absolute;left:73vw;top:30vh;font-size:50px;" onclick="nextFunction()">></button></div>
     </div>
-    <div class="features wf-section">
-      <!--<h1 class="heading-6">Events</h1>
+    <!---div class="features wf-section">
+      <<h1 class="heading-6">Events</h1>
       <div data-delay="4000" data-animation="slide" class="w-slider" data-autoplay="false" data-easing="ease" data-hide-arrows="false" data-disable-swipe="false" data-autoplay-limit="0" data-nav-spacing="4" data-duration="500" data-infinite="true">
         <div class="mask w-slider-mask">
           <div class="event-slide w-slide">
@@ -180,8 +236,8 @@
           <div class="w-icon-slider-right"></div>
         </div>
         <div class="w-slider-nav w-slider-nav-invert w-shadow w-round"></div>
-      </div>-->
-    </div>
+      </div>>
+    </div-->
   <div style="position: absolute;
                     top: 400%;
                     left:0%;

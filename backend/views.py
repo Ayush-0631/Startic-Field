@@ -64,6 +64,14 @@ def Signup(request):
                 user.set_password(password)
                 user.is_active = True
                 user.save()
+                
+                user = auth.authenticate(
+                    username=username, password=password)
+                if user:
+                    if user.is_active:
+                        auth.login(request, user)
+                        messages.success(request,"loggedin succesfully")
+                        return redirect("home")
                 return redirect('home')
 
             messages.warning(request, "This Email already exists!")

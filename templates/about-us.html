@@ -4,7 +4,7 @@
 <html data-wf-page="62d45fc8fd4c71120cdeac2a" data-wf-site="62d1c4ef6b8787757b9aa2b6">
 <head>
   <meta charset="utf-8">
-  <title>About us</title>
+  <title>About Us | Startic Field</title>
   <meta content="About us" property="og:title">
   <meta content="About us" property="twitter:title">
   <meta content="width=device-width, initial-scale=1" name="viewport">
@@ -16,7 +16,7 @@
   <script type="text/javascript">WebFont.load({  google: {    families: ["Inter:regular"]  }});</script>
   <!-- [if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" type="text/javascript"></script><![endif] -->
   <script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
-  <link href={% static "images/favicon.ico" %} rel="shortcut icon" type="image/x-icon">
+  <link href={% static "images/startic-field-logo.jpeg" %} rel="shortcut icon" type="image/x-icon" >
   <link href={% static "images/webclip.png" %} rel="apple-touch-icon">
   <script>
     var ht = window.innerHeight;
@@ -42,7 +42,7 @@
     window.addEventListener('scroll', handleScroll);
   </script>
 </head>
-<body class="body-2">
+<body class="body-2" styles="background-color:unset">
   <div class="localnavigation" id='headtag' style="
   position: fixed;
   width: 100%;
@@ -86,14 +86,16 @@
           <li style="display: inline-block;
                     padding:15px 17px;
                     font-size: 17px;
-          "><a href="/sign" class="textsides" style="text-decoration: none;
-                    font-weight: 500;">Logout</a></li>
+                    color: blue;
+          "><a href={% url 'logout' %} class="textsides" style="text-decoration: none;
+                    font-weight: 500;color:blue;">Logout</a></li>
           {% else %}
           <li style="display: inline-block;
                     padding:15px 17px;
                     font-size: 17px;
+                    color: blue;
           "><a href="/sign" class="textsides" style="text-decoration: none;
-                    font-weight: 500;">Sign Up</a></li>
+                    font-weight: 500;color:blue">Sign Up</a></li>
           {% endif %}
 
       </ul>
@@ -105,7 +107,7 @@
       <a href="programs" id="Programs-page" class="nav-link nav-hover w-nav-link">Programs</a>
       <a href="events" class="nav-link nav-hover w-nav-link">Events</a>
       {%if user.is_authenticated %}
-      <a href="sign" class="nav-link sign-up w-nav-link"><strong>Logout</strong></a>
+      <a href="{% url 'logout' %}" class="nav-link sign-up w-nav-link"><strong>Logout</strong></a>
       {% else %}
       <a href="sign" class="nav-link sign-up w-nav-link"><strong>Sign Up</strong></a>
       {% endif %}
@@ -130,123 +132,153 @@
       <p class="paragraph-4"><strong class="bold-text-8">For Contributors :</strong><br><br>India has become the country with the 2nd highest number of Unicorns after USA. However, if you compare the populations of the 2 countries, you will quickly realize that the devil is in the details. With a Population of 335 million (1/4th of India), USA has 4 times the number of unicorns India has. This means that we have just utilized 6% of our startup potential. This is because India is full of people with aspirations but stuck in a 9-5 job in some multinational.<br>‍<br>If you are one of them and are reading this page, it means that you have a spark of entrepreneurship somewhere. Maybe an idea which is stuck in your head from your college days. Due to financial compulsions, you took up a job, but that passion refused to die. Somewhere in the back of your head it still lives and comes up when you see shows like Shark Tank. But what can you do? You have the experience, you have the connects, you even have some money to spare. But after a hard day&#x27;s work and a family to look after, you hardly find time or energy to work on the ground.<br><br>Enter Startic Field. Join the network and connect with student entrepreneurs whose ideas match or are close to ones you have. These bright eyed students are a reflection of yourself in your heydays. They have passion, energy and all the time in the world to get to the ground and work. But they need something which you have. Your experience, connections and maybe seed capital which will help them to zoom ahead.<br><br>You can work with these student startups and take a share in their equity. We are not an investment platform, where rich &quot;uncles&quot; can invest and calculate the ROI. You have to join a startup team and work with them to make the startup a success. It might not even involve any monetary investment from your side. And even if it does, it will be small amounts which you might have otherwise spent in going on a vacation or buying an expensive phone.<br><br><strong class="bold-text">So join the bandwagon. You are building history here!</strong></p>
     </div>
   </div>
-  <div style="position: absolute;
-                    top: 300%;
-                    left:0%;
-                    width: 100%;
-                    height: 60%;
-                    background-color: #000000;
-                    color: white;
-                    z-index: 2;">
-            <a href='\'> <img src={% static "images/Group-58.svg" %} loading="lazy" width="140" height="44"
-            style=" position: absolute;
-                    top: 0%;
-                    width: 15%;
-                    height: 25%;
-                    left: 5%;"></a>
-            <div class='copyRigth' style="position: absolute;
-                                        top:85%;
-                                        left:1%;
-                                        width: auto;
-                                        height: auto;">
-              <span>&copy;</span> 2022, Startic Field Pvt. Ltd. All Rights Reserved.
-            </div>
-            <div class='content' style="position: absolute;
-                                            text-align: left;
-                                            left: 1%;
-                                            top:30%;
-                                            width:25%;
-                                            height:auto;">
-              Startic Field is a company which aims to endow student entrepreneurs with the power of community, knowledge, capital and mentorship. It is also a forum where we bring together working professionals as contributors who have a passion to startup, years of experience and small amounts of capital but do not have the bandwidth to work on the ground.
-            </div>
-            <a href='#' class='company' style="position: absolute;
-                                                    text-decoration: none;
-                                                    color: white;
-                                                    top:10%;
-                                                    left:35%;
-                                                    font-size: 28px;
-                                                    width: auto;
-                                                    height: auto;">
-              <b>Company</b></a>
-            <a href="/about" class='cone' style="position: absolute;
-                                                text-decoration: none;
-                                                color: white;
-                                                height: auto;
-                                                width: auto;
-                                                top: 30%;
-                                                left: 35%;">About Us</a>
-            <a href='#' class='ctwo' style="position: absolute;
-                                            text-decoration: none;
-                                            color: white;
-                                            height: auto;
-                                            width: auto;
-                                            top: 42.5%;
-                                            left: 35%;">Privacy Policy</a>
-            <a href='#' class='cthree' style="position: absolute;
-                                            text-decoration: none;
-                                            color: white;
-                                            height: auto;
-                                            width: auto;
-                                            top: 55%;
-                                            left: 35%;">Terms and Conditions</a>
-            <a href='#' class='otherlinks' style="position: absolute;
-                                                text-decoration: none;
-                                                color: white;
-                                                top:10%;
-                                                left:55%;
-                                                font-size: 28px;
-                                                width: auto;
-                                                height: auto;">
-              <b>Other Links</b>
-            </a>
-            <a href='#' class='done' style="position: absolute;
-                                            height: auto;
-                                            text-decoration: none;
-                                            color: white;
-                                            width: auto;
-                                            top: 30%;
-                                            left: 55%";>Community</a>
-            <a href='/events' class='dtwo' style="position: absolute;
-                                            text-decoration: none;
-                                            color: white;
-                                            height: auto;
-                                            width: auto;
-                                            top: 42.5%;
-                                            left: 55%;">Events</a>
-            <a href='/programs' class='dthree' style="text-decoration: none;
-                                            position: absolute;
-                                            color: white;
-                                            height: auto;
-                                            width: auto;
-                                            top: 55%;
-                                            left: 55%;">Programs</a>
-            <a href='/contact' class='contactUs' style="position: absolute;
-                                                text-decoration: none;
-                                                color: white;
-                                                top:10%;
-                                                left:75%;
-                                                font-size: 28px;
-                                                width: auto;
-                                                height: auto;">
-              <b>Contact Us</b></a>
-            <a href='#' class='eone' style="text-decoration: none;
-                                            position: absolute;
-                                            color: white;
-                                            height: auto;
-                                            width: auto;
-                                            top: 67.5%;
-                                            left: 55%;">Careers</a>
-            <div class='email' style="text-decoration: none;
+  <style>
+    .lnk:hover {
+      color:blue !important;
+    }
+  </style>
+<div style="position: absolute;
+                  top: 292vh;
+                  left:0%;
+                  width: 100%;
+                  height: 60%;
+                  background-color: #000000;
+                  color: white;
+                  z-index: 2;">
+          <a href='\'> <img src={% static "images/Group-58.svg" %} loading="lazy" width="140" height="44"
+          style=" position: absolute;
+                  top: 0%;
+                  width: 15%;
+                  height: 25%;
+                  left: 5%;"></a>
+          <div class='copyRigth' style="position: absolute;
+                                      top:85%;
+                                      left:1%;
+                                      width: auto;
+                                      height: auto;">
+            <span>&copy;</span> 2022, Starticfield Innovations Pvt. Ltd. All Rights Reserved.
+          </div>
+          <div class='content' style="position: absolute;
+                                          text-align: left;
+                                          left: 1%;
+                                          top:30%;
+                                          width:25%;
+                                          height:auto;">
+            Startic Field is a company which aims to endow student entrepreneurs with the power of community, knowledge, capital and mentorship. It is also a forum where we bring together working professionals as contributors who have a passion to startup, years of experience and small amounts of capital but do not have the bandwidth to work on the ground.
+          </div>
+          <a href='#' class='company' style="position: absolute;
+                                                  text-decoration: none;
+                                                  color: white;
+                                                  top:10%;
+                                                  left:35%;
+                                                  font-size: 28px;
+                                                  width: auto;
+                                                  height: auto;">
+            <b>Company</b></a>
+          <a href="/about" class='lnk' style="position: absolute;
+                                              text-decoration: none;
+                                              color: white;
+                                              height: auto;
+                                              width: auto;
+                                              top: 30%;
+                                              left: 35%;">About Us</a>
+          <a href='#' class='lnk' style="position: absolute;
+                                          text-decoration: none;
+                                          color: white;
+                                          height: auto;
+                                          width: auto;
+                                          top: 42.5%;
+                                          left: 35%;">Privacy Policy</a>
+          <a href='#' class='lnk' style="position: absolute;
+                                          text-decoration: none;
+                                          color: white;
+                                          height: auto;
+                                          width: auto;
+                                          top: 55%;
+                                          left: 35%;">Terms and Conditions</a>
+          <a href='#' class='otherlinks' style="position: absolute;
+                                              text-decoration: none;
+                                              color: white;
+                                              top:10%;
+                                              left:55%;
+                                              font-size: 28px;
+                                              width: auto;
+                                              height: auto;">
+            <b>Other Links</b>
+          </a>
+          <a href='#' class='lnk' style="position: absolute;
+                                          height: auto;
+                                          text-decoration: none;
+                                          color: white;
+                                          width: auto;
+                                          top: 30%;
+                                          left: 55%";>Community</a>
+          <a href='/events' class='lnk' style="position: absolute;
+                                          text-decoration: none;
+                                          color: white;
+                                          height: auto;
+                                          width: auto;
+                                          top: 42.5%;
+                                          left: 55%;">Events</a>
+          <a href='/programs' class='lnk' style="text-decoration: none;
+                                          position: absolute;
+                                          color: white;
+                                          height: auto;
+                                          width: auto;
+                                          top: 55%;
+                                          left: 55%;">Programs</a>
+          <a href='#' class='contactUs' style="position: absolute;
+                                              text-decoration: none;
+                                              color: white;
+                                              top:10%;
+                                              left:75%;
+                                              font-size: 28px;
+                                              width: auto;
+                                              height: auto;">
+            <b>Contact Us</b></a>
+          <a href='#' class='lnk' style="text-decoration: none;
+                                          position: absolute;
+                                          color: white;
+                                          height: auto;
+                                          width: auto;
+                                          top: 67.5%;
+                                          left: 55%;">Careers</a>
+          <a href="contact" class='lnk' style="text-decoration: none;
                                     position: absolute;
                                     height: auto;
                                     width: auto;
-                                    top: 42.5%;
+                                    color: white;
+                                    top: 30%;
                                     left: 75%;">
-                                    contactUs@starticField.com<br><br>
-                                    <a href="#" class="footer-social-link w-inline-block" style="position: absolute; top:80%; left:20%;"><img src="https://uploads-ssl.webflow.com/62434fa732124a0fb112aab4/62434fa732124ac15112aad5_twitter%20small.svg" loading="lazy" alt=""></a>
-                                    <a href="#" class="footer-social-link w-inline-block" style="position: absolute; top:80%; left:40%;"><img src="https://uploads-ssl.webflow.com/62434fa732124a0fb112aab4/62434fa732124a389912aad8_linkedin%20small.svg" loading="lazy" alt=""></a>
-                                    <a href="#" class="footer-social-link w-inline-block" style="position: absolute; top:80%; left:60%;"><img src="https://uploads-ssl.webflow.com/62434fa732124a0fb112aab4/62434fa732124a51bf12aae9_facebook%20small.svg" loading="lazy" alt=""></a>
-                                </div>
+                                    Contact Us<br><br></a>
+          <div class='lnk' style="text-decoration: none;
+                                  position: absolute;
+                                  height: auto;
+                                  width: auto;
+                                  top: 42.5%;
+                                  left: 75%;">
+                                  Priyansh@starticField.com</div>
+                                  <div class='lnk' style="text-decoration: none;
+                                  position: absolute;
+                                  height: auto;
+                                  width: auto;
+                                  top: 55%;
+                                  left: 75%;">
+                                  <a href="#" class="footer-social-link w-inline-block"><img src="https://uploads-ssl.webflow.com/62434fa732124a0fb112aab4/62434fa732124ac15112aad5_twitter%20small.svg" loading="lazy" alt=""style="
+position: relative;
+left:0;
+height: 40px;"></a>
+                                  <a href="#" class="footer-social-link w-inline-block" ><img src="https://uploads-ssl.webflow.com/62434fa732124a0fb112aab4/62434fa732124a389912aad8_linkedin%20small.svg" loading="lazy" alt=""style="
+position: relative;
+left: 20%;
+height: 40px;"></a>
+                                  <a href="#" class="footer-social-link w-inline-block" ><img src="https://uploads-ssl.webflow.com/62434fa732124a0fb112aab4/62434fa732124a51bf12aae9_facebook%20small.svg" loading="lazy" alt=""style="
+position: relative;
+left: 40%;
+height: 40px;"></a>
+                              </div>
+</div>
+  </div>
   <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=62d1c4ef6b8787757b9aa2b6" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
   <script src="js/webflow.js" type="text/javascript"></script>
   <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->

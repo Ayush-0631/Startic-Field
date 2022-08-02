@@ -4,8 +4,9 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>Events | Startic Field</title>
         <meta name="description" content="">
+        <link href={% static "images/startic-field-logo.jpeg" %} rel="shortcut icon" type="image/x-icon" >
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <style>
             .verticalNavBar {
@@ -264,12 +265,14 @@
                 <li style="display: inline-block;
                           padding:15px 17px;
                           font-size: 17px;
-                "><a href="/sign" class="textsides" style="text-decoration: none;
-                          font-weight: 500;">Sign Up</a></li>
+                          color: blue;
+                "><a href={% url 'logout' %} class="textsides" style="text-decoration: none;
+                          font-weight: 500;">Logout</a></li>
                 {% else %}
                 <li style="display: inline-block;
                           padding:15px 17px;
                           font-size: 17px;
+                          color: blue;
                 "><a href="/sign" class="textsides" style="text-decoration: none;
                           font-weight: 500;">Sign Up</a></li>
                 {% endif %}

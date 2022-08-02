@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,330 +9,426 @@
     <title>ReversePitch Form</title>
     <link rel="stylesheet" href="{% static "css/w3.css"%}" />
     <style>
- @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 
- *{
-     margin: 0;
-     padding: 0;
-     box-sizing: border-box;
-     font-family: 'Poppins', sans-serif;
- }
- 
- section{
-     background: linear-gradient(270deg, #69C5AA 0%, #37C0C3 32.91%, #587CBD 66.12%, #475CAA 100%);
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     min-height: 100vh;
- }
- 
- section::before{
-     content: '';
-     position: absolute;
-     width: 400px;
-     height: 400px;
-     background: #57bfc6;
-     border-radius: 50%;
-     transform: translate(-420px,-180px)
- }
- 
- section::after{
-     content: '';
-     position: absolute;
-     width: 400px;
-     height: 400px;
-     background: #2184b5;
-     border-radius: 50%;
-     transform: translate(420px,180px)
- }
- 
- .container{
-     position: relative;
-     z-index: 3;
-     width: 100%;
-     max-width: 1000px;
-     padding: 50px;
-     background: rgba(255, 255, 255, 0.1);
-     box-shadow: 0 25px 45px rgba(0,0,0,0.1);
-     border-left: 1px solid rgba(255, 255, 255, 0.1);
-     border-top: 1px solid rgba(255, 255, 255, 0.1);
-     border-radius: 10px;
-     overflow: hidden;
-     backdrop-filter: blur(25px);
- }
- 
- .container::before{
-     content: '';
-     position: absolute;
-     top: 0;
-     left: -40%;
-     width: 100%;
-     height: 100%;
-     background: rgba(255, 255, 255, 0.05);
-     pointer-events: none;
-     transform: skewX(-15deg);
- }
- 
- .container h2{
-     width: 100%;
-     text-align: center;
-     color: #fff;
-     font-size: 2rem;
-     margin-bottom: 1.5rem;
- }
- 
- .container .row100{
-     position: relative;
-     width: 100%;
-     display: grid;
-     grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
- }
- 
- .container .row100 .col{
-     position: relative;
-     width: 100%;
-     padding: 0 20px;
-     margin: 30px 0 20px;
- }
- 
- .container .row100 .col .inputBox{
-     position: relative;
-     width: 100%;
-     height: 40px;
-     color: #fff;
- }
- 
- .container .row100 .col .inputBox textarea,
- .container .row100 .col .inputBox input{
-     position: absolute;
-     width: 100%;
-     height: 100%;
-     background: transparent;
-     box-shadow: none;
-     border: none;
-     outline: none;
-     font-size: 15px;
-     padding: 0 10px;
-     z-index: 1;
-     color: #000;
- }
- 
- .container .row100 .col .inputBox .text{
-     position: absolute;
-     top: 0;
-     left: 0;
-     line-height: 2.5rem;
-     font-size: 1.2rem;
-     padding: 0 10px;
-     display: block;
-     transition: 0.5s;
-     pointer-events: none;
- }
- 
- .container .row100 .col .inputBox input:focus + .text,
- .container .row100 .col .inputBox input:valid + .text,
- .container .row100 .col .inputBox textarea:focus + .text,
- .container .row100 .col .inputBox textarea:valid + .text{
-     top: -35px;
-     left: -10px;
- }
- 
- .container .row100 .col .inputBox .line{
-     position: absolute;
-     bottom: 0;
-     display: block;
-     width: 100%;
-     height: 2px;
-     background: #fff;
-     transition: 0.5s;
-     border-radius: 2px;
-     pointer-events: none;
- }
- 
- .container .row100 .col .inputBox input:focus ~ .line,
- .container .row100 .col .inputBox textarea:valid ~ .line{
-     height: 100%;
- }
- 
- .container .row100 .col .inputBox textarea{
-     position: relative;
-     width: 100%;
-     height: 100px;
-     padding: 10px 0;
- }
- 
- .container .row100 .col .inputBox textarea:focus ~ .line,
- .container .row100 .col .inputBox textarea:valid ~ .line{
-     height: 100%;
- }
- 
- .container .row100 .col .inputBox .genderRadio{
-     position: absolute;
-     margin: 3px 0 0 80px;
-     width: 50%;
-     height: 50%;
- }
- 
- .genderText{
-     padding: 2px 20px;
- }
- 
- .Gender{
-     padding: 10px 0;
-     font-size: 18px;
- }
- 
- .questionContainer input{
-     width: 100%;
-     height: 100%;
-     background: transparent;
-     box-shadow: none;
-     border: none;
-     outline: none;
-     font-size: 15px;
-     padding: 0 10px;
-     z-index: 1;
-     color: #000;
- }
- 
- .questionContainer .col{
-     padding-top: 25px;
- }
- 
- .questionContainer .text{
-     position: absolute;
-     top: 0;
-     left: 0;
-     line-height: 2.5rem;
-     font-size: 1.2rem;
-     padding: 0 10px;
-     display: block;
-     transition: 0.5s;
-     pointer-events: none;
- }
- 
- .questionBox{
-     position: relative;
-     padding: 10px;
-     width: 100%;
-     height: 100%;
-     color: #fff;
- }
- 
- .questionBox .line{
-     position: relative;
-     bottom: 0;
-     display: block;
-     width: 95%;
-     height: 2px;
-     background: #fff;
-     transition: 0.5s;
-     border-radius: 2px;
-     pointer-events: none;
- }
- 
- .submitButton{
-     border: none;
-     margin: 0;
-     padding: 10px 40px;
-     cursor: pointer;
-     outline: none;
-     background: #fff;
-     color: #000;
-     font-weight: 600;
-     font-size: 18px;
-     border-radius: 8px;
- }
- 
- .submitButton:hover{
-     background: linear-gradient(270deg, #69C5AA 0%, #37C0C3 32.91%, #587CBD 66.12%, #475CAA 100%);
-     color: #fff;
-     padding: 11px 41px;
- } 
- 
- @media only screen and (max-width: 500px){
-     .q1{
-         padding-top: 80px;
-     }
- 
-     .q2{
-         padding-top: 85px;
-     }
- 
-     .q3{
-         padding-top: 45px;
-     }
- 
-     .questionBox{
-         padding-bottom: 40px;
-     }
- }
- 
- @media only screen and (max-width: 850px){
-     .genderBox{
-         margin-bottom: 40px;
-     }
- }
- 
- @media only screen and (max-width: 1230px){
-     
-     section::after{
-         display: none;
-     }
- }
-</style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        section {
+            background: linear-gradient(270deg, #69C5AA 0%, #37C0C3 32.91%, #587CBD 66.12%, #475CAA 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        section::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: #57bfc6;
+            border-radius: 50%;
+            transform: translate(-420px, -180px)
+        }
+
+        section::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: #2184b5;
+            border-radius: 50%;
+            transform: translate(420px, 180px)
+        }
+
+        .container {
+            position: relative;
+            z-index: 3;
+            width: 100%;
+            max-width: 1000px;
+            padding: 50px 10px;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            backdrop-filter: blur(25px);
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -40%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            pointer-events: none;
+            transform: skewX(-15deg);
+        }
+
+        .container h2 {
+            width: 100%;
+            text-align: center;
+            color: #fff;
+            font-weight: 700;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .container .row100 {
+            position: relative;
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        .container .row100 .col {
+            position: relative;
+            width: 100%;
+            padding: 0 20px;
+            margin: 30px 0 20px;
+        }
+
+        .container .row100 .col .inputBox {
+            position: relative;
+            width: 100%;
+            height: 40px;
+            color: #fff;
+        }
+
+        .container .row100 .col .inputBox textarea,
+        .container .row100 .col .inputBox input {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            box-shadow: none;
+            border: none;
+            outline: none;
+            font-size: 15px;
+            padding: 0 10px;
+            z-index: 1;
+            color: #000;
+        }
+
+        .container .row100 .col .inputBox .text {
+            position: absolute;
+            top: 0;
+            left: 0;
+            line-height: 2.5rem;
+            font-size: 1.2rem;
+            padding: 0 10px;
+            display: block;
+            transition: 0.5s;
+            pointer-events: none;
+        }
+
+        .container .row100 .col .inputBox input:focus+.text,
+        .container .row100 .col .inputBox input:valid+.text,
+        .container .row100 .col .inputBox textarea:focus+.text,
+        .container .row100 .col .inputBox textarea:valid+.text {
+            top: -35px;
+            left: -10px;
+        }
+
+        .container .row100 .col .inputBox .line {
+            position: absolute;
+            bottom: 0;
+            display: block;
+            width: 100%;
+            height: 2px;
+            background: #fff;
+            transition: 0.5s;
+            border-radius: 2px;
+            pointer-events: none;
+        }
+
+        .container .row100 .col .inputBox input:focus~.line,
+        .container .row100 .col .inputBox textarea:valid~.line {
+            height: 100%;
+        }
+
+        .container .row100 .col .inputBox textarea {
+            position: relative;
+            width: 100%;
+            height: 100px;
+            padding: 10px 0;
+        }
+
+        .container .row100 .col .inputBox textarea:focus~.line,
+        .container .row100 .col .inputBox textarea:valid~.line {
+            height: 100%;
+        }
+
+        .container .row100 .col .inputBox .genderRadio {
+            position: absolute;
+            margin: 4px 0 0 80px;
+            width: 50%;
+            height: 50%;
+        }
+
+        .genderText {
+            padding: 2px 20px;
+        }
+
+        .Gender {
+            padding: 10px 0;
+            font-size: 16px;
+        }
+
+        .questionContainer input {
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            box-shadow: none;
+            border: none;
+            outline: none;
+            font-size: 15px;
+            padding: 0 10px;
+            z-index: 1;
+            color: #000;
+        }
+
+        .questionContainer .col {
+            padding-top: 25px;
+        }
+
+        .questionContainer .text {
+            position: absolute;
+            top: 0;
+            left: 0;
+            line-height: 2.5rem;
+            font-size: 1.2rem;
+            padding: 0 10px;
+            display: block;
+            transition: 0.5s;
+            pointer-events: none;
+        }
+
+        .questionBox {
+            position: relative;
+            padding: 10px;
+            width: 100%;
+            height: 100%;
+            color: #fff;
+        }
+
+        .questionBox .line {
+            position: relative;
+            bottom: 0;
+            display: block;
+            width: 95%;
+            height: 2px;
+            background: #fff;
+            transition: 0.5s;
+            border-radius: 2px;
+            pointer-events: none;
+        }
+
+        .ideaBox {
+            padding: 10px;
+            color: #fff;
+        }
+
+        .ideaBox .genderText {
+            margin-left: 10px;
+        }
+
+        #ideaCheckbox {
+            position: absolute;
+            margin-top: 3px;
+            width: 20px;
+            height: 20px;
+        }
+
+        .skillsBox {
+            margin-bottom: 220px;
+        }
+
+        .p-5 {
+            margin-left: 10px;
+        }
+
+        .line1 {
+            position: absolute;
+            bottom: -15px;
+            margin-left: 20px;
+            display: block;
+            width: 90%;
+            height: 2px;
+            background: #fff;
+            transition: 0.5s;
+            border-radius: 2px;
+            pointer-events: none;
+        }
+
+        .teamBox {
+            margin-bottom: 100px;
+        }
+
+        .teamBox .Gender {
+            font-weight: 600;
+            font-size: 1.5rem;
+        }
+
+        .sectionM1,
+        .sectionM2,
+        .sectionM3,
+        .sectionM4 {
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .containerM1,
+        .containerM2,
+        .containerM3,
+        .containerM4 {
+            background: #d8ebec1b;
+            border-radius: 5px;
+            padding: 2px;
+            margin: 3px;
+            position: relative;
+            z-index: 3;
+            width: 100%;
+            max-width: 1000px;
+            overflow: hidden;
+        }
+
+        .submitButton {
+            border: none;
+            margin: 0;
+            padding: 10px 40px;
+            cursor: pointer;
+            outline: none;
+            background: #fff;
+            color: #000;
+            font-weight: 600;
+            font-size: 18px;
+            border-radius: 8px;
+        }
+
+        .submitButton:hover {
+            background: linear-gradient(270deg, #69C5AA 0%, #37C0C3 32.91%, #587CBD 66.12%, #475CAA 100%);
+            color: #fff;
+            padding: 11px 41px;
+        }
+
+        @media only screen and (max-width: 650px) {
+
+            .teamBox .genderRadio {
+                right: 0;
+            }
+
+            .questionBox {
+                padding-bottom: 40px;
+            }
+        }
+
+        @media only screen and (max-width: 500px) {
+            .q1{
+                margin-top: 40px;
+            }
+
+            .q2{
+                margin-top: 80px;
+            }
+
+            .q3{
+                margin-top: 40px;
+            }
+        }
+
+        
+
+        @media only screen and (max-width: 770px) {
+            .genderBox1 {
+                margin-bottom: 40px;
+            }
+        }
+
+        @media only screen and (max-width: 770px) {
+            .genderBox1 {
+                margin-bottom: 40px;
+            }
+        }
+
+        @media only screen and (max-width: 1230px) {
+
+            section::after {
+                display: none;
+            }
+        }
+    </style>
 
 </head>
+<<<<<<< HEAD
 <body style="background-image: url('{% static "images/About-us-background-p-800.jpg"%}')"  >
     
     <section class='w3-padding' >
         <form method="POST" action="{% url 'reverse-pitch-form' %}"  class="container w3-margin">
+=======
+
+<body>
+
+    <section class='w3-padding'>
+        <form method="POST" action={% url 'reverse-pitch-details' %} class="container w3-margin">
+>>>>>>> fda87aa99bcf4af501ddb07909ed1a2c656ceef3
             {% csrf_token %}
             <h2>Registration</h2>
-        <div class="row100">
-            <div class="col">
-                <div class="inputBox">
-                    <input name="name" id="name" type="text" name="" required>
-                    <span class="text">Name</span>
-                    <span class="line"></span>
+            <div class="row100">
+                <div class="col">
+                    <div class="inputBox">
+                        <input name="name" id="name" type="text" name="" required>
+                        <span class="text">Name</span>
+                        <span class="line"></span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="inputBox">
+                        <input name="age" id="age" type="number" name="" required>
+                        <span class="text">Age</span>
+                        <span class="line"></span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="inputBox genderBox genderBox1">
+                        <div class="Gender">Gender</div>
+                        <div class="genderText"><input name="gender" id="gender" class="genderRadio" type="radio"
+                                gender="gender" required checked>Male</div>
+                        <div class="genderText"><input name="gender" id="gender" class="genderRadio" type="radio"
+                                gender="gender" required>Female</div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="inputBox">
+                        <input name="college" id="college" type="text" name="" required>
+                        <span class="text">College</span>
+                        <span class="line"></span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="inputBox">
+                        <input name="year" id="year" type="number" name="" required>
+                        <span class="text">Year</span>
+                        <span class="line"></span>
+                    </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="inputBox">
-                    <input name="age" id="age" type="number" name="" required>
-                    <span class="text">Age</span>
-                    <span class="line"></span>
-                </div>
-            </div>
-            <div class="col">
-                <div class="inputBox genderBox">
-                    <div class="Gender">Gender</div>
-                    <div class="genderText"><input name="gender" id="gender" class="genderRadio" type="radio" gender="gender" required checked>Male</div>
-                    <div class="genderText"><input name="gender" id="gender" class="genderRadio" type="radio" gender="gender" required>Female</div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="inputBox">
-                    <input name="college" id="college" type="text" name="" required>
-                    <span class="text">College</span>
-                    <span class="line"></span>
-                </div>
-            </div>
-            <div class="col">
-                <div class="inputBox">
-                    <input name="year" id="year" type="number" name="" required>
-                    <span class="text">Year</span>
-                    <span class="line"></span>
-                </div>
-            </div>
-        </div>
             <div class="questionContainer">
                 <div class="col">
                     <div class="inputBox questionBox">
-                        <div class="text p-40">How will you manage Entrepreneurship and Studies?</div> <br> 
+                        <div class="text p-40">How will you manage Entrepreneurship and Studies?</div> <br>
                         <div class="q1">
-                            <textarea style="background: transparent;transition: 0.5s;" name="a1" id="a1" class='w3-input w3-large w3-round-large w3-hover-white' type="text" ></textarea>
-                        <span class="line"></span>
+                            <textarea style="resize: none;" name="a1" id="a1" class='w3-input w3-large w3-hover-white' type="text" overflow="scroll"></textarea>
+                            
                         </div>
                     </div>
                 </div>
@@ -339,8 +436,8 @@
                     <div class="inputBox questionBox">
                         <div class="text p-40">Why do you think you will become a successful entrepreneur?</div> <br>
                         <div class="q2">
-                            <textarea style="background: transparent;transition: 0.5s;" name="a2" id="a2" class='w3-input w3-large w3-round-large w3-hover-white' type="text" ></textarea>
-                        <span class="line"></span>
+                            <textarea style="resize: none;" name="a2" id="a2" class='w3-input w3-large w3-hover-white' type="text"></textarea>
+                           
                         </div>
                     </div>
                 </div>
@@ -348,20 +445,404 @@
                     <div class="inputBox questionBox">
                         <div class="text p-40">Which is your favourite startup and why?</div> <br>
                         <div class="q3">
-                            <textarea style="background: transparent;transition: 0.5s;" name="a3" id="a3" class='w3-input w3-large w3-round-large w3-hover-white' type="text" ></textarea>
-                        <span class="line"></span>
+                            <textarea style="resize: none;" name="a3" id="a3" class='w3-input w3-large w3-hover-white' type="text"></textarea>
+                            
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Updates-->
+
+            <div class="col">
+                <div class="inputBox ideaBox">
+                    <div class="Gender">Which idea do you want to pitch in?</div>
+                    <input id="ideaCheckbox" class="genderRadio" type="checkbox" name="idea">
+                    <div class="genderText">Bubble</div>
+                    <input id="ideaCheckbox" class="genderRadio" type="checkbox" name="idea">
+                    <div class="genderText">Wrangle</div>
+                    <input id="ideaCheckbox" class="genderRadio" type="checkbox" name="idea">
+                    <div class="genderText">Wind</div>
+                </div>
+            </div>
+
+            <!-- Add Team Members -->
+
+            <div class="row100">
+                <div class="col">
+                    <div id="teamBox" class="inputBox teamBox">
+                        <div class="Gender">Add Team Members</div>
+
+                        <!--Member 1-->
+                        <input id="add1" class="genderRadio" type="checkbox" name="gender" onclick="show1()">
+                        <div id="teamBox1" class="genderText">Add 1st Team Member</div>
+                        <div id="sectionM1" class="sectionM1">
+                            <div class="containerM1">
+                                <div class="row100">
+                                    <div class="col">
+                                        <div class="inputBox">
+                                            <input name="name" id="name" type="text" name="" required>
+                                            <span class="text">Name</span>
+                                            <span class="line"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="inputBox">
+                                            <input name="age" id="age" type="number" name="" required>
+                                            <span class="text">Age</span>
+                                            <span class="line"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="inputBox genderBox genderBox1">
+                                            <div class="Gender">Gender</div>
+                                            <div class="genderText"><input name="m1gender" id="gender" class="genderRadio" type="radio"
+                                                    gender="gender" required checked>Male</div>
+                                            <div class="genderText"><input name="m1gender" id="gender" class="genderRadio" type="radio"
+                                                    gender="gender" required>Female</div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="inputBox">
+                                            <input name="college" id="college" type="text" name="" required>
+                                            <span class="text">College</span>
+                                            <span class="line"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="inputBox">
+                                            <input name="year" id="year" type="number" name="" required>
+                                            <span class="text">Year</span>
+                                            <span class="line"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Member 2-->
+                        <input id="add2" class="genderRadio" type="checkbox" name="gender" onclick="show2()">
+                        <div class="genderText">Add 2nd Team Member</div>
+                        <div id="sectionM2" class="sectionM2">
+                            <div class="containerM2">
+                                <div class="row100">
+                                    <div class="col">
+                                        <div class="inputBox">
+                                            <input name="name" id="name" type="text" name="" required>
+                                            <span class="text">Name</span>
+                                            <span class="line"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="inputBox">
+                                            <input name="age" id="age" type="number" name="" required>
+                                            <span class="text">Age</span>
+                                            <span class="line"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="inputBox genderBox genderBox1">
+                                            <div class="Gender">Gender</div>
+                                            <div class="genderText"><input name="m2gender" id="gender" class="genderRadio" type="radio"
+                                                    gender="gender" required checked>Male</div>
+                                            <div class="genderText"><input name="m2gender" id="gender" class="genderRadio" type="radio"
+                                                    gender="gender" required>Female</div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="inputBox">
+                                            <input name="college" id="college" type="text" name="" required>
+                                            <span class="text">College</span>
+                                            <span class="line"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="inputBox">
+                                            <input name="year" id="year" type="number" name="" required>
+                                            <span class="text">Year</span>
+                                            <span class="line"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Member 3-->
+                        <input id="add3" class="genderRadio" type="checkbox" name="gender" onclick="show3()">
+                        <div class="genderText">Add 3rd Team Member</div>
+                        <div id="sectionM3" class="sectionM3">
+                            <div class="containerM3">
+                                <div class="row100">
+                                    <div class="col">
+                                        <div class="inputBox">
+                                            <input name="name" id="name" type="text" name="" required>
+                                            <span class="text">Name</span>
+                                            <span class="line"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="inputBox">
+                                            <input name="age" id="age" type="number" name="" required>
+                                            <span class="text">Age</span>
+                                            <span class="line"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="inputBox genderBox genderBox1">
+                                            <div class="Gender">Gender</div>
+                                            <div class="genderText"><input name="m3gender" id="gender" class="genderRadio" type="radio"
+                                                    gender="gender" required checked>Male</div>
+                                            <div class="genderText"><input name="m3gender" id="gender" class="genderRadio" type="radio"
+                                                    gender="gender" required>Female</div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="inputBox">
+                                            <input name="college" id="college" type="text" name="" required>
+                                            <span class="text">College</span>
+                                            <span class="line"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="inputBox">
+                                            <input name="year" id="year" type="number" name="" required>
+                                            <span class="text">Year</span>
+                                            <span class="line"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Member 4-->
+                        <input id="add4" class="genderRadio" type="checkbox" name="gender" onclick="show4()">
+                        <div class="genderText">Add 4th Team Member</div>
+                        <div id="sectionM4" class="sectionM4">
+                            <div class="containerM4">
+                                <div class="row100">
+                                    <div class="col">
+                                        <div class="inputBox">
+                                            <input name="name" id="name" type="text" name="" required>
+                                            <span class="text">Name</span>
+                                            <span class="line"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="inputBox">
+                                            <input name="age" id="age" type="number" name="" required>
+                                            <span class="text">Age</span>
+                                            <span class="line"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="inputBox genderBox genderBox1">
+                                            <div class="Gender">Gender</div>
+                                            <div class="genderText"><input name="m4gender" id="gender" class="genderRadio" type="radio"
+                                                    gender="gender" required checked>Male</div>
+                                            <div class="genderText"><input name="m4gender" id="gender" class="genderRadio" type="radio"
+                                                    gender="gender" required>Female</div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="inputBox">
+                                            <input name="college" id="college" type="text" name="" required>
+                                            <span class="text">College</span>
+                                            <span class="line"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="inputBox">
+                                            <input name="year" id="year" type="number" name="" required>
+                                            <span class="text">Year</span>
+                                            <span class="line"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
 
             <div class="row100">
                 <div class="col">
-                    <button type="submit" class="submitButton" type="submit" >Submit</button>
+                    <button type="submit" class="submitButton" type="submit">Submit</button>
                 </div>
             </div>
         </form>
     </section>
 
+    <script>
+        if (screen && screen.width > 750) {
+            var count = 0;
+
+            function show1() {
+                var add1 = document.getElementById("add1");
+                var sectionM1 = document.getElementById("sectionM1");
+                var teamBox = document.getElementById("teamBox");
+                var mar = teamBox.style.margin;
+                console.log(mar)
+                if (add1.checked) {
+                    count++;
+                    sectionM1.style.display = "flex";
+                    teamBox.style.margin = "0 0 " + String(10 + (260 * count)) + "px";
+                    teamBox.style.transition = "0.5s";
+                } else {
+                    count--;
+                    sectionM1.style.display = "none";
+                    teamBox.style.margin = "0 0 " + String(100 + (260 * count)) + "px";
+                }
+                console.log("count" + String(count));
+            }
+
+            function show2() {
+                var add2 = document.getElementById("add2");
+                var sectionM2 = document.getElementById("sectionM2");
+                var teamBox = document.getElementById("teamBox");
+                var mar = teamBox.style.margin;
+                console.log(mar)
+
+                if (add2.checked) {
+                    count++;
+                    sectionM2.style.display = "flex";
+                    teamBox.style.margin = "0 0 " + String(20 + (250 * count)) + "px";
+                    teamBox.style.transition = "0.5s";
+                } else {
+                    count--;
+                    sectionM2.style.display = "none";
+                    teamBox.style.margin = "0 0 " + String(100 + (250 * count)) + "px";
+                }
+                console.log("count" + String(count));
+            }
+
+            function show3() {
+                var add3 = document.getElementById("add3");
+                var sectionM3 = document.getElementById("sectionM3");
+                var teamBox = document.getElementById("teamBox");
+                var mar = teamBox.style.margin;
+                console.log(mar)
+
+                if (add3.checked) {
+                    count++;
+                    sectionM3.style.display = "flex";
+                    teamBox.style.margin = "0 0 " + String(10 + (220 * count)) + "px";
+                    teamBox.style.transition = "0.5s";
+                } else {
+                    count--;
+                    sectionM3.style.display = "none";
+                    teamBox.style.margin = "0 0 " + String(100 + (240 * count)) + "px";
+                }
+                console.log("count" + String(count));
+            }
+
+            function show4() {
+                var add4 = document.getElementById("add4");
+                var sectionM4 = document.getElementById("sectionM4");
+                var teamBox = document.getElementById("teamBox");
+                var mar = teamBox.style.margin;
+                console.log(mar)
+
+                if (add4.checked) {
+                    count++;
+                    sectionM4.style.display = "flex";
+                    teamBox.style.margin = "0 0 " + String(10 + (220 * count)) + "px";
+                    teamBox.style.transition = "0.5s";
+                } else {
+                    count--;
+                    sectionM4.style.display = "none";
+                    teamBox.style.margin = "0 0 " + String(100 + (220 * count)) + "px";
+                }
+                console.log("count" + String(count));
+            }
+        }
+    </script>
+
+    <script>
+        if (screen && screen.width < 750) {
+            var count = 0;
+
+            function show1() {
+                var add1 = document.getElementById("add1");
+                var sectionM1 = document.getElementById("sectionM1");
+                var teamBox = document.getElementById("teamBox");
+                var mar = teamBox.style.margin;
+                console.log(mar)
+                if (add1.checked) {
+                    count++;
+                    sectionM1.style.display = "flex";
+                    teamBox.style.margin = "0 0 " + String(10 + (570 * count)) + "px";
+                    teamBox.style.transition = "0.5s";
+                } else {
+                    count--;
+                    sectionM1.style.display = "none";
+                    teamBox.style.margin = "0 0 " + String(100 + (570 * count)) + "px";
+                }
+                console.log("count" + String(count));
+            }
+
+            function show2() {
+                var add2 = document.getElementById("add2");
+                var sectionM2 = document.getElementById("sectionM2");
+                var teamBox = document.getElementById("teamBox");
+                var mar = teamBox.style.margin;
+                console.log(mar)
+
+                if (add2.checked) {
+                    count++;
+                    sectionM2.style.display = "flex";
+                    teamBox.style.margin = "0 0 " + String(20 + (560 * count)) + "px";
+                    teamBox.style.transition = "0.5s";
+                } else {
+                    count--;
+                    sectionM2.style.display = "none";
+                    teamBox.style.margin = "0 0 " + String(100 + (560 * count)) + "px";
+                }
+                console.log("count" + String(count));
+            }
+
+            function show3() {
+                var add3 = document.getElementById("add3");
+                var sectionM3 = document.getElementById("sectionM3");
+                var teamBox = document.getElementById("teamBox");
+                var mar = teamBox.style.margin;
+                console.log(mar)
+
+                if (add3.checked) {
+                    count++;
+                    sectionM3.style.display = "flex";
+                    teamBox.style.margin = "0 0 " + String(30 + (550 * count)) + "px";
+                    teamBox.style.transition = "0.5s";
+                } else {
+                    count--;
+                    sectionM3.style.display = "none";
+                    teamBox.style.margin = "0 0 " + String(100 + (550 * count)) + "px";
+                }
+                console.log("count" + String(count));
+            }
+
+            function show4() {
+                var add4 = document.getElementById("add4");
+                var sectionM4 = document.getElementById("sectionM4");
+                var teamBox = document.getElementById("teamBox");
+                var mar = teamBox.style.margin;
+                console.log(mar)
+
+                if (add4.checked) {
+                    count++;
+                    sectionM4.style.display = "flex";
+                    teamBox.style.margin = "0 0 " + String(40 + (540 * count)) + "px";
+                    teamBox.style.transition = "0.5s";
+                } else {
+                    count--;
+                    sectionM4.style.display = "none";
+                    teamBox.style.margin = "0 0 " + String(100 + (540 * count)) + "px";
+                }
+                console.log("count" + String(count));
+            }
+        }
+    </script>
+
 </body>
+
 </html>

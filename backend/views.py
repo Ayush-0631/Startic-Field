@@ -17,10 +17,6 @@ def Home(request):
     return render(request,"index.html")
 
 
-def Signup(request):
-    return render(request,"sign-up.html")
-
-
 def Programs(request):
     if request.user.is_authenticated:
         live_pitch = ReversePitch.objects.get(is_active=True)

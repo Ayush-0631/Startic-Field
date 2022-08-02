@@ -38,64 +38,52 @@
       }
 
     };
-    </script>
+    window.addEventListener('scroll', handleScroll);
+      function prevFunction() {
+        console.log('prevFunction is working')
+        var slides = document.getElementsByClassName('omg');
+        for (let i=0; i<slides.length; i++){
+          var e = slides[i].style.left
+          var d = Number(e.replace("vw",""));
+          slides[i].style.left = String(d+100)+"vw";
+        }
+        if(slides[slides.length-1].style.left === '500vw') {
+            document.getElementById('prev1').style.display='none'
+          }
+        else {
+          document.getElementById('prev1').style.display='inline-block'
+        }
+        if(slides[0].style.left === '-500vw') {
+            document.getElementById('next1').style.display='none';
+          }
+        else {
+          document.getElementById('next1').style.display='inline-block';
+        }
+      }
+      function nextFunction() {
+        console.log('next Function is working')
+        var slides = document.getElementsByClassName('omg');
+        for (let i=0; i<slides.length; i++){
+          var e = slides[i].style.left
+          var d = Number(e.replace("vw",""));
+          slides[i].style.left = String(d-100)+"vw";
+        }
+        if(slides[0].style.left === '-500vw') {
+            document.getElementById('next1').style.display='none';
+          }
+        else {
+          document.getElementById('next1').style.display='inline-block';
+        }
+        if(slides[slides.length-1].style.left === '500vw') {
+            document.getElementById('prev1').style.display='none'
+          }
+        else {
+          document.getElementById('prev1').style.display='inline-block'
+        }
+      }
+  </script>
 </head>
 <body class="body">
-  <div class="localnavigation" id='headtag' style="
-  position: fixed;
-  width: 100%;
-  height: 65px;
-  z-index: 5;
-  display: none;
-  transition:1s;
-  overflow: hidden;
-  background-color: black;">      
-      <a href="\" class="imgside" style="padding: 10px 15px;
-                                         position: absolute;
-                                         top:0;">
-                                         <img src={% static "images/Group-58.svg" %} loading="lazy" width="140" height="44"></a>
-      <ul style="
-      position: absolute;
-      color:white;
-      top: 10.5%;
-      left: 56.5%;
-      margin-right: 5vw;
-  ">      
-          <li style="display: inline-block;
-                    padding:15px 17px;
-                    font-size: 17px;
-          "><a href="/about" class="textsides" style="text-decoration: none;
-                    font-weight: 500;
-                    color: white;">About Us</a></li>
-          <li style="display: inline-block;
-                    padding :15px 17px;
-                    font-size: 17px;
-          "><a href="{% url 'programs' %}" class="textsides" style="text-decoration: none;
-                    font-weight: 500;
-                    color: white;">Programs</a></li>
-          
-          <li style="display: inline-block;
-                     padding:15px 17px;
-                     font-size: 17px;
-          "><a href="/events" class="textsides" style="text-decoration: none;
-                    font-weight: 500;
-                    color: white;">Events</a></li>
-          {% if user.is_authenticated %}
-          <li style="display: inline-block;
-                    padding:15px 17px;
-                    font-size: 17px;
-          "><a href="/logout" class="textsides" id="asdf" style="text-decoration: none;
-                    font-weight: 500;">Logout</a></li>
-          {% else %}
-          <li style="display: inline-block;
-                    padding:15px 17px;
-                    font-size: 17px;
-          "><a href="/sign" class="textsides" style="text-decoration: none;
-                    font-weight: 500;">Sign Up</a></li>
-          {% endif %}
-
-      </ul>
-  </div>    
   <div class="div-block">
     <div class="nav wf-section">
       <div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar w-nav">
@@ -110,6 +98,65 @@
           <a href="sign" class="nav-link sign-up w-nav-link"><strong>Sign Up</strong></a>
           {% endif %}
         </nav>
+        <div class="localnavigation" id="headtag" style="
+        position: fixed;
+        display:none;
+        width: 100%;
+        height: 65px;
+        z-index: 5;
+        opacity: 1;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+        background-color: black;">      
+            <a href="\" class="imgside" style="padding: 10px 15px;
+                                               position: absolute;
+                                               top:0;">
+                                               <img src={% static "images/Group-58.svg" %} loading="lazy" width="140" height="44"></a>
+            <ul style="
+            position: absolute;
+            color:white;
+            top: 10.5%;
+            left: 60%;
+            margin: 0px;
+        ">      
+                <li style="display: inline-block;
+                          padding :15px 15x;
+                          font-size: 18px;
+                "><a href="/about" class="textsides" style="text-decoration: none;
+                          font-weight: 500;
+                          color: white;">About Us</a></li>
+                <li style="display: inline-block;
+                          padding:15px 15px;
+                          font-size: 18px;
+                "><a href="/programs" class="textsides" style="text-decoration: none;
+                          font-weight: 500;
+                          color: white;">Programs</a></li>
+                <li style="display: inline-block;
+                           padding:15px 15px;
+                           font-size: 18px;
+                "><a href="/events" class="textsides" style="text-decoration: none;
+                          font-weight: 500;
+                          color: white;">Events</a></li>
+                {% if user.is_authenticated %}
+                <li class="awe1"
+                   style="display: inline-block;
+                          padding:15px 17px;
+                          font-size: 17px;
+                          color: blue;
+                "><a href={% url 'logout' %} class="textsides" style="text-decoration: none;
+                          font-weight: 500;">Logout</a></li>
+                {% else %}
+                <li style="display: inline-block;
+                          padding:15px 17px;
+                          font-size: 17px;
+                          color: blue;
+                "><a href="/sign" class="textsides" style="text-decoration: none;
+                          font-weight: 500;">Sign Up</a></li>
+                {% endif %}
+      
+            </ul>
+        </div>    
         <div class="menu-button w-nav-button">
           <div class="icon w-icon-nav-menu"></div>
         </div>
@@ -131,10 +178,10 @@
         </div>
       </div>
     </div>
-    <div class="perks-grid">
-      <h1 class="heading-4" style="margin-left:20px;">Why join Startic Field ?</h1>
+    <div class="perks-grid" style="position: relative; top:13vh; height:140vh;">
+      <h1 class="heading-4" style="position: absolute; top:-10vh;left:2vw;">Why join Startic Field ?</h1>
       <div class="container w-container">
-        <div class="w-layout-grid grid-3">
+        <div class="w-layout-grid grid-3" style="position:relative; margin-top:20vh;">
           <div id="w-node-_766cce10-8867-e4db-23fa-e121e6d0115a-4a9aa2b7" class="div-block-4"><img src={% static "images/1.jpg" %} loading="lazy" srcset={% static "images/1-p-500.jpg 500w, images/1.jpg 540w" %} sizes="(max-width: 600px) 90vw, 540px" alt="" class="perks" ></div>
           <div id="w-node-c8fd185b-7f45-1b57-9f9b-f8b2cbffb573-4a9aa2b7" class="div-block-5"><img src={% static "images/2.jpg" %} loading="lazy" srcset={% static "images/2-p-500.jpg 500w, images/2.jpg 540w" %} sizes="(max-width: 600px) 90vw, 540px" alt="" class="perks"></div>
           <div id="w-node-_3acc7ef0-3d6c-a802-b2db-503c4b066905-4a9aa2b7" class="div-block-5"><img src={% static "images/3.jpg" %} loading="lazy" srcset={% static "images/3-p-500.jpg 500w, images/3.jpg 540w" %} sizes="(max-width: 600px) 90vw, 540px" alt="" class="perks"></div>
@@ -145,17 +192,63 @@
     <div class="trusted-patners wf-section">
       <h1 class="heading-4">Previous Knowledge Events for our Community !</h1>
       <p class="paragraph-3">We have a very strong relationship with the founders working with us. Some of the startups we have worked with are as follows :</p>
-      <div class="w-layout-grid grid-4">
-        <div id="w-node-_61baa192-c675-c19d-746c-b0fca4c41278-4a9aa2b7" class="div-block-6"><img class='w3-img w3-round-large' src="{% static 'home/1.png' %}" loading="lazy" alt=""></div>
-        <div id="w-node-_7cb1f6f5-fad2-c9cc-e903-1fd190b34cee-4a9aa2b7" class="div-block-6"><img class='w3-img w3-round-large' src="{% static 'home/4.png' %}" loading="lazy" alt=""></div>
-        <div id="w-node-_1aa6f9a6-adeb-5aca-994f-5a39bce9da3b-4a9aa2b7" class="div-block-6"><img class='w3-img w3-round-large' src="{% static 'home/3.png' %}" loading="lazy" alt="" ></div>
-        <div id="w-node-_1aa6f9a6-adeb-5aca-994f-5a39bce9da3b-4a9aa2b7" class="div-block-6"><img class='w3-img w3-round-large' src="{% static 'home/5.png' %}" loading="lazy" alt="" ></div>
-        <div id="w-node-_1aa6f9a6-adeb-5aca-994f-5a39bce9da3b-4a9aa2b7" class="div-block-6"><img class='w3-img w3-round-large' src="{% static 'home/6.png' %}" loading="lazy" alt="" ></div>
-        <div id="w-node-_1aa6f9a6-adeb-5aca-994f-5a39bce9da3b-4a9aa2b7" class="div-block-6"><img class='w3-img w3-round-large' src="{% static 'home/7.png' %}" loading="lazy" alt="" ></div>
+      <div class="!OMG" style='background-color:white;align-items:center;position:relative;top:-20vh;
+                               left:15vw;width:55vw;height:30vh;display:inline;'>
+        <div  class="omg" style="position:absolute;
+                                   top:35vh;
+                                   transition:1s;
+                                   left:0vw;
+                                   height:30vh;
+                                   width:55vw;
+                                   display: inline-block;">
+                                   <a href="https://www.youtube.com/watch?v=B_Amore8LNs" target="_blank"><img class='w3-img w3-round-large' src="{% static 'home/1.png' %}" loading="lazy" alt=""></a></div>
+        <div  class="omg" style="position:absolute;
+                                   top:35vh;
+                                   transition:1s;
+                                   left:100vw;
+                                   height:30vh;
+                                   width:55vw;
+                                   display: inline-block;">
+                                   <a href="https://www.youtube.com/watch?v=fM0KsSCNjvk" target="_blank"><img class='w3-img w3-round-large' src="{% static 'home/4.png' %}" loading="lazy" alt=""></a></div>
+        <div  class="omg" style="position:absolute;
+                                   top:35vh;
+                                   transition:1s;
+                                   left:200vw;
+                                   height:30vh;
+                                   width:55vw;
+                                   display: inline-block;">
+                                   <a href="https://www.youtube.com/watch?v=zVnP8d6Erm4" target="_blank"><img class='w3-img w3-round-large' src="{% static 'home/3.png' %}" loading="lazy" alt="" ></a></div>
+        <div  class="omg" style="position:absolute;
+                                   top:35vh;
+                                   transition:1s;
+                                   left:300vw;
+                                   height:30vh;
+                                   width:55vw;
+                                   display: inline-block;">
+                                   <a href="https://www.youtube.com/watch?v=y3ZQaoT_N_4" target="_blank"><img class='w3-img w3-round-large' src="{% static 'home/5.png' %}" loading="lazy" alt="" ></a></div>
+        <div  class="omg" style="position:absolute;
+                                   top:35vh;
+                                   transition:1s;
+                                   left:400vw;
+                                   height:30vh;
+                                   width:55vw;
+                                   display: inline-block;">
+                                   <a href="" target="_blank"><img class='w3-img w3-round-large' src="{% static 'home/6.png' %}" loading="lazy" alt="" ></a></div>
+        <div  class="omg" style="position:absolute;
+                                   top:35vh;
+                                   transition:1s;
+                                   left:500vw;
+                                   height:30vh;
+                                   width:55vw;
+                                   display: inline-block;">
+                                   <a href="" target="_blank"></a><img class='w3-img w3-round-large' src="{% static 'home/7.png' %}" loading="lazy" alt="" ></div></div>
       </div>
+      <div class="slidecontrols" style="position:relative;top:15vh;left:0vw;">
+        <button class="prevbutton" id="prev1" style="color: white; background-color: black; display: none; position:absolute; left:10vw; top:30vh;font-size: 50px;" onclick="prevFunction()"><</button>
+        <button class="nextbutton" id="next1" style="color: white; background-color: black; display:unset; position:absolute;left:73vw;top:30vh;font-size:50px;" onclick="nextFunction()">></button></div>
     </div>
-    <div class="features wf-section">
-      <!--<h1 class="heading-6">Events</h1>
+    <!---div class="features wf-section">
+      <<h1 class="heading-6">Events</h1>
       <div data-delay="4000" data-animation="slide" class="w-slider" data-autoplay="false" data-easing="ease" data-hide-arrows="false" data-disable-swipe="false" data-autoplay-limit="0" data-nav-spacing="4" data-duration="500" data-infinite="true">
         <div class="mask w-slider-mask">
           <div class="event-slide w-slide">
@@ -180,10 +273,15 @@
           <div class="w-icon-slider-right"></div>
         </div>
         <div class="w-slider-nav w-slider-nav-invert w-shadow w-round"></div>
-      </div>-->
-    </div>
+      </div>>
+    </div-->
+    <style>
+      .lnk:hover {
+        color:blue !important;
+      }
+    </style>
   <div style="position: absolute;
-                    top: 400%;
+                    top: 360vh;
                     left:0%;
                     width: 100%;
                     height: 60%;
@@ -201,7 +299,7 @@
                                         left:1%;
                                         width: auto;
                                         height: auto;">
-              <span>&copy;</span> 2022, Startic Field Pvt. Ltd. All Rights Reserved.
+              <span>&copy;</span> 2022, Starticfield Innovations Pvt. Ltd. All Rights Reserved.
             </div>
             <div class='content' style="position: absolute;
                                             text-align: left;
@@ -220,21 +318,21 @@
                                                     width: auto;
                                                     height: auto;">
               <b>Company</b></a>
-            <a href="/about" class='cone' style="position: absolute;
+            <a href="/about" class='lnk' style="position: absolute;
                                                 text-decoration: none;
                                                 color: white;
                                                 height: auto;
                                                 width: auto;
                                                 top: 30%;
                                                 left: 35%;">About Us</a>
-            <a href='#' class='ctwo' style="position: absolute;
+            <a href='#' class='lnk' style="position: absolute;
                                             text-decoration: none;
                                             color: white;
                                             height: auto;
                                             width: auto;
                                             top: 42.5%;
                                             left: 35%;">Privacy Policy</a>
-            <a href='#' class='cthree' style="position: absolute;
+            <a href='#' class='lnk' style="position: absolute;
                                             text-decoration: none;
                                             color: white;
                                             height: auto;
@@ -251,28 +349,28 @@
                                                 height: auto;">
               <b>Other Links</b>
             </a>
-            <a href='#' class='done' style="position: absolute;
+            <a href='#' class='lnk' style="position: absolute;
                                             height: auto;
                                             text-decoration: none;
                                             color: white;
                                             width: auto;
                                             top: 30%;
                                             left: 55%";>Community</a>
-            <a href='/events' class='dtwo' style="position: absolute;
+            <a href='/events' class='lnk' style="position: absolute;
                                             text-decoration: none;
                                             color: white;
                                             height: auto;
                                             width: auto;
                                             top: 42.5%;
                                             left: 55%;">Events</a>
-            <a href='/programs' class='dthree' style="text-decoration: none;
+            <a href='/programs' class='lnk' style="text-decoration: none;
                                             position: absolute;
                                             color: white;
                                             height: auto;
                                             width: auto;
                                             top: 55%;
                                             left: 55%;">Programs</a>
-            <a href='/contact' class='contactUs' style="position: absolute;
+            <a href='#' class='contactUs' style="position: absolute;
                                                 text-decoration: none;
                                                 color: white;
                                                 top:10%;
@@ -281,24 +379,47 @@
                                                 width: auto;
                                                 height: auto;">
               <b>Contact Us</b></a>
-            <a href='#' class='eone' style="text-decoration: none;
+            <a href='#' class='lnk' style="text-decoration: none;
                                             position: absolute;
                                             color: white;
                                             height: auto;
                                             width: auto;
                                             top: 67.5%;
                                             left: 55%;">Careers</a>
-            <div class='email' style="text-decoration: none;
+            <a href="contact" class='lnk' style="text-decoration: none;
+                                    position: absolute;
+                                    height: auto;
+                                    width: auto;
+                                    top: 30%;
+                                    left: 75%;">
+                                    Contact Us<br><br></a>
+            
+            <div class='lnk' style="text-decoration: none;
                                     position: absolute;
                                     height: auto;
                                     width: auto;
                                     top: 42.5%;
                                     left: 75%;">
-                                    contactUs@starticField.com<br><br>
-                                    <a href="#" class="footer-social-link w-inline-block" style="position: absolute; top:80%; left:20%;"><img src="https://uploads-ssl.webflow.com/62434fa732124a0fb112aab4/62434fa732124ac15112aad5_twitter%20small.svg" loading="lazy" alt=""></a>
-                                    <a href="#" class="footer-social-link w-inline-block" style="position: absolute; top:80%; left:40%;"><img src="https://uploads-ssl.webflow.com/62434fa732124a0fb112aab4/62434fa732124a389912aad8_linkedin%20small.svg" loading="lazy" alt=""></a>
-                                    <a href="#" class="footer-social-link w-inline-block" style="position: absolute; top:80%; left:60%;"><img src="https://uploads-ssl.webflow.com/62434fa732124a0fb112aab4/62434fa732124a51bf12aae9_facebook%20small.svg" loading="lazy" alt=""></a>
-                                </div>
+                                    Priyansh@starticField.com</div>
+                                    <div class='lnk' style="text-decoration: none;
+                                          position: absolute;
+                                          height: auto;
+                                          width: auto;
+                                          top: 55%;
+                                          left: 75%;">
+                                          <a href="#" class="footer-social-link w-inline-block"><img src="https://uploads-ssl.webflow.com/62434fa732124a0fb112aab4/62434fa732124ac15112aad5_twitter%20small.svg" loading="lazy" alt=""style="
+    position: relative;
+    left:0;
+    height: 40px;"></a>
+                                          <a href="#" class="footer-social-link w-inline-block" ><img src="https://uploads-ssl.webflow.com/62434fa732124a0fb112aab4/62434fa732124a389912aad8_linkedin%20small.svg" loading="lazy" alt=""style="
+    position: relative;
+    left: 20%;
+    height: 40px;"></a>
+                                          <a href="#" class="footer-social-link w-inline-block" ><img src="https://uploads-ssl.webflow.com/62434fa732124a0fb112aab4/62434fa732124a51bf12aae9_facebook%20small.svg" loading="lazy" alt=""style="
+    position: relative;
+    left: 40%;
+    height: 40px;"></a>
+    </div>
   </div>
   <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=62d1c4ef6b8787757b9aa2b6" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
   <script src="js/webflow.js" type="text/javascript"></script>

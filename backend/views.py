@@ -54,7 +54,7 @@ def Signup(request):
             if not User.objects.filter(email=email).exists():
                 if len(password) < 6:
                     messages.error(request, 'Password is too short')
-                    return render(request, 'registeration.html')
+                    return render(request, 'LoginPage.html')
 
                 user = User.objects.create_user(username=username, email=email)
                 user.set_password(password)

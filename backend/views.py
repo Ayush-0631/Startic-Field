@@ -148,14 +148,35 @@ def reverse_pitch(request):
         gender=request.POST.get('gender'),
         college=request.POST.get('college'),
         year=request.POST.get('year'),
-     )
-    UserProgram.objects.create(
+    )
+
+    ideas = request.POST.getlist('idea')
+    idea_type = ','.join(ideas)
+
+    form = UserProgram.objects.create(
         user=request.user,
         program=live_pitch,
         answer1=request.POST.get('a1'),
         answer2=request.POST.get('a2'),
-        answer3=request.POST.get('a3')
+        answer3=request.POST.get('a3'),
+        idea_type=idea_type
     )
+
+    team = Team.objects.create(created_by=profile, program=live_pitch)
+
+    for i in ['1', '2', '3', '4']:
+        if request.POST.get('name'+i):
+            user = TempUser.objects.create(
+                name=request.POST.get('name'+i),
+                age=request.POST.get('age'+i),
+                college=request.POST.get('college'+i),
+                year=request.POST.get('year'+i)
+            )
+            team.members.add(user)
+
+    form.team = team
+    form.save(update_fields=['team'])
+    
     return redirect('home')
 
 def Building(request):

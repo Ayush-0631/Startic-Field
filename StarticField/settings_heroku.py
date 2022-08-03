@@ -83,8 +83,12 @@ WSGI_APPLICATION = 'StarticField.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'dcgsduudlme4gg',
+        'USER': 'piadkvnrmneaws',
+        'PASSWORD': "7e3e9db976755389765cca6643b8181539093c60ce0a3db4dc2ac1765e60a54c",
+        'HOST': 'ec2-44-195-100-240.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 

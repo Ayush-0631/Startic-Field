@@ -369,11 +369,18 @@
     </style>
 
 </head>
+<<<<<<< HEAD
+<body style="background-image: url('{% static "images/About-us-background-p-800.jpg"%}')"  >
+    
+    <section class='w3-padding' >
+        <form method="POST" action="{% url 'reverse-pitch-form' %}"  class="container w3-margin">
+=======
 
 <body>
 
     <section class='w3-padding'>
         <form method="POST" action={% url 'reverse-pitch-details' %} class="container w3-margin">
+>>>>>>> fda87aa99bcf4af501ddb07909ed1a2c656ceef3
             {% csrf_token %}
             <h2>Registration</h2>
             <div class="row100">

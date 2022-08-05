@@ -125,3 +125,4 @@ class UserEventMap(models.Model):
     user = models.ForeignKey(Profile, on_delete=models.DO_NOTHING)
     event = models.ForeignKey(Event, on_delete=models.DO_NOTHING)
     date = models.DateField(auto_now_add=True)
+    name = models.CharField(max_length=100, null=True)

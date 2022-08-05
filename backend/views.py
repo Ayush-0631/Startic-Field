@@ -43,7 +43,7 @@ def Contact(request):
 
 
 def Events(request):
-    return render(request,"building.html")
+    return render(request,"events_page.html")
 
 def Signup(request):
     if request.method == 'POST':

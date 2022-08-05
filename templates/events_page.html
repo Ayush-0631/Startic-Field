@@ -28,7 +28,7 @@
                 background-color:rgb(25, 25, 137);
                 border-top-right-radius:40px;
                 border-bottom-right-radius: 40px;
-                width:11vw;
+                width:13vw;
                 left:-1%;
                 position: absolute;
                 color: white;
@@ -37,7 +37,7 @@
                 background-color:rgb(25, 25, 137);
                 border-top-right-radius:40px;
                 border-bottom-right-radius: 40px;
-                width:11vw;
+                width:13vw;
                 left:-1%;
                 position: absolute;
                 color: white;
@@ -46,7 +46,7 @@
                 background-color:rgb(25, 25, 137);
                 border-top-right-radius:40px;
                 border-bottom-right-radius: 40px;
-                width:11vw;
+                width:13vw;
                 left:-1%;
                 position: absolute;
                 color: white;
@@ -55,7 +55,7 @@
                 background-color:rgb(25, 25, 137);
                 border-top-right-radius:40px;
                 border-bottom-right-radius: 40px;
-                width:11vw;
+                width:13vw;
                 left:-1%;
                 position: absolute;
                 color: white;
@@ -64,38 +64,58 @@
             .aOwnLive{
                 text-decoration: none;
                 color: white;
-                background-color: blue;
+                background-color: transparent;
                 display: inline-block;
                 width:10vw;
             }
             .aOwnFeatured{
                 text-decoration: none;
                 color: white;
-                background-color: blue;
+                background-color: transparent;
                 display: inline-block;
                 width:10vw;
             }.aOwnUpcomming{
                 text-decoration: none;
                 color: white;
-                background-color: blue;
+                background-color: transparent;
                 display: inline-block;
                 width:10vw;
             }.aOwnPast{
                 text-decoration: none;
                 color: white;
-                background-color: blue;
+                background-color: transparent;
                 display: inline-block;
                 width:10vw;
             }
-
+            body {
+                /*background-image: url('{% static "images/About-us-background-p-800.jpg" %}') ;*/
+                background-color:#181515;
+            }
+            /*.textsides:hover {
+                background: linear-gradient(270deg, #69C5AA 0%, #37C0C3 32.91%, #587CBD 66.12%, #475CAA 100%);
+            }*/
+            
         </style>
         <script>
-            var counterone = 0;
+            /*var theDate = new Date(Date.parse('06/14/2020 4:41:48 PM UTC'));
+            console.log('this is triggering')
+            console.log(document.getElementById("datezone").style)
+			document.getElementById("datezone").innerHTML = "Local date Time: "+ theDate.toLocaleString();*/
+		    var counterone = 0;
             var countertwo = 0;
             var counterthree = 0;
             var counterfour = 0;
             var adder = 0;
             var ht = window.innerHeight;
+            function HovFunction(idm) {
+                document.getElementById(idm).style.backgroundColor="black";
+                document.getElementById(idm).style.color="white";
+            }
+            function AntiHovFunction(idm) {
+                document.getElementById(idm).style.backgroundColor="white";
+                document.getElementById(idm).style.color="black";
+            }
+            
             function nextFunction(slno) {
             console.log('Previous button is clicked. Code:'+String(slno));
             var collection = document.getElementsByClassName('childclasses'+String(slno));
@@ -117,16 +137,12 @@
             adder = -1;
             for (let i = 0; i < collection.length; i++) {
                 if (collection[i].style.left === '73%') {
-                    collection[i].style.backgroundColor = "black";
-                    collection[i].style.color = "white";
                     collection[i].style.top = '1%';
                     collection[i].style.height = '98%';
                     collection[i].style.width = '30%';
                     collection[i].style.transform = 'translateX(-7.5%)';
                 }
                 else {
-                    collection[i].style.backgroundColor = "white";
-                    collection[i].style.color = "black";
                     collection[i].style.top = '5%';
                     collection[i].style.height = '90%';
                     collection[i].style.width = '25%';
@@ -156,16 +172,12 @@
             adder = 1;
             for (let i = 0; i < collection.length; i++) {
                 if (collection[i].style.left === '3%') {
-                    collection[i].style.backgroundColor = "black";
-                    collection[i].style.color = "white";
                     collection[i].style.top = '1%';
                     collection[i].style.height = '98%';
                     collection[i].style.width = '30%';
                     collection[i].style.transform = 'translateX(-7.5%)';
                 }
                 else {
-                    collection[i].style.backgroundColor = "white";
-                    collection[i].style.color = "black";
                     collection[i].style.top = '5%';
                     collection[i].style.height = '90%';
                     collection[i].style.width = '25%';
@@ -195,15 +207,16 @@
             } else {console.log('invalid slider')}
             console.log('counter value:'+String(counter))
                 if (counter===1) {
+                    console.log('counter is one now')
                     document.getElementById('prev'+String(slno)).style.display = 'none';
                 }
-                else {document.getElementById('prev'+String(slno)).style.display = 'inline-block';
+                else {document.getElementById('prev'+String(slno)).style.display = 'unset';
                 }
                 const slides = document.querySelectorAll(".childclasses"+String(slno))
                 if (counter===-slides.length + 2) {
                     document.getElementById('next'+String(slno)).style.display='none';
                 }
-                else {document.getElementById('next'+String(slno)).style.display = 'inline-block';
+                else {document.getElementById('next'+String(slno)).style.display = 'unset';
                 }
                 const slideEvents = () => {
                     slides.forEach(
@@ -222,17 +235,15 @@
         </script>
     </head>
     <body>
-        <div class="localnavigation" style="
-        position: fixed;
-        display:unset;
-        width: 100%;
-        height: 65px;
-        z-index: 5;
-        opacity: 1;
-        overflow: hidden;
-        top: 0;
-        left: 0;
-        background-color: black;">      
+        <div class="localnavigation" style="position:fixed;
+                                            display:unset;
+                                            width: 100%;
+                                            height: 65px;
+                                            z-index: 5;
+                                            overflow: hidden;
+                                            top: 0;
+                                            left: 0;
+                                            background-color: black;">      
             <a href="\" class="imgside" style="padding: 10px 15px;
                                                position: absolute;
                                                top:0;">
@@ -268,271 +279,456 @@
                           font-size: 17px;
                           color: blue;
                 "><a href={% url 'logout' %} class="textsides" style="text-decoration: none;
-                          font-weight: 500;">Logout</a></li>
+                          font-weight: 500; color:blue;">Logout</a></li>
                 {% else %}
                 <li style="display: inline-block;
                           padding:15px 17px;
                           font-size: 17px;
                           color: blue;
                 "><a href="/sign" class="textsides" style="text-decoration: none;
-                          font-weight: 500;">Sign Up</a></li>
+                          font-weight: 500; color:blue;">Sign Up</a></li>
                 {% endif %}
       
             </ul>
         </div>    
         <div class="fcontainer" style="position: absolute;
                                        display: inline;
-                                       height: 45%;
+                                       height: 65%;
                                        width: 75%;
                                        top:20%;
                                        left:20%;
+                                       background-color:rgba(255,255,255,0.2);
                                        box-shadow: 0 0 4px grey;
                                        overflow: hidden;">
-        <div class="childclasses0" style="position: absolute;
+        <div class="childclasses0" id="CA1" style="position: absolute;
                                          top:5%;
                                          width:25%;
                                          height: 90%;
                                          transition: 1s;
                                          color: black;
+                                         background-color: white;
                                          border-radius: 20px;
-                                         box-shadow: 3px 8px 8px rgb(151, 143, 143);
-                                         left:3%">This is childclasses1</div>
-        <div class="childclasses0" style="position: absolute;
+                                         left:3%" onmouseover="HovFunction('CA1')" onmouseout="AntiHovFunction('CA1')">
+            <div class="imgcontainer"  style="position:relative;
+                                             height:50%;
+                                             width: 100%;
+                                             background-color:black;
+                                             border-radius:20px;">
+                                                    <img src={% static "images/Hero-background-p-500.png" %} style="position:relative;height:110%;width:100%;border-radius:20px;">
+                                                </div>
+                                                <h1 style="position:relative;left:5%;">Event Name</h1>
+                                                <p style="position:relative;left:5%;">Host Name<br>Date:-22/07/2022</p>
+                                            <button style="position:relative;left:10%;width:80%;border-radius:20px;height:10%;background: linear-gradient(270deg, #69C5AA 0%, #37C0C3 32.91%, #587CBD 66.12%, #475CAA 100%);">REGISTER</button></div>
+        <div class="childclasses0" id="CA2" style="position: absolute;
                                          top:1%;
                                          width:30%;
                                          height: 98%;
                                          transition: 1s;
                                          transform: translateX(-7.5%);
-                                         color: white;
-                                         background-color: black;
+                                         color: black;
+                                         background-color: white;
                                          border-radius: 20px;
-                                         box-shadow: 3px 8px 8px rgb(151, 143, 143);
-                                         left:38%">This is childclasses2</div>
-        <div class="childclasses0" style="position: absolute;
+                                         left:38%"><div class="imgcontainer" style="position:relative;
+                                         height:50%;
+                                         width: 100%;
+                                         background-color:black;
+                                         border-radius:20px;" onmouseover="HovFunction('CA2')" onmouseout="AntiHovFunction('CA2')">
+                                                <img src={% static "images/Hero-background-p-500.png" %} style="position:relative;height:110%;width:100%;border-radius:20px;">
+                                            </div>
+                                            <h1 style="position:relative;left:5%;">Event Name</h1>
+                                            <p style="position:relative;left:5%;">Host Name<br><p id="datezone"></p></p>
+                                        <button style="position:relative;left:10%;width:80%;border-radius:20px;height:10%;background: linear-gradient(270deg, #69C5AA 0%, #37C0C3 32.91%, #587CBD 66.12%, #475CAA 100%);">REGISTER</button></div>
+        <div class="childclasses0" id="CA3" style="position: absolute;
                                          top:5%;
                                          width:25%;
                                          height: 90%;
                                          transition: 1s;
                                          color: black;
                                          border-radius: 20px;
-                                         box-shadow: 3px 8px 8px rgb(151, 143, 143);
-                                         left:73%">This is childclasses3</div>
-        <div class="childclasses0" style="position: absolute;
+                                         background-color: white;
+                                         left:73%"><div class="imgcontainer" style="position:relative;
+                                         height:50%;
+                                         width: 100%;
+                                         background-color:black;
+                                         border-radius:20px;" onmouseover="HovFunction('CA3')" onmouseout="AntiHovFunction('CA3')">
+                                                <img src={% static "images/Hero-background-p-500.png" %} style="position:relative;height:110%;width:100%;border-radius:20px;">
+                                            </div>
+                                            <h1 style="position:relative;left:5%;">Event Name</h1>
+                                            <p style="position:relative;left:5%;">Host Name<br>Date:-22/07/2022</p>
+                                        <button style="position:relative;left:10%;width:80%;border-radius:20px;height:10%;background: linear-gradient(270deg, #69C5AA 0%, #37C0C3 32.91%, #587CBD 66.12%, #475CAA 100%);">REGISTER</button></div>
+        <div class="childclasses0" id="CA4" style="position: absolute;
                                          top:5%;
                                          width:25%;
                                          height: 90%;
                                          transition: 1s;
                                          color: black;
                                          border-radius: 20px;
-                                         box-shadow: 3px 8px 8px rgb(151, 143, 143);
-                                         left:108%">This is childclasses4</div>
-        <div class="childclasses0" style="position: absolute;
+                                         background-color: white;
+                                         left:108%" onmouseover="HovFunction('CA4')" onmouseout="AntiHovFunction('CA4')"><div class="imgcontainer" style="position:relative;
+                                         height:50%;
+                                         width: 100%;
+                                         background-color:black;
+                                         border-radius:20px;">
+                                                <img src={% static "images/Hero-background-p-500.png" %} style="position:relative;height:110%;width:100%;border-radius:20px;">
+                                            </div>
+                                            <h1 style="position:relative;left:5%;">Event Name</h1>
+                                            <p style="position:relative;left:5%;">Date:-22/07/2022<br>Time:-12:00:00</p>
+                                        <button style="position:relative;left:10%;width:80%;border-radius:20px;height:10%;background: linear-gradient(270deg, #69C5AA 0%, #37C0C3 32.91%, #587CBD 66.12%, #475CAA 100%);">REGISTER</button></div>
+        <div class="childclasses0" id="CA5" style="position: absolute;
                                          top:5%;
                                          width:25%;
                                          height: 90%;
                                          color: black;
                                          transition: 1s;
                                          border-radius: 20px;
-                                         box-shadow: 3px 8px 8px rgb(151, 143, 143);
-                                         left:143%">This is childclasses5</div>
+                                         background-color: white;
+                                         left:143%" onmouseover="HovFunction('CA5')" onmouseout="AntiHovFunction('CA5')"><div class="imgcontainer" style="position:relative;
+                                         height:50%;
+                                         width: 100%;
+                                         background-color:black;
+                                         border-radius:20px;">
+                                                <img src={% static "images/Hero-background-p-500.png" %} style="position:relative;height:110%;width:100%;border-radius:20px;">
+                                            </div>
+                                            <h1 style="position:relative;left:5%;">Event Name</h1>
+                                            <p style="position:relative;left:5%;">Host Name<br>Date:-22/07/2022</p>
+                                        <button style="position:relative;left:10%;width:80%;border-radius:20px;height:10%;background: linear-gradient(270deg, #69C5AA 0%, #37C0C3 32.91%, #587CBD 66.12%, #475CAA 100%);">REGISTER</button></div>
         </div>
         <div class="slidecontrols" style="position: absolute;
-                                          top:75%;
-                                          left:50%;
+                                          top:50%;
+                                          left:0%;
+                                          width:100vw;
                                           align-items: center;">
-                <button class="prevbutton" id="prev0" style="color: white; background-color: black; display: inline-block;" onclick="prevFunction(0)">prev</button>
-                <button class="nextbutton" id="next0" style="color: white; background-color: black; display:inline-block;" onclick="nextFunction(0)">next</button>
+                <button class="prevbutton" id="prev0" style="color: white; background-color: black; display: unset;position:absolute;left:18.5%;font-size: 30px;" onclick="prevFunction(0)"><</button>
+                <button class="nextbutton" id="next0" style="color: white; background-color: black; display:unset;position:absolute; right:4.5%; font-size: 30px;" onclick="nextFunction(0)">></button>
         </div>
         <div class="fcontainer" style="position: absolute;
                                        display: inline;
-                                       height: 45%;
+                                       height: 65%;
                                        width: 75%;
                                        top:120%;
                                        left:20%;
+                                       background-color:rgba(255,255,255,0.2);
                                        box-shadow: 0 0 4px grey;
                                        overflow: hidden;">
-        <div class="childclasses1" style="position: absolute;
+        <div class="childclasses1" id="CB1" style="position: absolute;
                                          top:5%;
                                          width:25%;
                                          height: 90%;
                                          transition: 1s;
                                          color: black;
                                          border-radius: 20px;
-                                         box-shadow: 3px 8px 8px rgb(151, 143, 143);
-                                         left:3%">This is childclasses1</div>
-        <div class="childclasses1" style="position: absolute;
+                                         background-color: white;
+                                         left:3%" onmouseover="HovFunction('CB1')" onmouseout="AntiHovFunction('CB1')"><div class="imgcontainer" style="position:relative;
+                                             height:50%;
+                                             width: 100%;
+                                             background-color:black;
+                                             border-radius:20px;">
+                                                    <img src={% static "images/Hero-background-p-500.png" %} style="position:relative;height:110%;width:100%;border-radius:20px;">
+                                                </div>
+                                                <h1 style="position:relative;left:5%;">Event Name</h1>
+                                                <p style="position:relative;left:5%;">Host Name<br>Date:-22/07/2022</p>
+                                            <button style="position:relative;left:10%;width:80%;border-radius:20px;height:10%;background: linear-gradient(270deg, #69C5AA 0%, #37C0C3 32.91%, #587CBD 66.12%, #475CAA 100%);">REGISTER</button></div>
+        <div class="childclasses1" id="CB2" style="position: absolute;
                                          top:1%;
                                          width:30%;
                                          height: 98%;
                                          transition: 1s;
-                                         color: white;
-                                         background-color: rgb(31, 18, 18);
+                                         color: black;
+                                         background-color: white;
                                          transform: translateX(-7.5%);
                                          border-radius: 20px;
-                                         box-shadow: 3px 8px 8px rgb(151, 143, 143);
-                                         left:38%">This is childclasses2</div>
-        <div class="childclasses1" style="position: absolute;
+                                         left:38%" onmouseover="HovFunction('CB2')" onmouseout="AntiHovFunction('CB2')"><div class="imgcontainer" style="position:relative;
+                                             height:50%;
+                                             width: 100%;
+                                             background-color:black;
+                                             border-radius:20px;">
+                                                    <img src={% static "images/Hero-background-p-500.png" %} style="position:relative;height:110%;width:100%;border-radius:20px;">
+                                                </div>
+                                                <h1 style="position:relative;left:5%;">Event Name</h1>
+                                                <p style="position:relative;left:5%;">Host Name<br>Date:-22/07/2022</p>
+                                            <button style="position:relative;left:10%;width:80%;border-radius:20px;height:10%;background: linear-gradient(270deg, #69C5AA 0%, #37C0C3 32.91%, #587CBD 66.12%, #475CAA 100%);">REGISTER</button>2</div>
+        <div class="childclasses1" id="CB3" style="position: absolute;
                                          top:5%;
                                          width:25%;
                                          height: 90%;
                                          transition: 1s;
                                          color: black;
                                          border-radius: 20px;
-                                         box-shadow: 3px 8px 8px rgb(151, 143, 143);
-                                         left:73%">This is childclasses3</div>
-        <div class="childclasses1" style="position: absolute;
+                                         background-color: white;
+                                         left:73%" onmouseover="HovFunction('CB3')" onmouseout="AntiHovFunction('CB3')"><div class="imgcontainer" style="position:relative;
+                                             height:50%;
+                                             width: 100%;
+                                             background-color:black;
+                                             border-radius:20px;">
+                                                    <img src={% static "images/Hero-background-p-500.png" %} style="position:relative;height:110%;width:100%;border-radius:20px;">
+                                                </div>
+                                                <h1 style="position:relative;left:5%;">Event Name</h1>
+                                                <p style="position:relative;left:5%;">Host Name<br>Date:-22/07/2022</p>
+                                            <button style="position:relative;left:10%;width:80%;border-radius:20px;height:10%;background: linear-gradient(270deg, #69C5AA 0%, #37C0C3 32.91%, #587CBD 66.12%, #475CAA 100%);">REGISTER</button></div>
+        <div class="childclasses1" id="CB4" style="position: absolute;
                                          top:5%;
                                          width:25%;
                                          height: 90%;
                                          transition: 1s;
                                          color: black;
                                          border-radius: 20px;
-                                         box-shadow: 3px 8px 8px rgb(151, 143, 143);
-                                         left:108%">This is childclasses4</div>
-        <div class="childclasses1" style="position: absolute;
+                                         background-color: white;
+                                         left:108%" onmouseover="HovFunction('CB4')" onmouseout="AntiHovFunction('CB4')"><div class="imgcontainer" style="position:relative;
+                                             height:50%;
+                                             width: 100%;
+                                             background-color:black;
+                                             border-radius:20px;">
+                                                    <img src={% static "images/Hero-background-p-500.png" %} style="position:relative;height:110%;width:100%;border-radius:20px;">
+                                                </div>
+                                                <h1 style="position:relative;left:5%;">Event Name</h1>
+                                                <p style="position:relative;left:5%;">Host Name<br>Date:-22/07/2022</p>
+                                            <button style="position:relative;left:10%;width:80%;border-radius:20px;height:10%;background: linear-gradient(270deg, #69C5AA 0%, #37C0C3 32.91%, #587CBD 66.12%, #475CAA 100%);">REGISTER</button></div>
+        <div class="childclasses1" id="CB5" style="position: absolute;
                                          top:5%;
                                          width:25%;
                                          height: 90%;
                                          color: black;
                                          transition: 1s;
                                          border-radius: 20px;
-                                         box-shadow: 3px 8px 8px rgb(151, 143, 143);
-                                         left:143%">This is childclasses5</div>
+                                         background-color: white;
+                                         left:143%" onmouseover="HovFunction('CB5')" onmouseout="AntiHovFunction('CB5')"><div class="imgcontainer" style="position:relative;
+                                             height:50%;
+                                             width: 100%;
+                                             background-color:black;
+                                             border-radius:20px;">
+                                                    <img src={% static "images/Hero-background-p-500.png" %} style="position:relative;height:110%;width:100%;border-radius:20px;">
+                                                </div>
+                                                <h1 style="position:relative;left:5%;">Event Name</h1>
+                                                <p style="position:relative;left:5%;">Host Name<br>Date:-22/07/2022</p>
+                                            <button style="position:relative;left:10%;width:80%;border-radius:20px;height:10%;background: linear-gradient(270deg, #69C5AA 0%, #37C0C3 32.91%, #587CBD 66.12%, #475CAA 100%);">REGISTER</button> </div>
         </div>
         <div class="slidecontrols" style="position: absolute;
-                                          top:175%;
-                                          left:50%;
+                                          top:150%;
+                                          left:0%;
+                                          width: 100vw;
                                           align-items: center;">
-                <button class="prevbutton" id="prev1" style="color: white; background-color: black; display: inline-block;" onclick="prevFunction(1)">prev</button>
-                <button class="nextbutton" id="next1" style="color: white; background-color: black; display:inline-block;" onclick="nextFunction(1)">next</button>
+                <button class="prevbutton" id="prev1" style="color: white; background-color: black; display: unset;position:absolute; left:18.5%;font-size: 30px;" onclick="prevFunction(1)"><</button>
+                <button class="nextbutton" id="next1" style="color: white; background-color: black; display:unset;position:absolute; right:4.5%;font-size: 30px;" onclick="nextFunction(1)">></button>
         </div>
         <div class="fcontainer" style="position: absolute;
                                        display: inline;
-                                       height: 45%;
+                                       height: 65%;
                                        width: 75%;
                                        top:220%;
                                        left:20%;
+                                       background-color:rgba(255,255,255,0.2);
                                        box-shadow: 0 0 4px grey;
                                        overflow: hidden;">
-        <div class="childclasses2" style="position: absolute;
+        <div class="childclasses2" id="CC1" style="position: absolute;
                                          top:5%;
                                          width:25%;
                                          height: 90%;
                                          transition: 1s;
                                          color: black;
                                          border-radius: 20px;
-                                         box-shadow: 3px 8px 8px rgb(151, 143, 143);
-                                         left:3%">This is childclasses1</div>
-        <div class="childclasses2" style="position: absolute;
+                                         background-color: white;
+                                         left:3%" onmouseover="HovFunction('CC1')" onmouseout="AntiHovFunction('CC1')"><div class="imgcontainer" style="position:relative;
+                                         height:50%;
+                                         width: 100%;
+                                         background-color:black;
+                                         border-radius:20px;">
+                                           <img src={% static "images/Hero-background-p-500.png" %} style="position:relative;height:110%;width:100%;border-radius:20px;">
+                                            </div>
+                                            <h1 style="position:relative;left:5%;">Event Name</h1>
+                                            <p style="position:relative;left:5%;">Date:-22/07/2022<br>Time:-12:00 AM</p>
+                                        <button style="position:relative;left:10%;width:80%;border-radius:20px;height:10%;background: linear-gradient(270deg, #69C5AA 0%, #37C0C3 32.91%, #587CBD 66.12%, #475CAA 100%);">REGISTER</button></div>
+        <div class="childclasses2" id="CC2" style="position: absolute;
                                          top:1%;
                                          width:30%;
                                          height: 98%;
                                          transition: 1s;
-                                         color: white;
-                                         background-color: black;
+                                         color: black;
+                                         background-color: white;
                                          transform: translateX(-7.5%);
                                          border-radius: 20px;
-                                         box-shadow: 3px 8px 8px rgb(151, 143, 143);
-                                         left:38%">This is childclasses2</div>
-        <div class="childclasses2" style="position: absolute;
+                                         left:38%" onmouseover="HovFunction('CC2')" onmouseout="AntiHovFunction('CC2')"><div class="imgcontainer" style="position:relative;
+                                         height:50%;
+                                         width: 100%;
+                                         background-color:black;
+                                         border-radius:20px;">
+                                           <img src={% static "images/Hero-background-p-500.png" %} style="position:relative;height:110%;width:100%;border-radius:20px;">
+                                            </div>
+                                            <h1 style="position:relative;left:5%;">Event Name</h1>
+                                            <p style="position:relative;left:5%;">Date:-22/07/2022<br>Time:-12:00 AM</p>
+                                        <button style="position:relative;left:10%;width:80%;border-radius:20px;height:10%;background: linear-gradient(270deg, #69C5AA 0%, #37C0C3 32.91%, #587CBD 66.12%, #475CAA 100%);">REGISTER</button></div>
+        <div class="childclasses2" id="CC3" style="position: absolute;
                                          top:5%;
                                          width:25%;
                                          height: 90%;
                                          transition: 1s;
                                          color: black;
                                          border-radius: 20px;
-                                         box-shadow: 3px 8px 8px rgb(151, 143, 143);
-                                         left:73%">This is childclasses3</div>
-        <div class="childclasses2" style="position: absolute;
+                                         background-color: white;
+                                         left:73%" onmouseover="HovFunction('CC3')" onmouseout="AntiHovFunction('CC3')"><div class="imgcontainer" style="position:relative;
+                                         height:50%;
+                                         width: 100%;
+                                         background-color:black;
+                                         border-radius:20px;">
+                                           <img src={% static "images/Hero-background-p-500.png" %} style="position:relative;height:110%;width:100%;border-radius:20px;">
+                                            </div>
+                                            <h1 style="position:relative;left:5%;">Event Name</h1>
+                                            <p style="position:relative;left:5%;">Date:-22/07/2022<br>Time:-12:00 AM</p>
+                                        <button style="position:relative;left:10%;width:80%;border-radius:20px;height:10%;background: linear-gradient(270deg, #69C5AA 0%, #37C0C3 32.91%, #587CBD 66.12%, #475CAA 100%);">REGISTER</button></div>
+        <div class="childclasses2" id="CC4" style="position: absolute;
                                          top:5%;
                                          width:25%;
                                          height: 90%;
                                          transition: 1s;
                                          color: black;
                                          border-radius: 20px;
-                                         box-shadow: 3px 8px 8px rgb(151, 143, 143);
-                                         left:108%">This is childclasses4</div>
-        <div class="childclasses2" style="position: absolute;
+                                         background-color: white;
+                                         left:108%" onmouseover="HovFunction('CC4')" onmouseout="AntiHovFunction('CC4')"><div class="imgcontainer" style="position:relative;
+                                         height:50%;
+                                         width: 100%;
+                                         background-color:black;
+                                         border-radius:20px;">
+                                           <img src={% static "images/Hero-background-p-500.png" %} style="position:relative;height:110%;width:100%;border-radius:20px;">
+                                            </div>
+                                            <h1 style="position:relative;left:5%;">Event Name</h1>
+                                            <p style="position:relative;left:5%;">Date:-22/07/2022<br>Time:-12:00 AM</p>
+                                        <button style="position:relative;left:10%;width:80%;border-radius:20px;height:10%;background: linear-gradient(270deg, #69C5AA 0%, #37C0C3 32.91%, #587CBD 66.12%, #475CAA 100%);">REGISTER</button></div>
+        <div class="childclasses2" id="CC5" style="position: absolute;
                                          top:5%;
                                          width:25%;
                                          height: 90%;
                                          color: black;
                                          transition: 1s;
                                          border-radius: 20px;
-                                         box-shadow: 3px 8px 8px rgb(151, 143, 143);
-                                         left:143%">This is childclasses5</div>
+                                         background-color: white;
+                                         left:143%" onmouseover="HovFunction('CC5')" onmouseout="AntiHovFunction('CC5')"><div class="imgcontainer" style="position:relative;
+                                         height:50%;
+                                         width: 100%;
+                                         background-color:black;
+                                         border-radius:20px;">
+                                           <img src={% static "images/Hero-background-p-500.png" %} style="position:relative;height:110%;width:100%;border-radius:20px;">
+                                            </div>
+                                            <h1 style="position:relative;left:5%;">Event Name</h1>
+                                            <p style="position:relative;left:5%;">Date:-22/07/2022<br>Time:-12:00 AM</p>
+                                        <button style="position:relative;left:10%;width:80%;border-radius:20px;height:10%;background: linear-gradient(270deg, #69C5AA 0%, #37C0C3 32.91%, #587CBD 66.12%, #475CAA 100%);">REGISTER</button></div>
         </div>
         <div class="slidecontrols" style="position: absolute;
-                                          top:275%;
-                                          left:50%;
+                                          top:250%;
+                                          left:0%;
+                                          width: 100vw;
                                           align-items: center;">
-                <button class="prevbutton" id="prev2" style="color: white; background-color: black; display: inline-block;" onclick="prevFunction(2)">prev</button>
-                <button class="nextbutton" id="next2" style="color: white; background-color: black; display:inline-block;" onclick="nextFunction(2)">next</button>
+                <button class="prevbutton" id="prev2" style="color: white; background-color: black; display:unset; position:absolute; left:18.5%; font-size: 30px;" onclick="prevFunction(2)"><</button>
+                <button class="nextbutton" id="next2" style="color: white; background-color: black; display:unset; position:absolute; right:4.5%; font-size: 30px;" onclick="nextFunction(2)">></button>
         </div>
         <div class="fcontainer" style="position: absolute;
                                        display: inline;
-                                       height: 45%;
+                                       height: 65%;
                                        width: 75%;
                                        top:320%;
                                        left:20%;
+                                       background-color:rgba(255,255,255,0.2);
                                        box-shadow: 0 0 4px grey;
                                        overflow: hidden;">
-        <div class="childclasses3" style="position: absolute;
+        <div class="childclasses3" id="CD1" style="position: absolute;
                                          top:5%;
                                          width:25%;
                                          height: 90%;
                                          transition: 1s;
                                          color: black;
                                          border-radius: 20px;
-                                         box-shadow: 3px 8px 8px rgb(151, 143, 143);
-                                         left:3%">This is childclasses1</div>
-        <div class="childclasses3" style="position: absolute;
+                                         background-color: white;
+                                         left:3%" onmouseover="HovFunction('CD1')" onmouseout="AntiHovFunction('CD1')"><div class="imgcontainer" style="position:relative;
+                                         height:50%;
+                                         width: 100%;
+                                         background-color:black;
+                                         border-radius:20px;">
+                                           <img src={% static "images/Hero-background-p-500.png" %} style="position:relative;height:110%;width:100%;border-radius:20px;">
+                                            </div>
+                                            <h1 style="position:relative;left:5%;">Event Name</h1>
+                                            <p style="position:relative;left:5%;">Date:-22/07/2022<br>Time:-12:00 AM</p>
+                                        <button style="position:relative;left:10%;width:80%;border-radius:20px;height:10%;background: linear-gradient(270deg, #69C5AA 0%, #37C0C3 32.91%, #587CBD 66.12%, #475CAA 100%);">REGISTER</button></div>
+        <div class="childclasses3" id="CD2" style="position: absolute;
                                          top:1%;
                                          width:30%;
                                          height: 98%;
                                          transition: 1s;
-                                         color: white;
-                                         background-color: black;
+                                         color: black;
+                                         background-color: white;
                                          transform: translateX(-7.5%);
                                          border-radius: 20px;
-                                         box-shadow: 3px 8px 8px rgb(151, 143, 143);
-                                         left:38%">This is childclasses2</div>
-        <div class="childclasses3" style="position: absolute;
+                                         left:38%" onmouseover="HovFunction('CD2')" onmouseout="AntiHovFunction('CD2')"><div class="imgcontainer" style="position:relative;
+                                         height:50%;
+                                         width: 100%;
+                                         background-color:black;
+                                         border-radius:20px;">
+                                           <img src={% static "images/Hero-background-p-500.png" %} style="position:relative;height:110%;width:100%;border-radius:20px;">
+                                            </div>
+                                            <h1 style="position:relative;left:5%;">Event Name</h1>
+                                            <p style="position:relative;left:5%;">Date:-22/07/2022<br>Time:-12:00 AM</p>
+                                        <button style="position:relative;left:10%;width:80%;border-radius:20px;height:10%;background: linear-gradient(270deg, #69C5AA 0%, #37C0C3 32.91%, #587CBD 66.12%, #475CAA 100%);">REGISTER</button></div>
+        <div class="childclasses3" id="CD3" style="position: absolute;
                                          top:5%;
                                          width:25%;
                                          height: 90%;
                                          transition: 1s;
                                          color: black;
                                          border-radius: 20px;
-                                         box-shadow: 3px 8px 8px rgb(151, 143, 143);
-                                         left:73%">This is childclasses3</div>
-        <div class="childclasses3" style="position: absolute;
+                                         background-color: white;
+                                         left:73%" onmouseover="HovFunction('CD3')" onmouseout="AntiHovFunction('CD3')"><div class="imgcontainer" style="position:relative;
+                                         height:50%;
+                                         width: 100%;
+                                         background-color:black;
+                                         border-radius:20px;">
+                                           <img src={% static "images/Hero-background-p-500.png" %} style="position:relative;height:110%;width:100%;border-radius:20px;">
+                                            </div>
+                                            <h1 style="position:relative;left:5%;">Event Name</h1>
+                                            <p style="position:relative;left:5%;">Date:-22/07/2022<br>Time:-12:00 AM</p>
+                                        <button style="position:relative;left:10%;width:80%;border-radius:20px;height:10%;background: linear-gradient(270deg, #69C5AA 0%, #37C0C3 32.91%, #587CBD 66.12%, #475CAA 100%);">REGISTER</button></div>
+        <div class="childclasses3" id="CD4" style="position: absolute;
                                          top:5%;
                                          width:25%;
                                          height: 90%;
                                          transition: 1s;
                                          color: black;
                                          border-radius: 20px;
-                                         box-shadow: 3px 8px 8px rgb(151, 143, 143);
-                                         left:108%">This is childclasses4</div>
-        <div class="childclasses3" style="position: absolute;
+                                         background-color: white;
+                                         left:108%" onmouseover="HovFunction('CD4')" onmouseout="AntiHovFunction('CD4')"><div class="imgcontainer" style="position:relative;
+                                         height:50%;
+                                         width: 100%;
+                                         background-color:black;
+                                         border-radius:20px;">
+                                           <img src={% static "images/Hero-background-p-500.png" %} style="position:relative;height:110%;width:100%;border-radius:20px;">
+                                            </div>
+                                            <h1 style="position:relative;left:5%;">Event Name</h1>
+                                            <p style="position:relative;left:5%;">Date:-22/07/2022<br>Time:-12:00 AM</p>
+                                        <button style="position:relative;left:10%;width:80%;border-radius:20px;height:10%;background: linear-gradient(270deg, #69C5AA 0%, #37C0C3 32.91%, #587CBD 66.12%, #475CAA 100%);">REGISTER</button></div>
+        <div class="childclasses3" id="CD5" style="position: absolute;
                                          top:5%;
                                          width:25%;
                                          height: 90%;
                                          color: black;
                                          transition: 1s;
                                          border-radius: 20px;
-                                         box-shadow: 3px 8px 8px rgb(151, 143, 143);
-                                         left:143%">This is childclasses5</div>
+                                         background-color: white;
+                                         left:143%" onmouseover="HovFunction('CD5')" onmouseout="AntiHovFunction('CD5')"><div class="imgcontainer" style="position:relative;
+                                         height:50%;
+                                         width: 100%;
+                                         background-color:black;
+                                         border-radius:20px;">
+                                           <img src={% static "images/Hero-background-p-500.png" %} style="position:relative;height:110%;width:100%;border-radius:20px;">
+                                            </div>
+                                            <h1 style="position:relative;left:5%;">Event Name</h1>
+                                            <p style="position:relative;left:5%;">Date:-22/07/2022<br>Time:-12:00 AM</p>
+                                        <button style="position:relative;left:10%;width:80%;border-radius:20px;height:10%;background: linear-gradient(270deg, #69C5AA 0%, #37C0C3 32.91%, #587CBD 66.12%, #475CAA 100%);">REGISTER</button></div>
         </div>
         <div class="slidecontrols" style="position: absolute;
-                                          top:375%;
-                                          left:50%;
+                                          top:350%;
+                                          left:0%;
+                                          width:100vw;
                                           align-items: center;">
-                <button class="prevbutton" id="prev3" style="color: white; background-color: black; display: inline-block;" onclick="prevFunction(3)">prev</button>
-                <button class="nextbutton" id="next3" style="color: white; background-color: black; display:inline-block;" onclick="nextFunction(3)">next</button>
+                <button class="prevbutton" id="prev3" style="color: white; background-color: black; display: unset; position: absolute; left: 18.5%; font-size: 30px;" onclick="prevFunction(3)"><</button>
+                <button class="nextbutton" id="next3" style="color: white; background-color: black; display:unset; position: absolute; right: 4.5%; font-size: 30px;" onclick="nextFunction(3)">></button>
         </div>
-        <div class='verticalNavBar'>
+        <div class='verticalNavBar' style="font-size: 27px;">
             <a href='#live' class='aOwnLive' id='001' onclick={window.scrollTo(50,0)}>LIVE</a><br />
             <a href='#featured' class='aOwnFeatured' id='002' onclick={window.scrollTo(50,ht)}>FEATURED</a><br />
             <a href='#upcomming' class='aOwnUpcomming' id='003' onclick={window.scrollTo(50,ht*2)}>UPCOMMING</a><br/>

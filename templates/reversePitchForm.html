@@ -19,31 +19,10 @@
         }
 
         section {
-            background: linear-gradient(270deg, #69C5AA 0%, #37C0C3 32.91%, #587CBD 66.12%, #475CAA 100%);
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-        }
-
-        section::before {
-            content: '';
-            position: absolute;
-            width: 400px;
-            height: 400px;
-            background: #57bfc6;
-            border-radius: 50%;
-            transform: translate(-420px, -180px)
-        }
-
-        section::after {
-            content: '';
-            position: absolute;
-            width: 400px;
-            height: 400px;
-            background: #2184b5;
-            border-radius: 50%;
-            transform: translate(420px, 180px)
         }
 
         .container {
@@ -369,11 +348,10 @@
     </style>
 
 </head>
-
-<body>
-
-    <section class='w3-padding'>
-        <form method="POST" action={% url 'reverse-pitch-details' %} class="container w3-margin">
+<body style="background-image: url('{% static "images/About-us-background-p-800.jpg"%}')"  >
+    
+    <section class='w3-padding' >
+        <form method="POST" enctype='multipart/form-data' action="{% url 'reverse-pitch-form' %}"  class="container w3-margin">
             {% csrf_token %}
             <h2>Registration</h2>
             <div class="row100">
@@ -450,11 +428,11 @@
             <div class="col">
                 <div class="inputBox ideaBox">
                     <div class="Gender">Which idea do you want to pitch in?</div>
-                    <input id="ideaCheckbox" class="genderRadio" type="checkbox" name="idea">
+                    <input id="ideaCheckbox" value="bubble" class="genderRadio" type="checkbox" name="idea">
                     <div class="genderText">Bubble</div>
-                    <input id="ideaCheckbox" class="genderRadio" type="checkbox" name="idea">
+                    <input id="ideaCheckbox" value="wrangle" class="genderRadio" type="checkbox" name="idea">
                     <div class="genderText">Wrangle</div>
-                    <input id="ideaCheckbox" class="genderRadio" type="checkbox" name="idea">
+                    <input id="ideaCheckbox" value="wind" class="genderRadio" type="checkbox" name="idea">
                     <div class="genderText">Wind</div>
                 </div>
             </div>
@@ -474,14 +452,14 @@
                                 <div class="row100">
                                     <div class="col">
                                         <div class="inputBox">
-                                            <input name="name" id="name" type="text" name="" required>
+                                            <input name="name1" id="name" type="text" name="" >
                                             <span class="text">Name</span>
                                             <span class="line"></span>
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="inputBox">
-                                            <input name="age" id="age" type="number" name="" required>
+                                            <input name="age1" id="age" type="number" name="" >
                                             <span class="text">Age</span>
                                             <span class="line"></span>
                                         </div>
@@ -490,21 +468,21 @@
                                         <div class="inputBox genderBox genderBox1">
                                             <div class="Gender">Gender</div>
                                             <div class="genderText"><input name="m1gender" id="gender" class="genderRadio" type="radio"
-                                                    gender="gender" required checked>Male</div>
+                                                    gender="gender"  checked>Male</div>
                                             <div class="genderText"><input name="m1gender" id="gender" class="genderRadio" type="radio"
-                                                    gender="gender" required>Female</div>
+                                                    gender="gender" >Female</div>
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="inputBox">
-                                            <input name="college" id="college" type="text" name="" required>
+                                            <input name="college1" id="college" type="text" name="" >
                                             <span class="text">College</span>
                                             <span class="line"></span>
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="inputBox">
-                                            <input name="year" id="year" type="number" name="" required>
+                                            <input name="year1" id="year" type="number" name="" >
                                             <span class="text">Year</span>
                                             <span class="line"></span>
                                         </div>
@@ -521,14 +499,14 @@
                                 <div class="row100">
                                     <div class="col">
                                         <div class="inputBox">
-                                            <input name="name" id="name" type="text" name="" required>
+                                            <input name="name2" id="name" type="text" name="" >
                                             <span class="text">Name</span>
                                             <span class="line"></span>
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="inputBox">
-                                            <input name="age" id="age" type="number" name="" required>
+                                            <input name="age2" id="age" type="number" name="" >
                                             <span class="text">Age</span>
                                             <span class="line"></span>
                                         </div>
@@ -537,21 +515,21 @@
                                         <div class="inputBox genderBox genderBox1">
                                             <div class="Gender">Gender</div>
                                             <div class="genderText"><input name="m2gender" id="gender" class="genderRadio" type="radio"
-                                                    gender="gender" required checked>Male</div>
+                                                    gender="gender"  checked>Male</div>
                                             <div class="genderText"><input name="m2gender" id="gender" class="genderRadio" type="radio"
-                                                    gender="gender" required>Female</div>
+                                                    gender="gender" >Female</div>
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="inputBox">
-                                            <input name="college" id="college" type="text" name="" required>
+                                            <input name="college2" id="college" type="text" name="" >
                                             <span class="text">College</span>
                                             <span class="line"></span>
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="inputBox">
-                                            <input name="year" id="year" type="number" name="" required>
+                                            <input name="year2" id="year" type="number" name="" >
                                             <span class="text">Year</span>
                                             <span class="line"></span>
                                         </div>
@@ -568,14 +546,14 @@
                                 <div class="row100">
                                     <div class="col">
                                         <div class="inputBox">
-                                            <input name="name" id="name" type="text" name="" required>
+                                            <input name="name3" id="name" type="text" name="" >
                                             <span class="text">Name</span>
                                             <span class="line"></span>
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="inputBox">
-                                            <input name="age" id="age" type="number" name="" required>
+                                            <input name="age3" id="age" type="number" name="" >
                                             <span class="text">Age</span>
                                             <span class="line"></span>
                                         </div>
@@ -584,21 +562,21 @@
                                         <div class="inputBox genderBox genderBox1">
                                             <div class="Gender">Gender</div>
                                             <div class="genderText"><input name="m3gender" id="gender" class="genderRadio" type="radio"
-                                                    gender="gender" required checked>Male</div>
+                                                    gender="gender"  checked>Male</div>
                                             <div class="genderText"><input name="m3gender" id="gender" class="genderRadio" type="radio"
-                                                    gender="gender" required>Female</div>
+                                                    gender="gender" >Female</div>
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="inputBox">
-                                            <input name="college" id="college" type="text" name="" required>
+                                            <input name="college3" id="college" type="text" name="" >
                                             <span class="text">College</span>
                                             <span class="line"></span>
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="inputBox">
-                                            <input name="year" id="year" type="number" name="" required>
+                                            <input name="year3" id="year" type="number" name="" >
                                             <span class="text">Year</span>
                                             <span class="line"></span>
                                         </div>
@@ -615,14 +593,14 @@
                                 <div class="row100">
                                     <div class="col">
                                         <div class="inputBox">
-                                            <input name="name" id="name" type="text" name="" required>
+                                            <input name="name4" id="name" type="text" name="" >
                                             <span class="text">Name</span>
                                             <span class="line"></span>
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="inputBox">
-                                            <input name="age" id="age" type="number" name="" required>
+                                            <input name="age4" id="age" type="number" name="" >
                                             <span class="text">Age</span>
                                             <span class="line"></span>
                                         </div>
@@ -631,21 +609,21 @@
                                         <div class="inputBox genderBox genderBox1">
                                             <div class="Gender">Gender</div>
                                             <div class="genderText"><input name="m4gender" id="gender" class="genderRadio" type="radio"
-                                                    gender="gender" required checked>Male</div>
+                                                    gender="gender"  checked>Male</div>
                                             <div class="genderText"><input name="m4gender" id="gender" class="genderRadio" type="radio"
-                                                    gender="gender" required>Female</div>
+                                                    gender="gender" >Female</div>
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="inputBox">
-                                            <input name="college" id="college" type="text" name="" required>
+                                            <input name="college4" id="college" type="text" name="" >
                                             <span class="text">College</span>
                                             <span class="line"></span>
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="inputBox">
-                                            <input name="year" id="year" type="number" name="" required>
+                                            <input name="year4" id="year" type="number" name="" >
                                             <span class="text">Year</span>
                                             <span class="line"></span>
                                         </div>
@@ -660,10 +638,11 @@
 
             <div class="row100">
                 <div class="col">
-                    <button type="submit" class="submitButton" type="submit">Submit</button>
+                    <button type="submit" class="submitButton">Submit</button>
                 </div>
             </div>
         </form>
+        
     </section>
 
     <script>

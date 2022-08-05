@@ -24,6 +24,9 @@ class Profile(models.Model):
     interest = models.CharField(max_length=200, null=True, default='startic-field,')
     social = models.CharField(max_length=300, null=True)
 
+    def __str__(self):
+        return self.user.username
+    
 
 class ReversePitch(models.Model):
     title = models.CharField(max_length=100, null=True)
@@ -43,6 +46,28 @@ class ReversePitch(models.Model):
         ],
     )
 
+    def __str__(self):
+        return self.title
+    
+
+class TempUser(models.Model):
+    name = models.CharField(max_length=100, null=True)
+    age = models.IntegerField(default=10, null=False)
+    college = models.CharField(max_length=500, null=True)
+    year = models.IntegerField(null=True, default=2021)
+
+    def __str__(self):
+        return self.name
+    
+
+class Team(models.Model):
+    created_by = models.ForeignKey(Profile, on_delete=models.DO_NOTHING)
+    program = models.ForeignKey(ReversePitch, on_delete=models.CASCADE, null=True)
+    members = models.ManyToManyField(TempUser)
+
+    def __str__(self):
+        return f" created by {self.created_by.user.username} program {self.program.title}"
+    
 
 class UserProgram(models.Model):
     user = models.ForeignKey(User, on_delete=models.DO_NOTHING)
@@ -51,7 +76,12 @@ class UserProgram(models.Model):
     answer1 = models.TextField(max_length=1200, null=True)
     answer2 = models.TextField(max_length=2000, null=True)
     answer3 = models.TextField(max_length=3000, null=True)
+    idea_type = models.CharField(max_length=200, null=True)
+    team = models.ForeignKey(Team, on_delete=models.CASCADE, null=True)
 
+    def __str__(self):
+        return f"{self.user} - {self.program.title}"
+    
 
 class Startup(models.Model):
     name = models.CharField(max_length=200, null=True)
@@ -62,6 +92,9 @@ class Startup(models.Model):
     email = models.EmailField(null=True)
     supporters = models.IntegerField(null=True, default=0)
 
+    def __str__(self):
+        return self.name
+    
 
 def generate_code():
     length=15
@@ -92,5 +125,4 @@ class UserEventMap(models.Model):
     user = models.ForeignKey(Profile, on_delete=models.DO_NOTHING)
     event = models.ForeignKey(Event, on_delete=models.DO_NOTHING)
     date = models.DateField(auto_now_add=True)
-
-    
+    name = models.CharField(max_length=100, null=True)

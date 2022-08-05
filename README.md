@@ -12,7 +12,7 @@ then `git clone https://github.com/<username>/StarticField`
 
 then `git checkout -b <branchname>/<feature/bug>`
 
-then `git remote add upstream https://github.com/Ashsenior/StarticField.git`
+then `git remote add upstream https://github.com/StarticField/StarticField.git`
 
 then `git remote add origin https://github.com/<username>/StarticField.git`
 

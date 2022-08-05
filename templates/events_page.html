@@ -8,6 +8,7 @@
         <meta name="description" content="">
         <link href={% static "images/startic-field-logo.jpeg" %} rel="shortcut icon" type="image/x-icon" >
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static "css/w3.css"%}" />
         <style>
             .verticalNavBar {
                 position: fixed;
@@ -247,7 +248,7 @@
                                                position: absolute;
                                                top:0;">
                                                <img src={% static "images/Group-58.svg" %} loading="lazy" width="140" height="44"></a>
-            <ul style="
+            <ul class='w3-sans-serif' style="
             position: absolute;
             color:white;
             top: 10.5%;
@@ -284,7 +285,7 @@
                           padding:15px 17px;
                           font-size: 17px;
                           color: blue;
-                "><a href="/sign" class="textsides" style="text-decoration: none;
+                "><a href="/sign" class="textsides w3-text-blue" style="text-decoration: none;
                           font-weight: 500; color:blue;">Sign Up</a></li>
                 {% endif %}
       
@@ -308,16 +309,13 @@
                                          background-color: white;
                                          border-radius: 20px;
                                          left:3%" onmouseover="HovFunction('CA1')" onmouseout="AntiHovFunction('CA1')">
-            <div class="imgcontainer"  style="position:relative;
-                                             height:50%;
-                                             width: 100%;
-                                             background-color:black;
-                                             border-radius:20px;">
-                                                    <img src={% static "images/Hero-background-p-500.png" %} style="position:relative;height:110%;width:100%;border-radius:20px;">
-                                                </div>
-                                                <h1 style="position:relative;left:5%;">Event Name</h1>
-                                                <p style="position:relative;left:5%;">Host Name<br>Date:-22/07/2022</p>
-                                            <button style="position:relative;left:10%;width:80%;border-radius:20px;height:10%;background: linear-gradient(270deg, #69C5AA 0%, #37C0C3 32.91%, #587CBD 66.12%, #475CAA 100%);">REGISTER</button></div>
+            <div class="imgcontainer"  style="position:relative;height:50%;width: 100%;">
+                <img src={% static "images/Hero-background-p-500.png" %} style="position:relative;height:110%;width:100%;">
+            </div>
+            <h1 style="position:relative;left:5%;">Event Name</h1>
+            <p style="position:relative;left:5%;">Host Name<br>Date:-22/07/2022</p>
+            <button style="position:relative;left:10%;width:80%;border-radius:20px;height:10%;background: linear-gradient(270deg, #69C5AA 0%, #37C0C3 32.91%, #587CBD 66.12%, #475CAA 100%);">REGISTER</button>
+        </div>
         <div class="childclasses0" id="CA2" style="position: absolute;
                                          top:1%;
                                          width:30%;
@@ -727,11 +725,11 @@
                 <button class="prevbutton" id="prev3" style="color: white; background-color: black; display: unset; position: absolute; left: 18.5%; font-size: 30px;" onclick="prevFunction(3)"><</button>
                 <button class="nextbutton" id="next3" style="color: white; background-color: black; display:unset; position: absolute; right: 4.5%; font-size: 30px;" onclick="nextFunction(3)">></button>
         </div>
-        <div class='verticalNavBar' style="font-size: 27px;">
-            <a href='#live' class='aOwnLive' id='001' onclick={window.scrollTo(50,0)}>LIVE</a><br />
-            <a href='#featured' class='aOwnFeatured' id='002' onclick={window.scrollTo(50,ht)}>FEATURED</a><br />
-            <a href='#upcomming' class='aOwnUpcomming' id='003' onclick={window.scrollTo(50,ht*2)}>UPCOMMING</a><br/>
-            <a href='#past'class='aOwnPast' id='004' onclick={window.scrollTo(50,ht*3)}>PAST</a>
+        <div class='verticalNavBar' style="font-size: 25px;">
+            <a href='#live' style="text-decoration:none;" class='w3-padding w3-left w3-round-large w3-hover-blue' id='001' onclick={window.scrollTo(50,0)}>Live</a><br />
+            <a href='#featured' style="text-decoration:none;" class='w3-padding w3-left w3-round-large w3-hover-blue' id='002' onclick={window.scrollTo(50,ht)}>Featured</a><br />
+            <a href='#upcomming' style="text-decoration:none;" class='w3-padding w3-round-large w3-left w3-hover-blue' id='003' onclick={window.scrollTo(50,ht*2)}>Upcomming</a><br/>
+            <a href='#past' style="text-decoration:none;" class='w3-padding w3-round-large w3-left w3-hover-blue' id='004' onclick={window.scrollTo(50,ht*3)}>Past</a>
         </div>
          <div style="position: absolute;
                     top: 400%;

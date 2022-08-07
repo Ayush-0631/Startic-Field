@@ -21,12 +21,9 @@
     var ht = window.innerHeight;
     let c = 0;
     function handleScroll() {
-      console.log('window.innerHeight',window.innerHeight);
-      console.log('window.scrollY',window.scrollY);
       let a = window.innerHeight;
       let b = window.scrollY;
       c = (b-a)*100/a;
-      console.log('percentage scrolled',c);
 
       var z = document.getElementById('headtag');
       if(c<-96){
@@ -34,51 +31,48 @@
       }
       else {
         z.style.display='unset';
-        console.log('function is triggering')
       }
 
     };
     window.addEventListener('scroll', handleScroll);
       function prevFunction() {
-        console.log('prevFunction is working')
         var slides = document.getElementsByClassName('omg');
         for (let i=0; i<slides.length; i++){
           var e = slides[i].style.left
           var d = Number(e.replace("vw",""));
           slides[i].style.left = String(d+100)+"vw";
         }
-        if(slides[slides.length-1].style.left === '500vw') {
+        if(slides[slides.length-1].style.left === '507vw') {
             document.getElementById('prev1').style.display='none'
           }
         else {
-          document.getElementById('prev1').style.display='inline-block'
+          document.getElementById('prev1').style.display='unset'
         }
-        if(slides[0].style.left === '-500vw') {
+        if(slides[0].style.left === '-507vw') {
             document.getElementById('next1').style.display='none';
           }
         else {
-          document.getElementById('next1').style.display='inline-block';
+          document.getElementById('next1').style.display='unset';
         }
       }
       function nextFunction() {
-        console.log('next Function is working')
         var slides = document.getElementsByClassName('omg');
         for (let i=0; i<slides.length; i++){
           var e = slides[i].style.left
           var d = Number(e.replace("vw",""));
           slides[i].style.left = String(d-100)+"vw";
         }
-        if(slides[0].style.left === '-500vw') {
+        if(slides[0].style.left === '-493vw') {
             document.getElementById('next1').style.display='none';
           }
         else {
-          document.getElementById('next1').style.display='inline-block';
+          document.getElementById('next1').style.display='unset';
         }
-        if(slides[slides.length-1].style.left === '500vw') {
+        if(slides[slides.length-1].style.left === '507vw') {
             document.getElementById('prev1').style.display='none'
           }
         else {
-          document.getElementById('prev1').style.display='inline-block'
+          document.getElementById('prev1').style.display='unset'
         }
       }
   </script>
@@ -128,7 +122,7 @@
           <a href="sign" class="nav-link sign-up w-nav-link"><strong>Sign Up</strong></a>
           {% endif %}
         </nav>
-        <div class="localnavigation" id="headtag" style="
+    <div class="localnavigation" id="headtag" style="
         position: fixed;
         display:none;
         width: 100%;
@@ -221,60 +215,60 @@
     </div>
     <div style="position: relative; top:13vh;" class="trusted-patners wf-section">
       <h1 class="heading-4">Previous Knowledge Events for our Community !</h1>
-      <div class="!OMG" style='background-color:white;align-items:center;position:relative;top:-20vh;
-                               left:15vw;width:55vw;height:30vh;display:inline;'>
+      <div class="!OMG" style='background-color:transparent;align-items:center;position:relative;top:10vh;
+                               left:15vw;width:55vw;height:70vh;overflow:hidden;'>
         <div  class="omg" style="position:absolute;
-                                   top:35vh;
+                                   top:10%;
                                    transition:1s;
-                                   left:0vw;
-                                   height:30vh;
-                                   width:55vw;
-                                   display: inline-block;">
+                                   left:7vw;
+                                   height:80%;
+                                   width:80%;
+                                   display: unset;">
                                    <a href="https://www.youtube.com/watch?v=B_Amore8LNs" target="_blank"><img class='w3-img w3-round-large' src="{% static 'home/1.png' %}" loading="lazy" alt=""></a></div>
         <div  class="omg" style="position:absolute;
-                                   top:35vh;
+                                   top:10%;
                                    transition:1s;
-                                   left:100vw;
-                                   height:30vh;
-                                   width:55vw;
-                                   display: inline-block;">
+                                   left:107vw;
+                                   height:80%;
+                                   width:80%;
+                                   display: unset;">
                                    <a href="https://www.youtube.com/watch?v=fM0KsSCNjvk" target="_blank"><img class='w3-img w3-round-large' src="{% static 'home/4.png' %}" loading="lazy" alt=""></a></div>
         <div  class="omg" style="position:absolute;
-                                   top:35vh;
+                                   top:10%;
                                    transition:1s;
-                                   left:200vw;
-                                   height:30vh;
-                                   width:55vw;
-                                   display: inline-block;">
+                                   left:207vw;
+                                   height:80%;
+                                   width:80%;
+                                   display: unset;">
                                    <a href="https://www.youtube.com/watch?v=zVnP8d6Erm4" target="_blank"><img class='w3-img w3-round-large' src="{% static 'home/3.png' %}" loading="lazy" alt="" ></a></div>
         <div  class="omg" style="position:absolute;
-                                   top:35vh;
+                                   top:10%;
                                    transition:1s;
-                                   left:300vw;
-                                   height:30vh;
-                                   width:55vw;
-                                   display: inline-block;">
+                                   left:307vw;
+                                   height:80%;
+                                   width:80%;
+                                   display: unset;">
                                    <a href="https://www.youtube.com/watch?v=y3ZQaoT_N_4" target="_blank"><img class='w3-img w3-round-large' src="{% static 'home/5.png' %}" loading="lazy" alt="" ></a></div>
         <div  class="omg" style="position:absolute;
-                                   top:35vh;
+                                   top:10%;
                                    transition:1s;
-                                   left:400vw;
-                                   height:30vh;
-                                   width:55vw;
-                                   display: inline-block;">
+                                   left:407vw;
+                                   height:80%;
+                                   width:80%;
+                                   display: unset;">
                                    <a href="" target="_blank"><img class='w3-img w3-round-large' src="{% static 'home/6.png' %}" loading="lazy" alt="" ></a></div>
         <div  class="omg" style="position:absolute;
-                                   top:35vh;
+                                   top:10%;
                                    transition:1s;
-                                   left:500vw;
-                                   height:30vh;
-                                   width:55vw;
-                                   display: inline-block;">
+                                   left:507vw;
+                                   height:80%;
+                                   width:80%;
+                                   display: unset;">
                                    <a href="" target="_blank"></a><img class='w3-img w3-round-large' src="{% static 'home/7.png' %}" loading="lazy" alt="" ></div></div>
       </div>
       <div class="slidecontrols" style="position:relative;top:-15vh;left:0vw;">
-        <button class="prevbutton" id="prev1" style="color: white; background-color: black; display: none; position:absolute; left:10vw; top:30vh;font-size: 50px;" onclick="prevFunction()"><</button>
-        <button class="nextbutton" id="next1" style="color: white; background-color: black; display:unset; position:absolute;left:73vw;top:30vh;font-size:50px;" onclick="nextFunction()">></button></div>
+        <button class="prevbutton" id="prev1" style="color: white; background-color: black; display: none; position:absolute; left:18vw; top:30vh;font-size: 50px;" onclick="prevFunction()"><</button>
+        <button class="nextbutton" id="next1" style="color: white; background-color: black; display:unset; position:absolute;left:67vw;top:30vh;font-size:50px;" onclick="nextFunction()">></button></div>
     </div>
     <!---div class="features wf-section">
       <<h1 class="heading-6">Events</h1>
